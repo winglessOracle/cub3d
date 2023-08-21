@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/21 15:50:59 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/08/21 18:52:59 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ int		free_all_return(int ret, t_data * data);
 
 //checks
 int		check_params(int argc, char **argv);
+
+//testing
+void	print_grid(t_data *data);
 
 
 #endif

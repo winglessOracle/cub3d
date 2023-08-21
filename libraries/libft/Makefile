@@ -6,11 +6,12 @@
 #    By: carlo <carlo@student.42.fr>                  +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/10 09:28:26 by cwesseli      #+#    #+#                  #
-#    Updated: 2023/08/21 15:00:24 by cwesseli      ########   odam.nl          #
+#    Updated: 2023/08/21 18:42:01 by carlowessel   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-#//= Colors =//#
+# **Colors******************************************************************** #
+
 BOLD	:= \033[1m
 BLACK	:= \033[30;1m
 RED		:= \033[31;1m
@@ -21,6 +22,8 @@ MAGENTA	:= \033[35;1m
 CYAN	:= \033[36;1m
 WHITE	:= \033[37;1m
 RESET	:= \033[0m
+
+# **************************************************************************** #
 
 NAME		= libft.a
 CC			= clang
@@ -42,15 +45,16 @@ OBJ_FILES	=		$(addprefix obj/,ft_isalpha.o ft_strlen.o ft_isdigit.o ft_isalnum.o
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
+	@echo -e "$(GREEN)$(BOLD)Building:$(NAME)"
 	@$(AR) $(NAME) $(OBJ_FILES)
 
 $(OBJ_FILES): obj/%.o: %.c
 	@mkdir -p $(dir $@)
-	@echo "$(GREEN)$(BOLD)Compiling:$(RESET) $(notdir $<)"
+# @echo -e "$(GREEN)$(BOLD)Compiling:$(RESET) $(notdir $<)"
 	@$(CC) -c $(CFLAGS) -o $@ $<
 
 clean:
-	@echo "$(BLUE)Cleaning libft$(RESET)"
+	@echo -e "$(BLUE)Cleaning libft$(RESET)"
 	@$(RM) obj/
 
 fclean: clean

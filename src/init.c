@@ -6,13 +6,13 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/21 15:54:36 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/08/21 18:56:08 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-char	**generate_grid(char *input_file)
+char	**generate_grid(char *input_file, t_data *data)
 {
 	int		fd;
 	char	*line;
@@ -30,6 +30,7 @@ char	**generate_grid(char *input_file)
 		if (line == NULL || line[0] == '\n')
 			break ;
 		joined_lines = ft_strjoin_free(joined_lines, line);
+		data->grid_height++;
 		free (line);
 	}
 	close(fd);
@@ -45,20 +46,21 @@ int	init_data(char *input_file, t_data *data)
 	data->mlx 	= mlx_init(1200, 800, "cub3d", false);
 	if (!data->mlx)
 		return (1);
-	mlx_set_window_pos(data->mlx, 300, 200);
-	data->grid = generate_grid(input_file);
-		if (!data->grid)
-		{
-			printf("%sFile not found of empty map\n", RED);
-			return (1);
-		}
+	mlx_set_window_pos(data->mlx, 100, 800);
 	data->grid_width = 0;
 	data->grid_height = 0;
+	data->grid = generate_grid(input_file, data);
+	if (!data->grid)
+	{
+		printf("%sFile not found of empty map\n", RED);
+		return (1);
+	}
 	data->p_xpos = 0;
 	data->p_ypos = 0;
 	data->p_viewdir = 0;
 	data->floor_height = 0;
 	data->ceiling_height = 0;
 	data->view_plane_dist  = 0;
+	print_grid(data); // remove
 	return (0);
 }

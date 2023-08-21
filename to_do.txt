@@ -1,1 +1,7 @@
 return enums?
+check map
+placeholder image
+minimap
+key loop
+mouse loop
+
