@@ -1,4 +1,3 @@
-check walls
 return enums?
 placeholder image
 minimap

@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/19 08:29:28 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/22 00:03:12 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/22 00:11:20 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ int main(int argc, char **argv)
 		return (3);
 	if (init_data(argv[1], data))
 		return (free_all_return(2, data));
-	mlx_loop(data->mlx);
+	mlx_loop(data->mlx_data->mlx);
 }

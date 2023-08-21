@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/22 00:02:58 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/22 00:06:45 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 #include "../libraries/libft/libft.h"
 #include <stdio.h>
 #include <fcntl.h>
+
+typedef struct s_mlx_data
+{
+	mlx_t			*mlx;
+
+}	t_mlx_data;
+
 
 typedef struct s_check_data
 {
@@ -29,7 +36,7 @@ typedef struct s_check_data
 typedef struct s_data
 {
 	t_check_data	*check_data;
-	mlx_t			*mlx;
+	t_mlx_data		*mlx_data;
 	char			**grid;
 	int				grid_width;
 	int				grid_height;
