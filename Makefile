@@ -6,7 +6,7 @@
 #    By: wingessoracle <wingessoracle@student.co      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/06/21 08:27:49 by wingessorac   #+#    #+#                  #
-#    Updated: 2023/08/21 10:48:46 by cwesseli      ########   odam.nl          #
+#    Updated: 2023/08/21 14:54:37 by cwesseli      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ include common.mk
 .DEFAULT_GOAL	:= all
 
 TARGET	 	=	cub3d
-OBJ_FILES	=	$(addprefix obj/, main.o)
+OBJ_FILES	=	$(addprefix obj/, main.o init.o utils.o checks.o)
 
 #++============================================================================++#
 

@@ -6,7 +6,7 @@
 /*   By: carlo <carlo@student.42.fr>                  +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/10 09:28:59 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/03/22 09:14:33 by carlo         ########   odam.nl         */
+/*   Updated: 2023/08/21 15:05:11 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,14 +125,14 @@ int		ft_last_char(const char *str, const char c);
 int		ft_isinteger(char *str);
 long	ft_atoi_long(const char *str);
 
-# define COLOR_RED "\x1b[0;31m"
-# define COLOR_GREEN "\x1b[0;32m"
-# define COLOR_YELLOW "\x1b[0;33m"
-# define COLOR_BLUE "\x1b[0;34m"
-# define COLOR_MAGENTA "\x1b[0;35m"
-# define COLOR_CYAN "\x1b[0;36m"
-# define COLOR_WHITE "\x1b[0;37m"
-# define COLOR_BLACK "\x1b[0;30m"
-# define COLOR_NORMAL "\x1b[m"
+# define RED "\x1b[0;31m"
+# define GREEN "\x1b[0;32m"
+# define YELLOW "\x1b[0;33m"
+# define BLUE "\x1b[0;34m"
+# define MAGENTA "\x1b[0;35m"
+# define CYAN "\x1b[0;36m"
+# define WHITE "\x1b[0;37m"
+# define BLACK "\x1b[0;30m"
+# define NORMAL "\x1b[m"
 
 #endif

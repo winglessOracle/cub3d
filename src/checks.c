@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_check_params.c                                  :+:    :+:            */
+/*   checks.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/01/30 12:33:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/02/02 14:37:06 by carlo         ########   odam.nl         */
+/*   Created: 2023/08/21 14:54:04 by cwesseli      #+#    #+#                 */
+/*   Updated: 2023/08/21 15:51:59 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3d.h"
 
-void	ft_check_params(int argc, char *argv, int n)
+int		check_params(int argc, char **argv)
 {
-	if (argc != n)
+	if (argc != 2)
 	{
-		ft_printf("ERROR\nInvalid arguments. Please use %n argument(s)\n", n);
-		exit(EXIT_FAILURE);
+		printf("%sinvallid number of arguments. required: 1\n", RED);
+		return (1);
 	}
-	if (ft_check_extention(argv, ".ber"))
+	if (ft_check_extention(argv[1], "cub"))
 	{
-		ft_printf("ERROR\nInvalid file format. Please use a .ber file\n");
-		exit(EXIT_FAILURE);
+		printf("%sinvallid extention. required: '.cub'\n", RED);
+		return (1);
 	}
+	return (0);
 }
+

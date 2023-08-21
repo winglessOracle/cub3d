@@ -6,7 +6,7 @@
 #    By: carlo <carlo@student.42.fr>                  +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/10 09:28:26 by cwesseli      #+#    #+#                  #
-#    Updated: 2023/03/22 09:17:29 by carlo         ########   odam.nl          #
+#    Updated: 2023/08/21 15:00:24 by cwesseli      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ OBJ_FILES	=		$(addprefix obj/,ft_isalpha.o ft_strlen.o ft_isdigit.o ft_isalnum.o
 						ft_lstiter_bonus.o ft_lstmap_bonus.o ft_putchar.o ft_putstr.o ft_isspace.o ft_wordcount.o\
 						ft_printf.o ft_printf_chr_functions.o ft_printf_dec_functions.o ft_printf_checks.o\
 						ft_printf_itoa.o get_next_line.o get_next_line_utils.o ft_free.o ft_free_array.o\
-						ft_check_params.o ft_check_extention.o ft_free_array_int.o ft_strjoin_free.o ft_pop.o\
+						ft_check_extention.o ft_free_array_int.o ft_strjoin_free.o ft_pop.o\
 						ft_last_char.o ft_isinteger.o ft_strcmp.o)
 all: $(NAME)
 
