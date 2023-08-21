@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 23:17:22 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/22 00:00:33 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/22 00:19:31 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,8 @@ int	analyze_grid(t_data *data)
 			while (ft_isspace(data->grid[y][x]))
 				x++;
 			if (!(ft_strchr(data->check_data->valid_char, data->grid[y][x]))) 
-				return (printf("\n%sFound non valid characters in map (%c)\n", RED, data->grid[y][x]), 1);
+				return (printf("\n%sFound non valid characters in map (%c)\n", \
+					RED, data->grid[y][x]), 1);
 			check_start_pos(y, x, data);
 			x++;
 		}
@@ -101,11 +102,12 @@ int	analyze_grid(t_data *data)
 		y++;
 	}
 	if (data->check_data->start_pos != 1)
-		return (printf("\n%sWrong amount of starting positions (%d). Required 1\n", RED, data->check_data->start_pos), 1);
+		return (printf("\n%sWrong amount of starting positions (%d). \
+		Required 1\n",RED, data->check_data->start_pos), 1);
 	return (0);
 }
 
-int		check_walls(t_data *data)
+int	check_walls(t_data *data)
 {
 	char	**flood_grid;
 	int		y;
@@ -117,14 +119,14 @@ int		check_walls(t_data *data)
 		return (printf("\n%sERROR: allocating memory for flood fill.\n", RED), 1);
 	while (y < data->grid_height)
 	{
-			flood_grid[y] = ft_strdup(data->grid[y]);
-			y++;
+		flood_grid[y] = ft_strdup(data->grid[y]);
+		y++;
 	}
 	flood_grid[data->grid_height] = NULL;
 	x = data->p_xpos;
 	y = data->p_ypos;
 	flood_fill(x, y, flood_grid, data);
-	if(data->check_data->bad_check)
+	if (data->check_data->bad_check)
 		return (ft_free_array(flood_grid), 1);
 	return (ft_free_array(flood_grid), 0);
 }

@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:40:03 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/22 00:14:52 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/22 00:20:35 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	flood_fill(int x, int y, char **grid, t_data *data)
 		if (data->check_data->bad_check == false)
 			printf("\n%sMap is not enclosed by walls.\n", RED);
 		data->check_data->bad_check = true;
-		return;
+		return ;
 	}
 	if (grid[y][x] == '1')
-		return;
+		return ;
 	if (grid[y][x] != 'f')
 	{
 		grid[y][x] = 'f';
@@ -41,7 +41,7 @@ void	flood_fill(int x, int y, char **grid, t_data *data)
 	}
 }
 
-int		check_params(int argc, char **argv)
+int	check_params(int argc, char **argv)
 {
 	if (argc != 2)
 	{
@@ -55,4 +55,3 @@ int		check_params(int argc, char **argv)
 	}
 	return (0);
 }
-

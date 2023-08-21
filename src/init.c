@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/22 00:11:31 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/22 00:18:09 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ int	init_data(char *input_file, t_data *data)
 	data->p_viewdir = 0;
 	data->floor_height = 0;
 	data->ceiling_height = 100;
-	data->view_plane_dist  = 10;
+	data->view_plane_dist = 10;
 	data->grid = generate_grid(input_file, data);
 	if (!data->grid)
 		return (printf("%sFile not found or empty map\n", RED), 1);
 	set_grid_width(data);
 	if (analyze_grid(data)) 
-	  	return (1);
+		return (1);
 	if (check_walls(data))
 		return (1);
 	print_grid(data); // remove

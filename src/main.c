@@ -6,17 +6,17 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/19 08:29:28 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/22 00:11:20 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/22 00:19:54 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_data	*data;
-	
-	if(check_params(argc, argv))
+
+	if (check_params(argc, argv))
 		return (1);
 	data = malloc(sizeof(t_data));
 	if (!data)
