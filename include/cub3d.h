@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/21 21:07:00 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/21 23:25:21 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_data
 	int		start_pos;
 	char	*valid_char;
 	char	*start_char;
+	bool	bad_check;
 }	t_data;
 
 //init
@@ -40,9 +41,15 @@ int		init_data(char *input_file, t_data *data);
 
 //utils
 int		free_all_return(int ret, t_data * data);
-
-//checks
+void	flood_fill(int x, int y, char **grid, t_data *data);
 int		check_params(int argc, char **argv);
+
+//grid_functions
+char	**generate_grid(char *input_file, t_data *data);
+int		check_walls(t_data *data);
+void	set_grid_width(t_data *data);
+int		analyze_grid(t_data *data);
+
 
 //testing
 void	print_grid(t_data *data);
