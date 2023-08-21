@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/21 18:52:59 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/21 21:07:00 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ typedef struct s_data
 	int		floor_height;
 	int		ceiling_height;	
 	int		view_plane_dist;
+	int		start_pos;
+	char	*valid_char;
+	char	*start_char;
 }	t_data;
 
 //init
