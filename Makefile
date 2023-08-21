@@ -6,7 +6,7 @@
 #    By: wingessoracle <wingessoracle@student.co      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/06/21 08:27:49 by wingessorac   #+#    #+#                  #
-#    Updated: 2023/08/19 10:34:29 by carlowessel   ########   odam.nl          #
+#    Updated: 2023/08/21 10:48:46 by cwesseli      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ libft:
 
 $(TARGET): $(OBJ_FILES)
 	@echo -e "$(GREEN)Linking $(TARGET)$(RESET)"
-	@$(CC) $(LDLAGS) -o $@ $^
+	@$(CC) $(OBJ_FILES) $(LIBS) $(HEADERS) $(MLXFLAGS) -o $(TARGET)
 
 
 #++============================================================================++#
@@ -39,7 +39,7 @@ $(TARGET): $(OBJ_FILES)
 $(OBJ_FILES): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
 	@echo -e "$(GREEN)Compiling $@ $(RESET) $(notdir $<)"
-	@$(CXX) $(CFLAGS) $(MLXFLAGS) $(HEADERS) -c -o $@ $<
+	@$(CC) $(CFLAGS) $(HEADERS) -c -o $@ $<
 
 
 #++============================================================================++#
