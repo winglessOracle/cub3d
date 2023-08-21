@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/19 08:29:28 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/21 15:46:32 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/08/22 00:03:12 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int main(int argc, char **argv)
 	data = malloc(sizeof(t_data));
 	if (!data)
 		return (2);
+	if (malloc_structs(data))
+		return (3);
 	if (init_data(argv[1], data))
 		return (free_all_return(2, data));
 	mlx_loop(data->mlx);

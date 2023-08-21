@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/21 23:25:21 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/22 00:02:58 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,32 @@
 #include <stdio.h>
 #include <fcntl.h>
 
-typedef struct s_data
+typedef struct s_check_data
 {
-	mlx_t	*mlx;
-	char	**grid;
-	int		grid_width;
-	int		grid_height;
-	int		p_xpos;
-	int		p_ypos;
-	int		p_viewdir;
-	int		floor_height;
-	int		ceiling_height;	
-	int		view_plane_dist;
 	int		start_pos;
 	char	*valid_char;
 	char	*start_char;
 	bool	bad_check;
+}	t_check_data;
+
+typedef struct s_data
+{
+	t_check_data	*check_data;
+	mlx_t			*mlx;
+	char			**grid;
+	int				grid_width;
+	int				grid_height;
+	int				p_xpos;
+	int				p_ypos;
+	int				p_viewdir;
+	int				floor_height;
+	int				ceiling_height;	
+	int				view_plane_dist;
 }	t_data;
 
+
 //init
+int 	malloc_structs(t_data *data);
 int		init_data(char *input_file, t_data *data);
 
 //utils
