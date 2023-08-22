@@ -6,7 +6,7 @@
 /*   By: carlo <carlo@student.42.fr>                  +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/10 09:28:59 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/21 15:05:11 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/08/22 11:00:14 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,6 @@ long	ft_atoi_long(const char *str);
 # define CYAN "\x1b[0;36m"
 # define WHITE "\x1b[0;37m"
 # define BLACK "\x1b[0;30m"
-# define NORMAL "\x1b[m"
+# define RESET "\x1b[m"
 
 #endif

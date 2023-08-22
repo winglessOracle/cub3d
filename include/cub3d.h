@@ -6,17 +6,17 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/22 00:06:45 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/22 11:50:28 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-#include "../libraries/MLX42/include/MLX42/MLX42.h"
-#include "../libraries/libft/libft.h"
-#include <stdio.h>
-#include <fcntl.h>
+# include "../libraries/MLX42/include/MLX42/MLX42.h"
+# include "../libraries/libft/libft.h"
+# include <stdio.h>
+# include <fcntl.h>
 
 typedef struct s_mlx_data
 {
@@ -48,21 +48,20 @@ typedef struct s_data
 	int				view_plane_dist;
 }	t_data;
 
-
 //init
-int 	malloc_structs(t_data *data);
-int		init_data(char *input_file, t_data *data);
+void	malloc_structs(t_data *data);
+void	init_data(char *input_file, t_data *data);
 
 //utils
-int		free_all_return(int ret, t_data * data);
+void	free_all(t_data *data);
+int		free_exit(t_data *data);
+void	free_str_exit(char *str, t_data *data, int error);
 void	flood_fill(int x, int y, char **grid, t_data *data);
 int		check_params(int argc, char **argv);
 
 //grid_functions
-char	**generate_grid(char *input_file, t_data *data);
-int		check_walls(t_data *data);
-void	set_grid_width(t_data *data);
-int		analyze_grid(t_data *data);
+char	**generate_grid(char *input_file);
+void	analyze_grid(t_data *data);
 
 
 //testing

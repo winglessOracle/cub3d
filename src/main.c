@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/19 08:29:28 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/22 00:19:54 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/22 11:48:34 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ int	main(int argc, char **argv)
 		return (1);
 	data = malloc(sizeof(t_data));
 	if (!data)
-		return (2);
-	if (malloc_structs(data))
-		return (3);
-	if (init_data(argv[1], data))
-		return (free_all_return(2, data));
+		free_str_exit("allocating structs", data, 2);
+	malloc_structs(data);
+	init_data(argv[1], data);
 	mlx_loop(data->mlx_data->mlx);
 }

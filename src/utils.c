@@ -6,28 +6,44 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:40:03 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/22 00:20:35 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/22 11:49:33 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	free_all_return(int ret, t_data *data)
+void	free_all(t_data *data)
 {
-	free(data->check_data);
-	free(data->mlx_data);
-	free(data);
-	return (ret);
+	if (data->check_data)
+		free(data->check_data);
+	if (data->mlx_data)
+		free(data->mlx_data);
+	if (data->grid)
+		ft_free_array(data->grid);
+	if (data)
+		free(data);
 }
+
+int	free_exit(t_data *data)
+{
+	free_all(data);
+	exit(EXIT_FAILURE);
+}
+
+void	free_str_exit(char *str, t_data *data, int error)
+{
+	printf("\n%sERROR: %s%s\n", RED, str, RESET);
+	free_all(data);
+	exit(error);
+}
+
 
 void	flood_fill(int x, int y, char **grid, t_data *data)
 {
 	if (x < 0 || x > data->grid_width - 1 || y < 0 || y > data->grid_height - 1)
 	{
-		if (data->check_data->bad_check == false)
-			printf("\n%sMap is not enclosed by walls.\n", RED);
-		data->check_data->bad_check = true;
-		return ;
+		ft_free_array(grid);
+		free_str_exit("map not enclosed by walls", data, 8);
 	}
 	if (grid[y][x] == '1')
 		return ;
