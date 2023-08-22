@@ -1,5 +1,3 @@
-convert to exit
-return enums?
 placeholder image
 minimap
 key loop
