@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:40:03 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/22 11:49:33 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/22 15:55:54 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@ void	free_all(t_data *data)
 		free(data->check_data);
 	if (data->mlx_data)
 		free(data->mlx_data);
+	if (data->mlx_data->floor)
+		free(data->mlx_data->floor);
+	if (data->mlx_data->ceiling)
+		free(data->mlx_data->ceiling);
 	if (data->grid)
 		ft_free_array(data->grid);
 	if (data)

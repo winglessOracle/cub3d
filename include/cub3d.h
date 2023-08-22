@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/22 11:50:28 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/22 15:53:49 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,30 @@
 # include <stdio.h>
 # include <fcntl.h>
 
+typedef struct s_color
+{
+	char	*color;
+	int		red;
+	int		green;
+	int		blue;
+}	t_color;
+
 typedef struct s_mlx_data
 {
-	mlx_t			*mlx;
-
+	mlx_t	*mlx;
+	char	*north_texure;
+	char	*east_texture;
+	char	*south_texture;
+	char	*west_texture;
+	t_color	*floor;
+	t_color	*ceiling;
 }	t_mlx_data;
-
 
 typedef struct s_check_data
 {
 	int		start_pos;
 	char	*valid_char;
 	char	*start_char;
-	bool	bad_check;
 }	t_check_data;
 
 typedef struct s_data
@@ -63,9 +74,13 @@ int		check_params(int argc, char **argv);
 char	**generate_grid(char *input_file);
 void	analyze_grid(t_data *data);
 
+//set_paths / set_colors
+void	parse_file_paths(char *file, t_data *data);
+void	set_ceiling_color(char *line, t_data *data);
+void	set_floor_color(char *line, t_data *data);
 
 //testing
 void	print_grid(t_data *data);
-
+void	print_file_data(t_data *data);
 
 #endif

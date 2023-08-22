@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 23:17:22 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/22 11:57:54 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/22 16:22:51 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,32 +107,4 @@ void	analyze_grid(t_data *data)
 		y++;
 	}
 	check_grid(data);
-}
-
-char	**generate_grid(char *input_file)
-{
-	int		fd;
-	char	*line;
-	char	*joined_lines;
-	char	**ret;
-
-	line = "";
-	joined_lines = ft_strdup("");
-	fd = open(input_file, O_RDONLY);
-	if (fd < 0)
-		return (NULL);
-	while (line)
-	{
-		line = get_next_line(fd);
-		if (line == NULL || line[0] == '\n')
-			break ;
-		joined_lines = ft_strjoin_free(joined_lines, line);
-		free (line);
-	}
-	close(fd);
-	if (joined_lines[0] == '\0' || joined_lines[0] == '\n')
-		return (free(joined_lines), NULL);
-	ret = ft_split(joined_lines, '\n');
-	free (joined_lines);
-	return (ret);
 }
