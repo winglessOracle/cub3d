@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 14:33:39 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/22 16:53:27 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/22 16:54:15 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ char	*grid_helper(int fd)
 		return (free(joined_lines), NULL);
 	return (joined_lines);
 }
-
 
 char	**generate_grid(char *input_file)
 {

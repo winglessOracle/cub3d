@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 18:50:59 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/22 15:58:55 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/22 16:57:33 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	print_grid(t_data *data)
 	int	y;
 
 	y = 0;
-	printf("\n==========TEST PRINT GRID===============================\n");
+	printf("\n%s==========TEST PRINT GRID===============================%s\n", GREEN, RESET);
 	while (y < data->grid_height)
 	{
 		printf("%s\n", data->grid[y]);
@@ -27,11 +27,12 @@ void	print_grid(t_data *data)
 	printf("Grid width:\t%d\n", data->grid_width);
 	printf("Player xpos:\t%d\nPlayer ypos:\t%d\n", data->p_xpos, data->p_ypos);
 	printf("View dir:\t%d\n", data->p_viewdir);
-	printf("========================================================\n");
+	printf("%s========================================================\n%s", GREEN, RESET);
 }
 
 void	print_file_data(t_data *data)
 {
+	printf("\n%s==========TESTFILE DATA=================================%s\n", GREEN, RESET);
 	printf("north: %s\n", data->mlx_data->north_texure);
 	printf("east: %s\n", data->mlx_data->east_texture);
 	printf("south: %s\n", data->mlx_data->south_texture);
@@ -44,4 +45,5 @@ void	print_file_data(t_data *data)
 	printf("\tfloor_RED: %d\n", data->mlx_data->floor->red);
 	printf("\tfloor_GREEN: %d\n", data->mlx_data->floor->green);
 	printf("\tfloor_BLUE: %d\n", data->mlx_data->floor->blue);
+	printf("%s========================================================\n%s", GREEN, RESET);
 }

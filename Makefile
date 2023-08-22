@@ -6,45 +6,33 @@
 #    By: wingessoracle <wingessoracle@student.co      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/06/21 08:27:49 by wingessorac   #+#    #+#                  #
-#    Updated: 2023/08/22 14:36:59 by carlowessel   ########   odam.nl          #
+#    Updated: 2023/08/22 17:01:46 by carlowessel   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 include common.mk
 
-# **************************************************************************** #
 
-.DEFAULT_GOAL	:= all
-
-TARGET	 	=	cub3d
-OBJ_FILES	=	$(addprefix obj/, main.o init.o utils.o generate_grid.o grid_functions.o \
+.DEFAULT_GOAL	:=	all
+TARGET	 		:=	cub3d
+OBJ_FILES		:=	$(addprefix obj/, main.o init.o utils.o generate_grid.o grid_functions.o \
 					set_paths.o set_colors.o testing.o)
-
-# **************************************************************************** #
 
 all: libft $(TARGET)
 
 libft:
 	$(MAKE) -C $(LIBFT)
 
-
-# **************************************************************************** #
-
-
 $(TARGET): $(OBJ_FILES)
 	@echo -e "$(GREEN)Linking $(TARGET)$(RESET)"
 	@$(CC) $(OBJ_FILES) $(LIBS) $(HEADERS) $(MLXFLAGS) -o $(TARGET)
 
-
-# **************************************************************************** #
 
 $(OBJ_FILES): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
 	@echo -e "$(GREEN)Compiling $@ $(RESET) $(notdir $<)"
 	@$(CC) $(CFLAGS) $(HEADERS) -c -o $@ $<
 
-
-# **************************************************************************** #
 
 clean:
 	@echo -e "$(BLUE)Remoning OBJ files$(RESET)"
