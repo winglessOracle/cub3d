@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/23 16:50:28 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/23 17:26:01 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int32_t	get_rgba(int32_t r, int32_t g, int32_t b, int32_t a);
 
 
 //building
-void	build_images(t_data *data);
+void	build_image(t_data *data);
 
 //movement
 void	move_up(t_data *data);
