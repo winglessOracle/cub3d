@@ -3,11 +3,8 @@ SO ./textures/testwall2.png
 WE ./textures/testwall3.png
 EA ./textures/testwall4.png
 
-F 160,100,15 
-C 250,30,150
-
-
-
+F 0,255,0 
+C 0,0,255
 
 		1111111111111111111111111
 		1000000000110000000000001

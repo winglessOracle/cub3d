@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/23 12:59:24 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/23 15:24:44 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct s_color
 	int		red;
 	int		green;
 	int		blue;
+	int		a;
+	int		argb;
 }	t_color;
 
 typedef struct s_img_data
@@ -33,9 +35,6 @@ typedef struct s_img_data
 	mlx_image_t		*main_screen;
 	t_color			*floor;
 	t_color			*ceiling;
-
-	mlx_image_t		*test_wall; // remove
-
 }	t_img_data;
 
 typedef struct s_check_data
@@ -69,7 +68,7 @@ void	init_data(char *input_file, t_data *data);
 
 //utils
 void	free_all(t_data *data);
-int		free_exit(t_data *data);
+int		free_exit(t_data *data, int n);
 void	free_str_exit(char *str, t_data *data, int error);
 void	flood_fill(int x, int y, char **grid, t_data *data);
 int		check_params(int argc, char **argv);
@@ -86,10 +85,20 @@ void	set_floor_color(char *line, t_data *data);
 //building
 void	build_images(t_data *data);
 
+//movement
+void	move_up(t_data *data);
+void	move_down(t_data *data);
+void	move_right(t_data *data);
+void	move_left(t_data *data);
+
+//hooks
+void	set_hooks(t_data *data);
+
 //testing
 void	print_grid(t_data *data);
 void	print_file_data(t_data *data);
 void	test_images(t_data *data);
+void	test_print_move(char *str, t_data *data);
 
 #endif
 

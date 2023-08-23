@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 18:50:59 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/23 12:58:30 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/23 15:20:39 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,14 @@ void	print_file_data(t_data *data)
 	printf("\tceiling_RED: %d\n", data->img_data->ceiling->red);
 	printf("\tceiling_GREEN: %d\n", data->img_data->ceiling->green);
 	printf("\tceiling_BLUE: %d\n", data->img_data->ceiling->blue);
+	printf("\tceiling RGBA: 0x%08x\n", data->img_data->ceiling->argb);
+	printf("\tceiling RGBA: %d\n", data->img_data->ceiling->argb);
 	printf("floor: %s\n", data->img_data->floor->color);
 	printf("\tfloor_RED: %d\n", data->img_data->floor->red);
 	printf("\tfloor_GREEN: %d\n", data->img_data->floor->green);
 	printf("\tfloor_BLUE: %d\n", data->img_data->floor->blue);
+	printf("\tflorr RGBA: 0x%08x\n", data->img_data->floor->argb);
+	printf("\tflorr RGBA: %d\n", data->img_data->floor->argb);
 	printf("%s============================================\n%s", GREEN, RESET);
 }
 
@@ -58,4 +62,11 @@ void	test_images(t_data *data)
 	mlx_image_to_window(data->mlx, test_wall2, 200, 300);
 	mlx_image_to_window(data->mlx, test_wall3, 400, 300);
 	mlx_image_to_window(data->mlx, test_wall4, 600, 300);
+}
+
+void	test_print_move(char *str, t_data *data)
+{
+	printf("\n%s========moved %s========\n%s", GREEN, str, RESET);
+	printf("X:%d\tY:%d\n", data->p_xpos, data->p_ypos);
+	printf("looking at %d degrees\n", data->p_viewdir);
 }

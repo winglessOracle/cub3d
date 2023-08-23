@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 23:17:22 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/22 16:22:51 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/23 15:25:21 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	check_grid(t_data *data)
 	{
 		printf("\n%sWrong amount of starting positions (%d).\n", \
 			RED, data->check_data->start_pos);
-		free_exit(data);
+		free_exit(data, 1);
 	}
 	y = 0;
 	flood_grid = malloc(sizeof(char *) * data->grid_height + 1);
@@ -98,7 +98,7 @@ void	analyze_grid(t_data *data)
 			{
 				printf("\n%sFound non valid characters in map (%c)\n", \
 					RED, data->grid[y][x]);
-				free_exit(data);
+				free_exit(data, 1);
 			}
 			set_start_pos(y, x, data);
 			x++;

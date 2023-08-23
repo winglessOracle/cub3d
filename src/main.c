@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/19 08:29:28 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/23 11:51:43 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/23 14:49:00 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int	main(int argc, char **argv)
 	malloc_structs(data);
 	init_data(argv[1], data);
 	build_images(data);
+	set_hooks(data);
 	mlx_loop(data->mlx);
 }

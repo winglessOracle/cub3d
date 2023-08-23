@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/23 12:20:47 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/23 14:24:06 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,17 @@ void	init_img_data(t_data *data)
 	data->img_data->wall_texture_paths[4] = NULL;
 	data->img_data->wall_textures[4] = NULL;
 	data->img_data->ceiling->color = "default";
-	data->img_data->ceiling->red = 1;
-	data->img_data->ceiling->green = 1;
-	data->img_data->ceiling->blue = 1;
+	data->img_data->ceiling->red = 0;
+	data->img_data->ceiling->green = 0;
+	data->img_data->ceiling->blue = 0;
+	data->img_data->ceiling->a = 255;
+	data->img_data->ceiling->argb = 0;
 	data->img_data->floor->color = "default";
-	data->img_data->floor->red = 2;
-	data->img_data->floor->green = 2;
-	data->img_data->floor->blue = 2;
+	data->img_data->floor->red = 0;
+	data->img_data->floor->green = 0;
+	data->img_data->floor->blue = 0;
+	data->img_data->floor->a = 255;
+	data->img_data->floor->argb = 0;
 }
 
 void	init_check_data(t_data *data)
