@@ -6,13 +6,13 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 13:20:36 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/22 15:57:41 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/23 12:54:36 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	set_north_path(char *line, t_data *data)
+void	load_north(char *line, t_data *data)
 {
 	int	start;
 	int	size;
@@ -26,11 +26,13 @@ void	set_north_path(char *line, t_data *data)
 		start += 3;
 		while (line[start + size] && !ft_isspace(line[start + size]))
 			size++;
-		data->mlx_data->north_texure = ft_substr(line, start, size);
+		data->img_data->wall_texture_paths[0] = ft_substr(line, start, size);
+		data->img_data->wall_textures[0]
+			= mlx_load_png(data->img_data->wall_texture_paths[0]);
 	}
 }
 
-void	set_east_path(char *line, t_data *data)
+void	load_east(char *line, t_data *data)
 {
 	int	start;
 	int	size;
@@ -44,11 +46,13 @@ void	set_east_path(char *line, t_data *data)
 		start += 3;
 		while (line[start + size] && !ft_isspace(line[start + size]))
 			size++;
-		data->mlx_data->east_texture = ft_substr(line, start, size);
+		data->img_data->wall_texture_paths[1] = ft_substr(line, start, size);
+		data->img_data->wall_textures[1]
+			= mlx_load_png(data->img_data->wall_texture_paths[1]);
 	}
 }
 
-void	set_south_path(char *line, t_data *data)
+void	load_south(char *line, t_data *data)
 {
 	int	start;
 	int	size;
@@ -62,11 +66,13 @@ void	set_south_path(char *line, t_data *data)
 		start += 3;
 		while (line[start + size] && !ft_isspace(line[start + size]))
 			size++;
-		data->mlx_data->south_texture = ft_substr(line, start, size);
+		data->img_data->wall_texture_paths[2] = ft_substr(line, start, size);
+		data->img_data->wall_textures[2]
+			= mlx_load_png(data->img_data->wall_texture_paths[2]);
 	}
 }
 
-void	set_west_path(char *line, t_data *data)
+void	load_west(char *line, t_data *data)
 {
 	int	start;
 	int	size;
@@ -80,7 +86,9 @@ void	set_west_path(char *line, t_data *data)
 		start += 3;
 		while (line[start + size] && !ft_isspace(line[start + size]))
 			size++;
-		data->mlx_data->west_texture = ft_substr(line, start, size);
+		data->img_data->wall_texture_paths[3] = ft_substr(line, start, size);
+		data->img_data->wall_textures[3]
+			= mlx_load_png(data->img_data->wall_texture_paths[3]);
 	}
 }
 
@@ -98,10 +106,10 @@ void	parse_file_paths(char *file, t_data *data)
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
-		set_north_path(line, data);
-		set_east_path(line, data);
-		set_south_path(line, data);
-		set_west_path(line, data);
+		load_north(line, data);
+		load_east(line, data);
+		load_south(line, data);
+		load_west(line, data);
 		set_ceiling_color(line, data);
 		set_floor_color(line, data);
 		free (line);

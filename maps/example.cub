@@ -1,7 +1,7 @@
-NO ./path_to_the_north_texture
-SO ./path_to_the_south_texture
-WE ./path_to_the_west_texture
-EA ./path_to_the_east_texture 
+NO ./textures/testwall.png
+SO ./textures/testwall2.png
+WE ./textures/testwall3.png
+EA ./textures/testwall4.png
 
 F 160,100,15 
 C 250,30,150

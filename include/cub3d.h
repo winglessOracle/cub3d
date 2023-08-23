@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/22 15:53:49 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/23 12:59:24 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,17 @@ typedef struct s_color
 	int		blue;
 }	t_color;
 
-typedef struct s_mlx_data
+typedef struct s_img_data
 {
-	mlx_t	*mlx;
-	char	*north_texure;
-	char	*east_texture;
-	char	*south_texture;
-	char	*west_texture;
-	t_color	*floor;
-	t_color	*ceiling;
-}	t_mlx_data;
+	char			**wall_texture_paths;
+	mlx_texture_t	**wall_textures;
+	mlx_image_t		*main_screen;
+	t_color			*floor;
+	t_color			*ceiling;
+
+	mlx_image_t		*test_wall; // remove
+
+}	t_img_data;
 
 typedef struct s_check_data
 {
@@ -47,10 +48,13 @@ typedef struct s_check_data
 typedef struct s_data
 {
 	t_check_data	*check_data;
-	t_mlx_data		*mlx_data;
+	t_img_data		*img_data;
+	mlx_t			*mlx;
 	char			**grid;
 	int				grid_width;
 	int				grid_height;
+	int				screen_width;
+	int				screen_height;
 	int				p_xpos;
 	int				p_ypos;
 	int				p_viewdir;
@@ -79,8 +83,20 @@ void	parse_file_paths(char *file, t_data *data);
 void	set_ceiling_color(char *line, t_data *data);
 void	set_floor_color(char *line, t_data *data);
 
+//building
+void	build_images(t_data *data);
+
 //testing
 void	print_grid(t_data *data);
 void	print_file_data(t_data *data);
+void	test_images(t_data *data);
 
 #endif
+
+/*
+mlx_load_png: 			load a png texture to the buffer
+mlx_texture_to_image:	Converts a given texture to an image.
+mlx_draw_texture: 		Draws the texture on an already existing image.
+mlx_image_to_window: 	Draws a new instance of an image, 
+						it will then share the same pixel buffer as the image.
+*/

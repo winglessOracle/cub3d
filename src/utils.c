@@ -6,40 +6,11 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:40:03 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/22 16:57:54 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/23 12:31:44 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-void	free_all(t_data *data)
-{
-	if (data->check_data)
-		free(data->check_data);
-	if (data->mlx_data)
-		free(data->mlx_data);
-	if (data->mlx_data->floor)
-		free(data->mlx_data->floor);
-	if (data->mlx_data->ceiling)
-		free(data->mlx_data->ceiling);
-	if (data->grid)
-		ft_free_array(data->grid);
-	if (data)
-		free(data);
-}
-
-int	free_exit(t_data *data)
-{
-	free_all(data);
-	exit(EXIT_FAILURE);
-}
-
-void	free_str_exit(char *str, t_data *data, int error)
-{
-	printf("\n%sERROR: %s%s\n", RED, str, RESET);
-	free_all(data);
-	exit(error);
-}
 
 void	flood_fill(int x, int y, char **grid, t_data *data)
 {

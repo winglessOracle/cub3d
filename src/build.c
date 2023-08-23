@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   build.c                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/08/19 08:29:28 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/23 11:51:43 by carlowessel   ########   odam.nl         */
+/*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
+/*   Updated: 2023/08/23 12:58:56 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int argc, char **argv)
+void	build_images(t_data *data)
 {
-	t_data	*data;
+	data->img_data->main_screen
+		= mlx_new_image(data->mlx, data->screen_width, data->screen_height);
 
-	if (check_params(argc, argv))
-		return (1);
-	data = malloc(sizeof(t_data));
-	if (!data)
-		free_str_exit("allocating structs", data, 2);
-	malloc_structs(data);
-	init_data(argv[1], data);
-	build_images(data);
-	mlx_loop(data->mlx);
+	test_images(data);
 }

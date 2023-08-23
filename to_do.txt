@@ -1,4 +1,4 @@
 placeholder image
-minimap
 key loop
 mouse loop
+minimap
