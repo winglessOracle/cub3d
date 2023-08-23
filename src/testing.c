@@ -6,13 +6,13 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 18:50:59 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/23 15:20:39 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/23 16:37:19 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	print_grid(t_data *data)
+void	test_print_grid(t_data *data)
 {
 	int	y;
 
@@ -30,7 +30,7 @@ void	print_grid(t_data *data)
 	printf("%s=============================================\n%s", GREEN, RESET);
 }
 
-void	print_file_data(t_data *data)
+void	test_print_data(t_data *data)
 {
 	printf("\n%s==========TESTFILE DATA====================%s\n", GREEN, RESET);
 	printf("north: %s\n", data->img_data->wall_texture_paths[0]);
@@ -52,7 +52,7 @@ void	print_file_data(t_data *data)
 	printf("%s============================================\n%s", GREEN, RESET);
 }
 
-void	test_images(t_data *data)
+void	test_print_images(t_data *data)
 {
 	mlx_image_t	*test_wall	= mlx_texture_to_image(data->mlx, data->img_data->wall_textures[0]);
 	mlx_image_t	*test_wall2	= mlx_texture_to_image(data->mlx, data->img_data->wall_textures[1]);
@@ -64,7 +64,7 @@ void	test_images(t_data *data)
 	mlx_image_to_window(data->mlx, test_wall4, 600, 300);
 }
 
-void	test_print_move(char *str, t_data *data)
+void	test_print_movement(char *str, t_data *data)
 {
 	printf("\n%s========moved %s========\n%s", GREEN, str, RESET);
 	printf("X:%d\tY:%d\n", data->p_xpos, data->p_ypos);

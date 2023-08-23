@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 13:20:36 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/23 12:54:36 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/23 16:34:14 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,5 +115,5 @@ void	parse_file_paths(char *file, t_data *data)
 		free (line);
 	}
 	close(fd);
-	print_file_data(data); // remove
+	test_print_data(data); // remove
 }

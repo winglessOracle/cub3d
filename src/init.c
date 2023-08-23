@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/23 14:24:06 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/23 16:36:00 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,5 @@ void	init_data(char *input_file, t_data *data)
 	if (!data->grid)
 		free_str_exit("generating grid", data, 3);
 	analyze_grid(data);
-	print_grid(data); // remove
+	test_print_grid(data); // remove
 }

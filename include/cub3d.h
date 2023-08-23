@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/23 15:24:44 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/23 16:50:28 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@
 
 typedef struct s_color
 {
-	char	*color;
-	int		red;
-	int		green;
-	int		blue;
-	int		a;
-	int		argb;
+	char			*color;
+	int				red;
+	int				green;
+	int				blue;
+	int				a;
+	int				argb;
 }	t_color;
 
 typedef struct s_img_data
@@ -33,15 +33,16 @@ typedef struct s_img_data
 	char			**wall_texture_paths;
 	mlx_texture_t	**wall_textures;
 	mlx_image_t		*main_screen;
+	mlx_image_t		*mini_map;
 	t_color			*floor;
 	t_color			*ceiling;
 }	t_img_data;
 
 typedef struct s_check_data
 {
-	int		start_pos;
-	char	*valid_char;
-	char	*start_char;
+	int				start_pos;
+	char			*valid_char;
+	char			*start_char;
 }	t_check_data;
 
 typedef struct s_data
@@ -81,6 +82,8 @@ void	analyze_grid(t_data *data);
 void	parse_file_paths(char *file, t_data *data);
 void	set_ceiling_color(char *line, t_data *data);
 void	set_floor_color(char *line, t_data *data);
+int32_t	get_rgba(int32_t r, int32_t g, int32_t b, int32_t a);
+
 
 //building
 void	build_images(t_data *data);
@@ -95,10 +98,10 @@ void	move_left(t_data *data);
 void	set_hooks(t_data *data);
 
 //testing
-void	print_grid(t_data *data);
-void	print_file_data(t_data *data);
-void	test_images(t_data *data);
-void	test_print_move(char *str, t_data *data);
+void	test_print_grid(t_data *data);
+void	test_print_data(t_data *data);
+void	test_print_images(t_data *data);
+void	test_print_movement(char *str, t_data *data);
 
 #endif
 

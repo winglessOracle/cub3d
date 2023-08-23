@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 14:35:29 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/23 14:25:06 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/23 16:29:16 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ int32_t	get_rgba(int32_t r, int32_t g, int32_t b, int32_t a)
 
 void	check_rgb_value(t_color *color, t_data *data)
 {
-	printf("here\n");
 	if (color->red < 0 || color->red > 255 \
-			|| color->green < 0 || color->green > 255 \
-			|| color->blue < 0 || color->blue > 255)
+		|| color->green < 0 || color->green > 255 \
+		|| color->blue < 0 || color->blue > 255)
 		free_str_exit("non valid RGB color passed", data, 9);
 }
 
