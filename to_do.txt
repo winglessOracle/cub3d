@@ -1,4 +1,5 @@
-placeholder image
-key loop
+get screen resolutyio
+set screen to max
+key loop (continues)
 mouse loop
 minimap

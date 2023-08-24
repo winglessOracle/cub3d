@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/24 20:16:35 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/24 20:21:43 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,14 @@ void	put_pixels_mini(int map_width, int map_height, t_data *data)
 	int	y;
 	int	col_wall;
 	int	col_player;
+	int	col_open;
+
 
 	x = 0;
 	y = 0;
 	col_player = get_rgba(0, 255, 0, 255);
-	col_wall = get_rgba(255, 255, 255, 255);
+	col_wall = get_rgba(0, 0, 0, 255);
+	col_open = get_rgba(0, 0, 255, 255);
 	(void)col_player;
 	(void)col_wall;
 	while (y < map_height)
@@ -57,7 +60,7 @@ void	put_pixels_mini(int map_width, int map_height, t_data *data)
 		{
 			int tx = x * data->grid_width / map_width;
 			int ty = y * data->grid_height / map_height;
-			mlx_put_pixel(data->img_data->mini_map, x, y, 255);
+			mlx_put_pixel(data->img_data->mini_map, x, y, col_open);
 			if (data->grid[ty][tx]== '1')
 		   		mlx_put_pixel(data->img_data->mini_map, x, y, col_wall);
 			if (ty== data->p_ypos && tx == data->p_xpos)
