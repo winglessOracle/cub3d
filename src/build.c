@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/23 17:25:44 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/24 13:06:34 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ void	put_pixels_main(t_data *data)
 	}
 }
 
-void	put_pixels_mini(int scale, int width, int height, t_data *data)
+void	put_pixels_mini(int map_width, int map_height, t_data *data)
 {
+	//issue is non exiting cooordinate not square
 	int	x;
 	int	y;
 	int	col_wall;
@@ -50,16 +51,20 @@ void	put_pixels_mini(int scale, int width, int height, t_data *data)
 	col_wall = get_rgba(255, 255, 255, 255);
 	(void)col_player;
 	(void)col_wall;
-	(void)scale;
-	while (y < height)
+	while (y < map_height)
 	{
-		while (x < width)
+		while (x < map_width)
 		{
+			int tx = x * data->grid_width / map_width;
+			int ty = y * data->grid_height / map_height;
 			mlx_put_pixel(data->img_data->mini_map, x, y, 255);
-			// if (data->grid[y][x] == '1')
-			// 	mlx_put_pixel(data->img_data->mini_map, x, y, col_wall);
-			// if (x == data->p_xpos && y == data->p_ypos)
-			// 	mlx_put_pixel(data->img_data->mini_map, x, y, col_player);
+			if (x == 0)
+				printf("x=%d\t y=%d\t tx=%d \tty=%d\n", x, y, tx, ty);
+			// if (data->grid[tx][ty] && tx < data->grid_width && ty < data ->grid_height)
+			// {
+			// 	if (data->grid[tx][ty]== '1')
+			//    		mlx_put_pixel(data->img_data->mini_map, x, y, col_wall);
+			// }
 			x += 1;
 		}
 		x = 0;
@@ -71,16 +76,17 @@ void	build_minimap(t_data *data)
 {
 	int	map_width;
 	int	map_height;
-	int	map_scale;
+	int	scale; // move to init; and add bool for min size of 200x100. later relate this to screen resoluition
 
-	map_scale = 5;
-	map_width = data->grid_width * map_scale;
-	map_height = data->grid_height * map_scale;
+	scale = 4;
+	map_width = data->screen_width / scale;
+	map_height = data->screen_height / scale;
+	printf("\nMap_width=%d\nMap_height=%d\n", map_width, map_height);
 	data->img_data->mini_map
 		= mlx_new_image(data->mlx, map_width, map_height);
-	put_pixels_mini(map_scale, map_width, map_height, data);
+	put_pixels_mini(map_width, map_height, data);
 	mlx_image_to_window(data->mlx, data->img_data->mini_map,
-		data->screen_width - 20 - map_width, data->screen_height - 20 - map_height);
+		data->screen_width - 30 - map_width, data->screen_height - 30 - map_height);
 }
 
 void	build_image(t_data *data)

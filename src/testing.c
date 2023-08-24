@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 18:50:59 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/23 16:37:19 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/23 19:16:17 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	test_print_grid(t_data *data)
 		printf("%s\n", data->grid[y]);
 		y++;
 	}
-	printf("\nGrid hight:\t%d\n", data->grid_height);
+	printf("\nGrid height:\t%d\n", data->grid_height);
 	printf("Grid width:\t%d\n", data->grid_width);
 	printf("Player xpos:\t%d\nPlayer ypos:\t%d\n", data->p_xpos, data->p_ypos);
 	printf("View dir:\t%d\n", data->p_viewdir);

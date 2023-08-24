@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:43:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/23 16:17:02 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/23 17:28:22 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 	data = param;
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 	{
-		printf("%s You left the game\n%s", GREEN, RESET);
+		printf("%s You left the game\n\n%s", GREEN, RESET);
 		free_exit(data, 0);
 	}
 	if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_UP)
@@ -56,7 +56,7 @@ void	close_hook(void *param)
 	t_data	*data;
 
 	data = param;
-	printf("%s You left the game\n%s", GREEN, RESET);
+	printf("%s You left the game\n\n%s", GREEN, RESET);
 	mlx_terminate(data->mlx);
 	free_exit(data, 0);
 }
