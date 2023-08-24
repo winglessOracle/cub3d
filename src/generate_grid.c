@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 14:33:39 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/24 13:05:25 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/24 17:27:25 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,25 @@ bool	find_start_grid(char *line)
 	if (line[i] == '1' || line[i] == '0')
 		return (true);
 	return (false);
+}
+
+void	square_grid(t_data *data)
+{
+	int		delta;
+	int		y;
+
+	y = 0;
+	delta = 0;
+	while (y < data->grid_height)
+	{
+		delta = data->grid_width - ft_strlen(data->grid[y]);
+		while (delta != 0)
+		{
+			data->grid[y] = ft_strjoin_free(data->grid[y], "x");
+			delta--;
+		}
+		y++;
+	}
 }
 
 char	*grid_helper(int fd)

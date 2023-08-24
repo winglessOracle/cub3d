@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/24 13:06:34 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/24 20:16:35 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	put_pixels_main(t_data *data)
 
 void	put_pixels_mini(int map_width, int map_height, t_data *data)
 {
-	//issue is non exiting cooordinate not square
+	//issue is non exiting cooordinate not square	int	x;
 	int	x;
 	int	y;
 	int	col_wall;
@@ -58,13 +58,10 @@ void	put_pixels_mini(int map_width, int map_height, t_data *data)
 			int tx = x * data->grid_width / map_width;
 			int ty = y * data->grid_height / map_height;
 			mlx_put_pixel(data->img_data->mini_map, x, y, 255);
-			if (x == 0)
-				printf("x=%d\t y=%d\t tx=%d \tty=%d\n", x, y, tx, ty);
-			// if (data->grid[tx][ty] && tx < data->grid_width && ty < data ->grid_height)
-			// {
-			// 	if (data->grid[tx][ty]== '1')
-			//    		mlx_put_pixel(data->img_data->mini_map, x, y, col_wall);
-			// }
+			if (data->grid[ty][tx]== '1')
+		   		mlx_put_pixel(data->img_data->mini_map, x, y, col_wall);
+			if (ty== data->p_ypos && tx == data->p_xpos)
+		   		mlx_put_pixel(data->img_data->mini_map, x, y, col_player);
 			x += 1;
 		}
 		x = 0;

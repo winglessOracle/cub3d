@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/24 13:05:06 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/24 20:17:10 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ int		check_params(int argc, char **argv);
 //grid_functions
 char	**generate_grid(char *input_file);
 void	analyze_grid(t_data *data);
+void	square_grid(t_data *data);
+
 
 //set_paths / set_colors
 void	parse_file_paths(char *file, t_data *data);
@@ -89,6 +91,7 @@ int32_t	get_rgba(int32_t r, int32_t g, int32_t b, int32_t a);
 //building
 void	build_image(t_data *data);
 void	build_minimap(t_data *data);
+
 
 //movement
 void	move_up(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:52:40 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/23 18:47:05 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/24 20:17:46 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	move_up(t_data *data)
 		data->p_viewdir = 0;
 		test_print_movement("UP", data); // remove
 		//build_image(data);
-		//build_minimap(data);
+		build_minimap(data);
 
 	}
 }
@@ -40,7 +40,7 @@ void	move_down(t_data *data)
 		data->p_viewdir = 180;
 		test_print_movement("DOWN", data); // remove
 		//build_image(data);
-		//build_minimap(data);
+		build_minimap(data);
 	}
 }
 
@@ -52,7 +52,7 @@ void	move_right(t_data *data)
 		data->p_viewdir = 90;
 		test_print_movement("RIGHT", data); // remove
 		//build_image(data);
-		//build_minimap(data);;
+		build_minimap(data);
 	}
 }
 
@@ -65,6 +65,6 @@ void	move_left(t_data *data)
 		data->p_viewdir = 270;
 		test_print_movement("LEFT", data); // remove
 		//build_image(data);
-		//build_minimap(data);
+		build_minimap(data);
 	}
 }
