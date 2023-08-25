@@ -6,7 +6,7 @@
 #    By: cwesseli <cwesseli@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/19 17:26:03 by cwesseli      #+#    #+#                  #
-#    Updated: 2023/08/22 17:00:18 by carlowessel   ########   odam.nl          #
+#    Updated: 2023/08/25 13:04:33 by carlowessel   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,11 +37,12 @@ HEADERS		=	-I $(INCLUDE) -I $(LIBFT) -I $(MLX42)/include
 SRC_DIR		=	./src
 OBJ_DIR		=	./obj
 
-
 # *********OPERATIONS*********************************************************** #
 
-bonus:	SRC_DIR = ./src_bonus
-bonus:	re
+bonus: 	
+	OBJ_FILES 	+= $(BONUS_OBJ_FILES)
+	CFLAGS 		+= -DBONUS=1
+bonus:	re	
 	@echo -e "$(YELLOW)\nCOMPILED BONUS\n$(RESET)"
 
 debug:	CFLAGS = -Wall -Werror -g
