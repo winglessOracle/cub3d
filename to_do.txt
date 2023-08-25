@@ -1,5 +1,7 @@
-get screen resolutyio
-set screen to max
-key loop (continues)
+bonus > minimap including toggle size
+
+get screen resolutyion and link to minimap and resize screen (1,2) including max screen
+
+key loop (continues) 
 mouse loop
 minimap

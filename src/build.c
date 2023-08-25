@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/24 20:21:43 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/25 09:35:04 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,11 @@ void	put_pixels_mini(int map_width, int map_height, t_data *data)
 	int	col_player;
 	int	col_open;
 
-
 	x = 0;
 	y = 0;
 	col_player = get_rgba(0, 255, 0, 255);
 	col_wall = get_rgba(0, 0, 0, 255);
 	col_open = get_rgba(0, 0, 255, 255);
-	(void)col_player;
-	(void)col_wall;
 	while (y < map_height)
 	{
 		while (x < map_width)
@@ -65,6 +62,8 @@ void	put_pixels_mini(int map_width, int map_height, t_data *data)
 		   		mlx_put_pixel(data->img_data->mini_map, x, y, col_wall);
 			if (ty== data->p_ypos && tx == data->p_xpos)
 		   		mlx_put_pixel(data->img_data->mini_map, x, y, col_player);
+			// if (data->grid[ty][tx]== ' ')
+		   	// 	mlx_put_pixel(data->img_data->mini_map, x, y, 0);
 			x += 1;
 		}
 		x = 0;
@@ -95,9 +94,10 @@ void	build_image(t_data *data)
 		= mlx_new_image(data->mlx, data->screen_width, data->screen_height);
 	put_pixels_main(data);
 	mlx_image_to_window(data->mlx, data->img_data->main_screen, 0, 0);
-
 	build_minimap(data);
 
-//	test_print_images(data); // remove
+//test_print_images(data); // remove
 }
 
+
+//draw image (including binus)

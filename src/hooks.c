@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:43:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/23 17:28:22 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/25 09:04:21 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,18 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 		printf("%s You left the game\n\n%s", GREEN, RESET);
 		free_exit(data, 0);
 	}
-	if ((keydata.key == MLX_KEY_W || keydata.key == MLX_KEY_UP)
-		&& keydata.action == MLX_PRESS)
+	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
 		move_up(data);
-	if ((keydata.key == MLX_KEY_S || keydata.key == MLX_KEY_DOWN)
-		&& keydata.action == MLX_PRESS)
+	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
 		move_down(data);
-	if ((keydata.key == MLX_KEY_A || keydata.key == MLX_KEY_LEFT)
-		&& keydata.action == MLX_PRESS)
+	if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
 		move_left(data);
-	if ((keydata.key == MLX_KEY_D || keydata.key == MLX_KEY_RIGHT)
-		&& keydata.action == MLX_PRESS)
+	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
 		move_right(data);
+	if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS)
+		turn('L', data);
+	if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS)
+		turn('R', data);
 	// if (keydata.key == MLX_KEY_SPACE && keydata.action == MLX_PRESS)
 	// 	restart_map("levels/level_1.ber", g);
 }
@@ -46,7 +46,6 @@ void	mouse_hook(mouse_key_t button, action_t action, modifier_key_t mods, void *
 	(void)button;
 	(void)action;
 	(void)mods;
-
 	data = param;
 	//ad function
 }

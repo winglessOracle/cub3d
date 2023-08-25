@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 18:50:59 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/23 19:16:17 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/25 09:03:08 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	test_print_images(t_data *data)
 
 void	test_print_movement(char *str, t_data *data)
 {
-	printf("\n%s========moved %s========\n%s", GREEN, str, RESET);
+	printf("\n%s======== %s ============\n%s", GREEN, str, RESET);
 	printf("X:%d\tY:%d\n", data->p_xpos, data->p_ypos);
 	printf("looking at %d degrees\n", data->p_viewdir);
 }
