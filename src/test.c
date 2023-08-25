@@ -1,4 +1,4 @@
-
+# include "cub3d.h"
 
 void	test_bonus(void)
 {
