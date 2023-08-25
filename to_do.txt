@@ -1,7 +1,8 @@
-bonus > minimap including toggle size
-
+minimap cleanup > struct
+seperate build and draw of img_data
 get screen resolutyion and link to minimap and resize screen (1,2) including max screen
+
+bonus > minimap including toggle size
 
 key loop (continues) 
 mouse loop
-minimap

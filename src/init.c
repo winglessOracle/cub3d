@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/25 09:34:45 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/25 11:27:24 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,10 @@ void	malloc_structs(t_data *data)
 		free_str_exit("allocating structs", data, 3);
 	data->img_data->wall_textures = malloc(sizeof(mlx_texture_t) * 4);
 	if (!data->img_data->wall_textures)
+		free_str_exit("allocating structs", data, 3);
+//move to bonus
+	data->mm = malloc(sizeof(t_minimap));
+	if (!data->mm)
 		free_str_exit("allocating structs", data, 3);
 }
 
@@ -70,12 +74,29 @@ void	init_main_data(t_data *data)
 	data->grid_height = 0;
 	data->screen_width = 1280;
 	data->screen_height = 720;
+	data->border = 15;
+	data->bor_col = get_rgba(50, 50, 50, 255);
 	data->p_xpos = 0;
 	data->p_ypos = 0;
 	data->p_viewdir = 0;
 	data->floor_height = 0;
 	data->ceiling_height = 100;
 	data->view_plane_dist = 10;
+}
+
+/* set scale and rgb colors for minimap below.
+RGBA with A forr transparancy
+Scale is the division of the screen size*/
+void	init_minimap(t_data *data)
+{
+	data->mm->scale = 4;
+	data->mm->w_col = get_rgba(0, 0, 0, 255);
+	data->mm->p_col = get_rgba(0, 255, 0, 255);
+	data->mm->o_col = get_rgba(0, 0, 255, 255);
+	data->mm->width = data->screen_width / data->mm->scale;
+	data->mm->height = data->screen_height / data->mm->scale;
+	data->mm->xpos = data->screen_width - data->border - data->mm->width;
+	data->mm->ypos = data->screen_height - data->border - data->mm->height;
 }
 
 void	init_data(char *input_file, t_data *data)
@@ -89,5 +110,6 @@ void	init_data(char *input_file, t_data *data)
 		free_str_exit("generating grid", data, 3);
 	analyze_grid(data);
 	square_grid(data);
+	init_minimap(data);
 	test_print_grid(data); // remove
 }

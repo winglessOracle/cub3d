@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/25 09:36:00 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/25 11:27:29 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,19 @@
 # include <fcntl.h>
 # include <math.h>
 
+
 typedef struct minimap
 {
-	int		wall_color;
-	int		p_color;
-	int		open_color;
-	int		mm_width;
-	int		mm_height;
-	int		mm_posl;
+	int			scale;
+	int			w_col;
+	int			p_col;
+	int			o_col;
+	int			width;
+	int			height;
+	int			xpos;
+	int			ypos;
+	mlx_image_t	*mini_map;
+
 }	t_minimap;
 
 typedef struct s_color
@@ -60,12 +65,15 @@ typedef struct s_data
 {
 	t_check_data	*check_data;
 	t_img_data		*img_data;
+	t_minimap		*mm;
 	mlx_t			*mlx;
 	char			**grid;
 	int				grid_width;
 	int				grid_height;
 	int				screen_width;
 	int				screen_height;
+	int				border;
+	int				bor_col;
 	int				p_xpos;
 	int				p_ypos;
 	int				p_viewdir;
