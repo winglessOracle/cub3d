@@ -1,8 +1,10 @@
-minimap cleanup > struct
-seperate build and draw of img_data
-get screen resolutyion and link to minimap and resize screen (1,2) including max screen
+link forward movement to view direction
+get screen resolution and link to minimap and resize screen (1,2) including max screen
 
-bonus > minimap including toggle size
+seperate build and draw of img_data
+
+
+bonus > minimap including macro toggle in header file
 
 key loop (continues) 
-mouse loop
+mouse loop 
