@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:43:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/26 14:43:17 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/26 15:02:31 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 		free_exit(data, 0);
 	}
 	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
-		move_forward(data);
+		move_w(data);
 	if (keydata.key == MLX_KEY_S && keydata.action == MLX_PRESS)
-		move_backward(data);
+		move_s(data);
 	if (keydata.key == MLX_KEY_A && keydata.action == MLX_PRESS)
-		move_left(data);
+		move_a(data);
 	if (keydata.key == MLX_KEY_D && keydata.action == MLX_PRESS)
-		move_right(data);
+		move_d(data);
 	if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS)
 		turn('L', data);
 	if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS)
