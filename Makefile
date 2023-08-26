@@ -6,7 +6,7 @@
 #    By: wingessoracle <wingessoracle@student.co      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/06/21 08:27:49 by wingessorac   #+#    #+#                  #
-#    Updated: 2023/08/23 15:03:49 by carlowessel   ########   odam.nl          #
+#    Updated: 2023/08/26 14:41:59 by carlowessel   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,18 @@ include common.mk
 
 .DEFAULT_GOAL	:=	all
 TARGET	 		:=	cub3d
+
 OBJ_FILES		:=	$(addprefix obj/, main.o init.o utils.o generate_grid.o grid_functions.o \
 					set_paths.o hooks.o movement.o set_colors.o build.o cleanup.o testing.o)
 
+# OBJ_FILES_BONUS	:=	$(addprefix obj/, test.o)
+
 all: libft $(TARGET)
+
 
 libft:
 	$(MAKE) -C $(LIBFT)
+
 
 $(TARGET): $(OBJ_FILES)
 	@echo -e "$(GREEN)Linking $(TARGET)$(RESET)"
@@ -38,6 +43,7 @@ clean:
 	@echo -e "$(BLUE)Remoning OBJ files$(RESET)"
 	@rm -rf $(OBJ_DIR)
 	@$(MAKE) -C $(LIBFT) clean
+
 
 fclean: clean
 	@echo -e "$(BLUE)Removing $(TARGET)$(RESET)"
