@@ -1,9 +1,9 @@
 get screen resolution and link to minimap and resize screen (1,2) including max screen
 
-seperate build and draw of img_data
-
-
-bonus > minimap including macro toggle in header file
-
+change player x-y in screeen pixels in srtead of grid coordinates while keeping grid coordinates for wall collision
 key loop (continues) 
 mouse loop 
+
+seperate build and draw of img_data
+
+bonus: move bonus functions to seperate files and header and include a macro toggle in header file
