@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:52:40 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/26 15:18:02 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/27 10:50:13 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,18 +63,13 @@ void	move_left(t_data *data)
 void	turn(char c, t_data *data)
 {
 	if (c == 'L')
-	{
 		data->p_viewdir -= 90;
-		test_print_movement("TURN LEFT", data); // remove
-	}
 	if (c == 'R')
-	{
 		data->p_viewdir += 90;
-		test_print_movement("TURN RIGHT", data); // remove
-	}
 	if (data->p_viewdir < 0)
 		data->p_viewdir += 360;
 	else if (data->p_viewdir >= 360)
 		data->p_viewdir -= 360;
+	test_print_movement("TURNED", data); // remove
 	build_image(data);
 }

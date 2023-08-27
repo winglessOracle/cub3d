@@ -1,5 +1,3 @@
-fix -90 vie direction 
-link forward movement to view direction
 get screen resolution and link to minimap and resize screen (1,2) including max screen
 
 seperate build and draw of img_data
