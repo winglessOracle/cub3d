@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 14:33:39 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/25 17:05:29 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/28 11:37:25 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	square_grid(t_data *data)
 		delta = data->grid_width - ft_strlen(data->grid[y]);
 		while (delta != 0)
 		{
-			data->grid[y] = ft_strjoin_free(data->grid[y], " ");
+			data->grid[y] = ft_strjoin_free(data->grid[y], "0");
 			delta--;
 		}
 		y++;

@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/25 11:27:24 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/28 11:34:01 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	init_img_data(t_data *data)
 void	init_check_data(t_data *data)
 {
 	data->check_data->start_pos = 0;
-	data->check_data->valid_char = "01NESW";
+	data->check_data->valid_char = "01NESW ";
 	data->check_data->start_char = "NESW";
 }
 
