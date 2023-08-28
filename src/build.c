@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/28 11:54:38 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/28 15:07:09 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,9 @@ void	build_image(t_data *data)
 	put_pixels_main(data);
 	mlx_image_to_window(data->mlx, data->img_data->main_screen, 0, 0);
 	build_minimap(data);
-//test_print_images(data); // remove
+
+
+//	test_print_images(data); // remove
 }
 
 

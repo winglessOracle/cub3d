@@ -6,7 +6,7 @@
 #    By: wingessoracle <wingessoracle@student.co      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/06/21 08:27:49 by wingessorac   #+#    #+#                  #
-#    Updated: 2023/08/26 15:03:01 by carlowessel   ########   odam.nl          #
+#    Updated: 2023/08/28 14:25:24 by cwesseli      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,11 +21,13 @@ OBJ_FILES		:=	$(addprefix obj/, main.o init.o utils.o generate_grid.o grid_funct
 
 # OBJ_FILES_BONUS	:=	$(addprefix obj/, test.o)
 
-all: libft $(TARGET)
-
+all: libmlx libft $(TARGET)
 
 libft:
 	$(MAKE) -C $(LIBFT)
+
+libmlx:
+	@cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 
 $(TARGET): $(OBJ_FILES)
@@ -42,7 +44,9 @@ $(OBJ_FILES): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 clean:
 	@echo -e "$(BLUE)Remoning OBJ files$(RESET)"
 	@rm -rf $(OBJ_DIR)
+	@rm -rf $(LIBMLX)/build
 	@$(MAKE) -C $(LIBFT) clean
+
 
 
 fclean: clean

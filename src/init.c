@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/28 11:34:01 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/28 15:26:16 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ void	malloc_structs(t_data *data)
 	data->img_data->floor = malloc(sizeof(t_color));
 	if (!data->img_data->floor)
 		free_str_exit("allocating structs", data, 3);
-	data->img_data->wall_texture_paths = malloc(sizeof(char) * 4);
+	data->img_data->wall_texture_paths = malloc(sizeof(char *) * 5);
 	if (!data->img_data->wall_texture_paths)
 		free_str_exit("allocating structs", data, 3);
-	data->img_data->wall_textures = malloc(sizeof(mlx_texture_t) * 4);
+	data->img_data->wall_textures = malloc(sizeof(mlx_texture_t *) * 5);
 	if (!data->img_data->wall_textures)
 		free_str_exit("allocating structs", data, 3);
-//move to bonus
+// move to bonus
 	data->mm = malloc(sizeof(t_minimap));
 	if (!data->mm)
 		free_str_exit("allocating structs", data, 3);
@@ -44,7 +44,7 @@ void	init_img_data(t_data *data)
 		= mlx_init(data->screen_width, data->screen_height, "cub3d", false);
 	if (!data->mlx)
 		free_str_exit("initializing MLX", data, 3);
-	mlx_set_window_pos(data->mlx, 640, 1500); //get center screen
+	mlx_set_window_pos(data->mlx, 0, 0); //get center screen
 	data->img_data->wall_texture_paths[4] = NULL;
 	data->img_data->wall_textures[4] = NULL;
 	data->img_data->ceiling->color = "default";
@@ -73,7 +73,7 @@ void	init_main_data(t_data *data)
 	data->grid_width = 0;
 	data->grid_height = 0;
 	data->screen_width = 1280;
-	data->screen_height = 720;
+	data->screen_height = 724;
 	data->border = 15;
 	data->bor_col = get_rgba(50, 50, 50, 255);
 	data->p_xpos = 0;
@@ -101,6 +101,7 @@ void	init_minimap(t_data *data)
 
 void	init_data(char *input_file, t_data *data)
 {
+	(void)input_file;
 	init_main_data(data);
 	init_check_data(data);
 	init_img_data(data);
@@ -111,5 +112,5 @@ void	init_data(char *input_file, t_data *data)
 	analyze_grid(data);
 	square_grid(data);
 	init_minimap(data);
-	test_print_grid(data); // remove
+	//test_print_grid(data); // remove
 }

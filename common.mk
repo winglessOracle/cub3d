@@ -6,7 +6,7 @@
 #    By: cwesseli <cwesseli@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/19 17:26:03 by cwesseli      #+#    #+#                  #
-#    Updated: 2023/08/26 14:41:18 by carlowessel   ########   odam.nl          #
+#    Updated: 2023/08/28 14:25:02 by cwesseli      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ undef:	re
 
 # ***********OTHER************************************************************* #
 
-.PHONY:	all libft clean fclean re bonus debug san thread undef
+.PHONY:	all libft libmlx clean fclean re bonus debug san thread undef
 
 
 # ***********COLORS************************************************************ #
