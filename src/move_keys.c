@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/26 14:58:30 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/26 15:08:05 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/28 12:19:20 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,52 +14,48 @@
 
 void	move_w(t_data *data)
 {
-	if ((data->p_viewdir >= 315 && data->p_viewdir <= 360)
-		|| (data->p_viewdir >= 0 && data->p_viewdir <= 45))
+	if (data->p_viewdir == 0)
 		move_up(data);
-	if (data->p_viewdir >= 45 && data->p_viewdir <= 135)
+	if (data->p_viewdir >= M_PI_2)
 		move_right(data);
-	if (data->p_viewdir >= 135 && data->p_viewdir <= 225)
+	if (data->p_viewdir >= M_PI)
 		move_down(data);
-	if (data->p_viewdir >= 225 && data->p_viewdir <= 315)
+	if (data->p_viewdir >= M_PI + M_PI_2)
 		move_left(data);
 }
 
 void	move_s(t_data *data)
 {
-	if ((data->p_viewdir >= 315 && data->p_viewdir <= 360)
-		|| (data->p_viewdir >= 0 && data->p_viewdir <= 45))
+	if (data->p_viewdir == 0)
 		move_down(data);
-	if (data->p_viewdir >= 45 && data->p_viewdir <= 135)
+	if (data->p_viewdir >= M_PI_2)
 		move_left(data);
-	if (data->p_viewdir >= 135 && data->p_viewdir <= 225)
+	if (data->p_viewdir >= M_PI)
 		move_up(data);
-	if (data->p_viewdir >= 225 && data->p_viewdir <= 315)
+	if (data->p_viewdir >= M_PI + M_PI_2)
 		move_right(data);
 }
 
 void	move_a(t_data *data)
 {
-	if ((data->p_viewdir >= 315 && data->p_viewdir <= 360)
-		|| (data->p_viewdir >= 0 && data->p_viewdir <= 45))
-			move_left(data);
-	if (data->p_viewdir >= 45 && data->p_viewdir <= 135)
+	if (data->p_viewdir == 0)
+		move_left(data);
+	if (data->p_viewdir >= M_PI_2)
 		move_up(data);
-	if (data->p_viewdir >= 135 && data->p_viewdir <= 225)
+	if (data->p_viewdir >= M_PI)
 		move_right(data);
-	if (data->p_viewdir >= 225 && data->p_viewdir <= 315)
+	if (data->p_viewdir >= M_PI + M_PI_2)
 		move_down(data);
 }
 
 void	move_d(t_data *data)
 {
-	if ((data->p_viewdir >= 315 && data->p_viewdir <= 360)
-		|| (data->p_viewdir >= 0 && data->p_viewdir <= 45))
+	if (data->p_viewdir == 0)
 		move_right(data);
-	if (data->p_viewdir >= 45 && data->p_viewdir <= 135)
+	if (data->p_viewdir >= M_PI_2)
 		move_down(data);
-	if (data->p_viewdir >= 135 && data->p_viewdir <= 225)
+	if (data->p_viewdir >= M_PI)
 		move_left(data);
-	if (data->p_viewdir >= 225 && data->p_viewdir <= 315)
+	if (data->p_viewdir >= M_PI + M_PI_2)
 		move_up(data);
 }

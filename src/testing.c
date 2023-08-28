@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 18:50:59 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/25 09:03:08 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/28 12:24:40 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	test_print_grid(t_data *data)
 	}
 	printf("\nGrid height:\t%d\n", data->grid_height);
 	printf("Grid width:\t%d\n", data->grid_width);
-	printf("Player xpos:\t%d\nPlayer ypos:\t%d\n", data->p_xpos, data->p_ypos);
-	printf("View dir:\t%d\n", data->p_viewdir);
+	printf("Player xpos:\t%f\nPlayer ypos:\t%f\n", data->p_xpos, data->p_ypos);
+	printf("View dir:\t%f RAD\n", data->p_viewdir);
 	printf("%s=============================================\n%s", GREEN, RESET);
 }
 
@@ -67,6 +67,6 @@ void	test_print_images(t_data *data)
 void	test_print_movement(char *str, t_data *data)
 {
 	printf("\n%s======== %s ============\n%s", GREEN, str, RESET);
-	printf("X:%d\tY:%d\n", data->p_xpos, data->p_ypos);
-	printf("looking at %d degrees\n", data->p_viewdir);
+	printf("X:%f\tY:%f\n", data->p_xpos, data->p_ypos);
+	printf("looking at %f RAD\n", data->p_viewdir);
 }

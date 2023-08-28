@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/26 15:01:56 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/28 12:11:07 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,9 @@ typedef struct s_data
 	int				screen_height;
 	int				border;
 	int				bor_col;
-	int				p_xpos;
-	int				p_ypos;
-	int				p_viewdir;
+	double			p_xpos;
+	double			p_ypos;
+	double			p_viewdir;
 	int				floor_height;
 	int				ceiling_height;	
 	int				view_plane_dist;
