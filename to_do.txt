@@ -1,6 +1,11 @@
+int get_texturergb(char *texture_file, double x, double y) // 0 <= x <= 1, y ook
+
+continous movement
+
 get screen resolution and link to minimap and resize screen (1,2) including max screen
 
-change player x-y in screeen pixels in srtead of grid coordinates while keeping grid coordinates for wall collision
+
+
 key loop (continues) 
 mouse loop 
 
