@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/28 15:07:09 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/08/28 18:36:51 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ void	put_pixels_main(t_data *data)
 
 	x = 0;
 	y = 0;
+
+
+	data->bor_col = pixel_from_texure(data->img_data->wall_textures[0], 0.5, 0.5); // remove: tempt o test pixel picker
+
+
 	while (y < data->screen_height)
 	{
 		while (x < data->screen_width)

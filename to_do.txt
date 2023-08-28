@@ -1,5 +1,3 @@
-fix move issue
-
 int get_texturergb(char *texture_file, double x, double y) // 0 <= x <= 1, y ook
 
 continous movement

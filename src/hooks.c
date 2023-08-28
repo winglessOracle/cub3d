@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:43:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/28 14:37:09 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/08/28 16:22:39 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 	data = param;
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 	{
-		printf("%s You left the game\n\n%s", GREEN, RESET);
+		printf("%s\nYou left the game\n\n%s", GREEN, RESET);
 		free_exit(data, 0);
 	}
 	if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
@@ -36,6 +36,7 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 		turn('R', data);
 	// if (keydata.key == MLX_KEY_SPACE && keydata.action == MLX_PRESS)
 	// 	restart_map("levels/level_1.ber", g);
+	//toggle minimap?
 }
 
 void	mouse_hook(mouse_key_t button, action_t action, modifier_key_t mods, void *param)
@@ -55,7 +56,7 @@ void	close_hook(void *param)
 	t_data	*data;
 
 	data = param;
-	printf("%s You left the game\n\n%s", GREEN, RESET);
+	printf("%s\nYou left the game\n\n%s", GREEN, RESET);
 	mlx_terminate(data->mlx);
 	free_exit(data, 0);
 }

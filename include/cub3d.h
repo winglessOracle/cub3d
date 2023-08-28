@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/28 12:11:07 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/28 17:22:41 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <math.h>
-
 
 typedef struct minimap
 {
@@ -92,6 +91,8 @@ int		free_exit(t_data *data, int n);
 void	free_str_exit(char *str, t_data *data, int error);
 void	flood_fill(int x, int y, char **grid, t_data *data);
 int		check_params(int argc, char **argv);
+int		pixel_from_texure(mlx_texture_t *texture, double x, double y);
+
 
 //grid_functions
 char	**generate_grid(char *input_file);

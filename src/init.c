@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/28 15:26:16 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/08/28 17:57:59 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,18 @@ void	init_img_data(t_data *data)
 		= mlx_init(data->screen_width, data->screen_height, "cub3d", false);
 	if (!data->mlx)
 		free_str_exit("initializing MLX", data, 3);
-	mlx_set_window_pos(data->mlx, 0, 0); //get center screen
+	mlx_set_window_pos(data->mlx, 10, 10); //get center screen
 	data->img_data->wall_texture_paths[4] = NULL;
 	data->img_data->wall_textures[4] = NULL;
-	data->img_data->ceiling->color = "default";
+	data->img_data->ceiling->color = "default_blue";
 	data->img_data->ceiling->red = 0;
 	data->img_data->ceiling->green = 0;
-	data->img_data->ceiling->blue = 0;
+	data->img_data->ceiling->blue = 255;
 	data->img_data->ceiling->a = 255;
 	data->img_data->ceiling->argb = 0;
-	data->img_data->floor->color = "default";
+	data->img_data->floor->color = "default_green";
 	data->img_data->floor->red = 0;
-	data->img_data->floor->green = 0;
+	data->img_data->floor->green = 255;
 	data->img_data->floor->blue = 0;
 	data->img_data->floor->a = 255;
 	data->img_data->floor->argb = 0;
@@ -85,7 +85,7 @@ void	init_main_data(t_data *data)
 }
 
 /* set scale and rgb colors for minimap below.
-RGBA with A forr transparancy
+RGBA with A for transparancy
 Scale is the division of the screen size*/
 void	init_minimap(t_data *data)
 {
@@ -101,7 +101,6 @@ void	init_minimap(t_data *data)
 
 void	init_data(char *input_file, t_data *data)
 {
-	(void)input_file;
 	init_main_data(data);
 	init_check_data(data);
 	init_img_data(data);
@@ -112,5 +111,5 @@ void	init_data(char *input_file, t_data *data)
 	analyze_grid(data);
 	square_grid(data);
 	init_minimap(data);
-	//test_print_grid(data); // remove
+	test_print_grid(data); // remove
 }

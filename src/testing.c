@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 18:50:59 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/28 15:08:43 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/08/28 18:15:12 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@ void	test_print_grid(t_data *data)
 void	test_print_data(t_data *data)
 {
 	printf("\n%s==========TESTFILE DATA====================%s\n", GREEN, RESET);
-	// printf("north: %s\n", data->img_data->wall_texture_paths[0]);
-	// printf("east: %s\n", data->img_data->wall_texture_paths[1]);
-	// printf("south: %s\n", data->img_data->wall_texture_paths[2]);
-	// printf("west: %s\n", data->img_data->wall_texture_paths[3]);
+	printf("north: %s\n", data->img_data->wall_texture_paths[0]);
+	printf("east: %s\n", data->img_data->wall_texture_paths[1]);
+	printf("south: %s\n", data->img_data->wall_texture_paths[2]);
+	printf("west: %s\n", data->img_data->wall_texture_paths[3]);
 	printf("ceiling: %s\n", data->img_data->ceiling->color);
 	printf("\tceiling_RED: %d\n", data->img_data->ceiling->red);
 	printf("\tceiling_GREEN: %d\n", data->img_data->ceiling->green);
