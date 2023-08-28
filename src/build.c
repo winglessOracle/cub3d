@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/28 19:19:13 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/08/28 22:22:25 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ void	put_pixels_main(t_data *data)
 	x = 0;
 	y = 0;
 
-	data->bor_col = pixel_from_texure(data->img_data->wall_textures[0], 0, 0); // remove: tempt o test pixel picker
+//============ remove: tempt to test pixel picker
+	mlx_texture_t *test = mlx_load_png("./textures/test.png");
+	data->bor_col = pixel_from_texure(test, 0, 0);
+//==============
 
 	while (y < data->screen_height)
 	{

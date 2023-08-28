@@ -6,7 +6,7 @@
 #    By: wingessoracle <wingessoracle@student.co      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/06/21 08:27:49 by wingessorac   #+#    #+#                  #
-#    Updated: 2023/08/28 14:25:24 by cwesseli      ########   odam.nl          #
+#    Updated: 2023/08/28 22:31:14 by carlowessel   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,9 +42,10 @@ $(OBJ_FILES): $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 
 
 clean:
+	@echo -e "$(BLUE)Remoning MLX42 build$(RESET)"
+	@rm -rf $(LIBMLX)/build
 	@echo -e "$(BLUE)Remoning OBJ files$(RESET)"
 	@rm -rf $(OBJ_DIR)
-	@rm -rf $(LIBMLX)/build
 	@$(MAKE) -C $(LIBFT) clean
 
 

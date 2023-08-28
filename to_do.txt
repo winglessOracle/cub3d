@@ -1,18 +1,16 @@
-int get_texturergb(char *texture_file, double x, double y) // 0 <= x <= 1, y ook
+fix get pixe (test MLX42 and different coordinate systems)
+check exising .cub and textures 
 
-continous movement
+continous movement (int> double)
 
 get screen resolution and link to minimap and resize screen (1,2) including max screen
-
-
 
 key loop (continues) 
 mouse loop 
 
 seperate build and draw of img_data
 
-check exisitn .cub and textures 
-
 bonus: move bonus functions to seperate files and header and include a macro toggle in header file
 
-minimap boundry conditions
+
+minimap boundry conditions and toggle (m and bonus)
