@@ -6,11 +6,25 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:40:03 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/28 18:45:13 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/08/28 19:21:19 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	argb_to_rgba(int n)
+{
+	int	a;
+	int	r;
+	int	g;
+	int	b;
+
+	a = (n >> 24) & 0xFF;
+	r = (n >> 16) & 0xFF;
+	g = (n >> 8) & 0xFF;
+	b = n & 0xFF;
+	return ((r << 24) | (g << 16) | (b << 8) | a);
+}
 
 int	pixel_from_texure(mlx_texture_t *texture, double x, double y)
 {
@@ -20,13 +34,13 @@ int	pixel_from_texure(mlx_texture_t *texture, double x, double y)
 
 	x_i = (int)(x * texture->width);
 	y_i = (int)(y * texture->height);
-	n_pixel = ((int *)(texture->pixels))[y_i * texture->width + x_i];
-
-	// switch first two to back via bitwise operations. first > 24 (save) then original < 8, then add 
 	printf("xi: %d\n", x_i);	//remove
 	printf("yi: %d\n", y_i);	//remove
-	printf("magic number: %x\n", n_pixel); 													//remove
-	
+
+	n_pixel = ((int *)(texture->pixels))[y_i * texture->width + x_i];
+	printf("magic number before: %x\n", n_pixel); 	//remove
+	n_pixel = argb_to_rgba(n_pixel);
+	printf("magic number after: %x\n", n_pixel); 	//remove
 	return (n_pixel);
 }
 //older prints
