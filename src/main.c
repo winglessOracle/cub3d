@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/19 08:29:28 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/28 15:05:48 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/08/29 09:09:05 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,7 @@ int	main(int argc, char **argv)
 	build_image(data);
 	set_hooks(data);
 	mlx_loop(data->mlx);
+	mlx_terminate(data->mlx);
+	free_all(data);
+	return (EXIT_SUCCESS);
 }

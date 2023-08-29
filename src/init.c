@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/28 17:57:59 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/08/29 09:04:10 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,6 @@ void	init_main_data(t_data *data)
 	data->grid_height = 0;
 	data->screen_width = 1280;
 	data->screen_height = 724;
-	data->border = 15;
-	data->bor_col = get_rgba(50, 50, 50, 255);
 	data->p_xpos = 0;
 	data->p_ypos = 0;
 	data->p_viewdir = 0;
@@ -95,8 +93,8 @@ void	init_minimap(t_data *data)
 	data->mm->o_col = get_rgba(0, 0, 255, 255);
 	data->mm->width = data->screen_width / data->mm->scale;
 	data->mm->height = data->screen_height / data->mm->scale;
-	data->mm->xpos = data->screen_width - data->border - data->mm->width;
-	data->mm->ypos = data->screen_height - data->border - data->mm->height;
+	data->mm->xpos = data->screen_width - data->mm->width;
+	data->mm->ypos = data->screen_height - data->mm->height;
 }
 
 void	init_data(char *input_file, t_data *data)
