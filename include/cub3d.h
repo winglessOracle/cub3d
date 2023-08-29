@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/29 23:22:49 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 23:39:18 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void	build_minimap(t_data *data);
 
 //movement
 void	move_player(double rad, t_data *data);
-void	turn(char c, t_data *data);
+void	turn_player(char c, t_data *data);
 
 //hooks
 void	set_hooks(t_data *data);
@@ -125,7 +125,6 @@ void	test_print_movement(char *str, t_data *data);
 void	build_test_pixel(double x_i, double y_i, t_data *data);
 
 #endif
-
 
 /*
 mlx_load_png: 			load a png texture to the buffer
