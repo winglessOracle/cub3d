@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/29 09:12:19 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 09:22:51 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,7 @@ void	test_print_grid(t_data *data);
 void	test_print_data(t_data *data);
 void	test_print_images(t_data *data);
 void	test_print_movement(char *str, t_data *data);
+void	build_test_pixel(double ix, double iy, t_data *data);
 
 #endif
 

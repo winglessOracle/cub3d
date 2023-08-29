@@ -6,11 +6,37 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 18:50:59 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/28 18:15:12 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/08/29 09:22:26 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	build_test_pixel(double ix, double iy, t_data *data)
+{
+	mlx_texture_t	*test;
+	int				color;
+	int				x;
+	int				y;
+
+	x = 0;
+	y = 0;
+	test = mlx_load_png("./textures/test.png");
+	color = pixel_from_texure(test, ix, iy);
+	while (y < data->screen_height)
+	{
+		while (x < data->screen_width)
+		{
+			if (y < data->screen_height / 4 && x < data->screen_width / 4)
+				mlx_put_pixel(data->img_data->main_screen,
+					x, y, color);
+			x += 1;
+		}
+		x = 0;
+		y += 1;
+	}
+	mlx_put_string(data->mlx, "Test color picker", 30 , 20);
+}
 
 void	test_print_grid(t_data *data)
 {

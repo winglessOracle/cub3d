@@ -6,35 +6,11 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/29 08:55:29 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 09:23:02 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-//============ remove: tempt to test pixel picker
-void	build_test_pixel(t_data *data)
-{
-	mlx_texture_t *test	= mlx_load_png("./textures/test.png");
-	int color 			= pixel_from_texure(test, 0, 0.9);
-	int	x = 0;
-	int	y = 0;
-
-	while (y < data->screen_height)
-	{
-		while (x < data->screen_width)
-		{
-			if (y < data->screen_height / 4 && x < data->screen_width / 4)
-				mlx_put_pixel(data->img_data->main_screen,
-					x, y, color);
-			x += 1;
-		}
-		x = 0;
-		y += 1;
-	}
-	mlx_put_string(data->mlx, "Test color picker", 30 , 20);
-
-}
 
 //for now using ARGB ceiling and floor colors
 void	put_pixels_main(t_data *data)
@@ -109,6 +85,6 @@ void	build_image(t_data *data)
 	mlx_image_to_window(data->mlx, data->img_data->main_screen, 0, 0);
 	build_minimap(data);
 
-	build_test_pixel(data); // remove
+	build_test_pixel(0.9, 0.9, data); // adapt range 0 : 0.99 // remove
 //	test_print_images(data); // remove
 }
