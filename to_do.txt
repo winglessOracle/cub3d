@@ -1,15 +1,12 @@
 fix get pixe (test MLX42 and different coordinate systems)
 
-continous movement (int> double)
-
-get screen resolution and link to minimap and resize screen (1,2) including max screen
-
-key loop (continues) 
-mouse loop 
+set movement delay
+set build image delay
+set minimap delay
 
 seperate build and draw of img_data
+get screen resolution and link to minimap and resize screen (1,2) including max screen
+mouse loop 
 
 bonus: move bonus functions to seperate files and header and include a macro toggle in header file
-
-
-minimap boundry conditions and toggle (m and bonus)
+minimap boundry conditions (and bonus)

@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/29 14:52:23 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 22:47:35 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,8 @@ void	move_w(t_data *data);
 void	move_s(t_data *data);
 void	move_a(t_data *data);
 void	move_d(t_data *data);
-void	move_up(t_data *data);
-void	move_down(t_data *data);
+void	move_forward(t_data *data);
+void	move_backward(t_data *data);
 void	move_right(t_data *data);
 void	move_left(t_data *data);
 void	turn(char c, t_data *data);
