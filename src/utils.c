@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:40:03 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/28 22:16:25 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 09:30:11 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,8 @@ int	pixel_from_texure(mlx_texture_t *texture, double x, double y)
 
 	x_i = (int)(x * texture->width);
 	y_i = (int)(y * texture->height);
-	printf("xi: %d\n", x_i);	//remove
-	printf("yi: %d\n", y_i);	//remove
-
 	n_pixel = ((int *)(texture->pixels))[y_i * texture->width + x_i];
-	printf("magic number before: %x\n", n_pixel); 	//remove
 	n_pixel = argb_to_rgba(n_pixel);
-	printf("magic number after: %x\n", n_pixel); 	//remove
 	return (n_pixel);
 }
 //older prints
