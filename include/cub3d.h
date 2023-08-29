@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/28 22:09:38 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 08:55:41 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,6 @@ typedef struct s_data
 	int				grid_height;
 	int				screen_width;
 	int				screen_height;
-	int				border;
-	int				bor_col;
 	double			p_xpos;
 	double			p_ypos;
 	double			p_viewdir;
@@ -92,7 +90,6 @@ void	free_str_exit(char *str, t_data *data, int error);
 void	flood_fill(int x, int y, char **grid, t_data *data);
 int		check_params(int argc, char **argv);
 int		pixel_from_texure(mlx_texture_t *texture, double x, double y);
-
 
 //grid_functions
 char	**generate_grid(char *input_file);
@@ -130,6 +127,7 @@ void	test_print_images(t_data *data);
 void	test_print_movement(char *str, t_data *data);
 
 #endif
+
 
 /*
 mlx_load_png: 			load a png texture to the buffer
