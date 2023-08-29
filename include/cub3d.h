@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/29 14:35:37 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 14:49:19 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ typedef struct s_data
 	int				ceiling_height;	
 	int				view_plane_dist;
 	int				toggle_mm;
+	double			move_increment;
 }	t_data;
 
 //init

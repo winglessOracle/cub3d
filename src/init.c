@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/29 14:32:17 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 14:50:13 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void	init_main_data(t_data *data)
 	data->floor_height = 0;
 	data->ceiling_height = 100;
 	data->view_plane_dist = 10;
+	data->move_increment = 0.2;
 }
 
 /* set scale and rgb colors for minimap below.
