@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:43:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/29 23:02:13 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 23:22:09 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	ft_key_hook(void *param)
 
 	data = param;
 	if (mlx_is_key_down(data->mlx, MLX_KEY_W))
-		move_forward(data);
+		move_player(data->p_viewdir, data);
 	if (mlx_is_key_down(data->mlx, MLX_KEY_S))
-		move_backward(data);
+		move_player(data->p_viewdir + M_PI, data);
 	if (mlx_is_key_down(data->mlx, MLX_KEY_A))
-		move_left(data);
+		move_player(data->p_viewdir + M_PI_2, data);
 	if (mlx_is_key_down(data->mlx, MLX_KEY_D))
-		move_right(data);
+		move_player(data->p_viewdir - M_PI_2, data);
 	if (mlx_is_key_down(data->mlx, MLX_KEY_LEFT))
 		turn('L', data);
 	if (mlx_is_key_down(data->mlx, MLX_KEY_RIGHT))
