@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:40:03 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/29 09:30:11 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 10:37:30 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,12 @@ int	pixel_from_texure(mlx_texture_t *texture, double x, double y)
 	int	y_i;
 	int	n_pixel;
 
-	x_i = (int)(x * texture->width);
 	y_i = (int)(y * texture->height);
+	x_i = (int)(x * texture->width);
 	n_pixel = ((int *)(texture->pixels))[y_i * texture->width + x_i];
-	n_pixel = argb_to_rgba(n_pixel);
-	return (n_pixel);
+	printf("\npixel from texture:\nx: %d\ny: %d\n", x_i, y_i); // remove
+	return (argb_to_rgba(n_pixel));
 }
-//older prints
-	//printf("magic number: %x\n", ((int *)(texture->pixels))[y_i * texture->width + x_i]);		//remove
-	// printf("magic number 0: %u\n", (unsigned int)(n_pixel));
-	// unsigned int colornr = (unsigned int)(n_pixel);
-	// printf("magic number unsigned: %u\n", colornr);		//remove
-	// printf("magic number first byte: %u\n", colornr < 24); 
-	// printf("magic number: %d\n", ((int *)(texture->pixels))[y_i * texture->width + x_i]);	//remove
 
 void	flood_fill(int x, int y, char **grid, t_data *data)
 {

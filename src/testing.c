@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 18:50:59 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/29 09:27:05 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 10:30:32 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,7 @@ void	build_test_pixel(double x_i, double y_i, t_data *data)
 		x = 0;
 		y += 1;
 	}
-	printf("x_i: %f\n", x_i);
-	printf("y_i: %f\n", y_i);
+	printf("test_pixel:\nx fragment: %f\ny fragment: %f\n", x_i, y_i);
 	mlx_put_string(data->mlx, "Test color picker", 30, 20);
 }
 

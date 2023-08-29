@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/29 09:23:02 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 10:38:02 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	put_pixels_mini(t_data *data)
 
 void	build_minimap(t_data *data)
 {
-	printf("\nMap_width=%d\nMap_height=%d\n", data->mm->width, data->mm->height); // remove
+	//printf("\nmini map_width=%d\nmini map_height=%d\n", data->mm->width, data->mm->height); // remove
 	if (data->mm->height < 100 || data->mm->width < 200)
 		return ;
 	data->img_data->mini_map
@@ -85,6 +85,6 @@ void	build_image(t_data *data)
 	mlx_image_to_window(data->mlx, data->img_data->main_screen, 0, 0);
 	build_minimap(data);
 
-	build_test_pixel(0.9, 0.9, data); // adapt range 0 : 0.99 // remove
+	build_test_pixel(0, 0.9, data); // adapt range 0 : 0.99 // remove
 //	test_print_images(data); // remove
 }
