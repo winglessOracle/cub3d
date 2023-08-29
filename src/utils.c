@@ -6,11 +6,21 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:40:03 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/29 13:44:49 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 14:37:13 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	toggle_mm(t_data *data)
+{
+	if (data->toggle_mm == 1)
+		data->toggle_mm = 0;
+	else
+		data->toggle_mm = 1;
+	build_image(data);
+}
+
 
 int	argb_to_rgba(int n)
 {

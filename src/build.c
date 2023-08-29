@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/29 13:58:41 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 14:43:22 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ void	put_pixels_mini(t_data *data)
 
 void	build_minimap(t_data *data)
 {
-	//printf("\nmini map_width=%d\nmini map_height=%d\n", data->mm->width, data->mm->height); // remove
+	if (data->toggle_mm)
+		return ;
 	if (data->mm->height < 100 || data->mm->width < 200)
 		return ;
 	data->img_data->mini_map

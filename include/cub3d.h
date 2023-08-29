@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/29 09:26:24 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 14:35:37 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ typedef struct s_data
 	int				floor_height;
 	int				ceiling_height;	
 	int				view_plane_dist;
+	int				toggle_mm;
 }	t_data;
 
 //init
@@ -90,6 +91,7 @@ void	free_str_exit(char *str, t_data *data, int error);
 void	flood_fill(int x, int y, char **grid, t_data *data);
 int		check_params(int argc, char **argv);
 int		pixel_from_texure(mlx_texture_t *texture, double x, double y);
+void	toggle_mm(t_data *data);
 
 //grid_functions
 char	**generate_grid(char *input_file);
