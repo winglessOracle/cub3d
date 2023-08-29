@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 14:33:39 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/28 11:37:25 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 14:02:01 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,10 @@ char	**generate_grid(char *input_file)
 
 	fd = open(input_file, O_RDONLY);
 	if (fd < 0)
+	{
+		printf("ERROR: opening input file");
 		return (NULL);
+	}
 	joined_lines = grid_helper(fd);
 	ret = ft_split(joined_lines, '\n');
 	free(joined_lines);

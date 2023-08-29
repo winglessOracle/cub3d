@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:52:40 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/28 12:13:12 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 13:46:03 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	move_up(t_data *data)
 {
 	if (check_valid_move(data->p_ypos - 1, data->p_xpos, data->grid))
 	{
-		data->p_ypos -= 1;
+		data->p_ypos -= 0.1;
 		test_print_movement("MOVE UP", data); // remove
 		build_image(data);
 	}
@@ -33,7 +33,7 @@ void	move_down(t_data *data)
 {
 	if (check_valid_move(data->p_ypos + 1, data->p_xpos, data->grid))
 	{
-		data->p_ypos += 1;
+		data->p_ypos += 0.1;
 		test_print_movement("MOVE DOWN", data); // remove
 		build_image(data);
 	}
@@ -43,7 +43,7 @@ void	move_right(t_data *data)
 {
 	if (check_valid_move(data->p_ypos, data->p_xpos + 1, data->grid))
 	{
-		data->p_xpos += 1;
+		data->p_xpos += 0.1;
 		test_print_movement("MOVE RIGHT", data); // remove
 		build_image(data);
 	}
@@ -53,7 +53,7 @@ void	move_left(t_data *data)
 {
 	if (check_valid_move(data->p_ypos, data->p_xpos - 1, data->grid))
 	{
-		data->p_xpos -= 1;
+		data->p_xpos -= 0.1;
 		test_print_movement("MOVE LEFT", data); // remove
 		build_image(data);
 	}

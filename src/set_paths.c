@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 13:20:36 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/28 15:15:28 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/08/29 14:09:09 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	load_north(char *line, t_data *data)
 		data->img_data->wall_texture_paths[0] = ft_substr(line, start, size);
 		data->img_data->wall_textures[0]
 			= mlx_load_png(data->img_data->wall_texture_paths[0]);
+		if (!data->img_data->wall_textures[0])
+			free_str_exit("loading texture", data, 7);
 	}
 }
 
@@ -49,6 +51,8 @@ void	load_east(char *line, t_data *data)
 		data->img_data->wall_texture_paths[1] = ft_substr(line, start, size);
 		data->img_data->wall_textures[1]
 			= mlx_load_png(data->img_data->wall_texture_paths[1]);
+		if (!data->img_data->wall_textures[1])
+			free_str_exit("loading texture", data, 7);
 	}
 }
 
@@ -69,6 +73,8 @@ void	load_south(char *line, t_data *data)
 		data->img_data->wall_texture_paths[2] = ft_substr(line, start, size);
 		data->img_data->wall_textures[2]
 			= mlx_load_png(data->img_data->wall_texture_paths[2]);
+		if (!data->img_data->wall_textures[2])
+			free_str_exit("loading texture", data, 7);
 	}
 }
 
@@ -89,8 +95,11 @@ void	load_west(char *line, t_data *data)
 		data->img_data->wall_texture_paths[3] = ft_substr(line, start, size);
 		data->img_data->wall_textures[3]
 			= mlx_load_png(data->img_data->wall_texture_paths[3]);
+		if (!data->img_data->wall_textures[3])
+			free_str_exit("loading texture", data, 7);
 	}
 }
+
 
 void	parse_file_paths(char *file, t_data *data)
 {
@@ -100,7 +109,7 @@ void	parse_file_paths(char *file, t_data *data)
 	line = "";
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		free_str_exit("parseing file", data, 9);
+		free_str_exit("parseing file:\nopening file", data, 9);
 	while (line)
 	{
 		line = get_next_line(fd);

@@ -1,5 +1,4 @@
 fix get pixe (test MLX42 and different coordinate systems)
-check exising .cub and textures 
 
 continous movement (int> double)
 

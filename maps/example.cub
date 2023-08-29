@@ -1,7 +1,7 @@
-NO ./textures/testwall.png  
-SO ./textures/testwall2.png
-WE ./textures/testwall3.png 
-EA ./textures/testwall4.png 		
+NO ./textures/North.png  
+SO ./textures/South.png
+WE ./textures/West.png 
+EA ./textures/East.png 		
 
 F 0,255,0 
 C 0,0,255

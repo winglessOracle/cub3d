@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/29 13:31:41 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 13:58:41 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,10 @@ void	put_pixels_mini(t_data *data)
 			grid_x = x * data->grid_width / data->mm->width;
 			grid_y = y * data->grid_height / data->mm->height;
 			mlx_put_pixel(data->img_data->mini_map, x, y, data->mm->o_col);
-			if (data->grid[grid_y][grid_x] == '1')
+			if ((data->grid[grid_y][grid_x]) == '1')
 				mlx_put_pixel(data->img_data->mini_map, x, y, data->mm->w_col);
-			if (grid_y == data->p_ypos && grid_x == data->p_xpos)
+			if (grid_y == (int)round(data->p_ypos) && grid_x
+				== (int)round(data->p_xpos))
 				mlx_put_pixel(data->img_data->mini_map, x, y, data->mm->p_col);
 			x += 1;
 		}
