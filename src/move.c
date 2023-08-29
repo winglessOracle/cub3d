@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:52:40 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/29 14:48:54 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 14:52:43 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void	move_left(t_data *data)
 void	turn(char c, t_data *data)
 {
 	if (c == 'L')
-		data->p_viewdir -= M_PI_2;
+		data->p_viewdir -= data->turn_increment;
 	if (c == 'R')
-		data->p_viewdir += M_PI_2;
+		data->p_viewdir += data->turn_increment;
 	if (data->p_viewdir < 0)
 		data->p_viewdir += 2 * M_PI;
 	else if (data->p_viewdir >= 2 * M_PI)
