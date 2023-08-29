@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/29 09:33:00 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/29 13:40:38 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	init_img_data(t_data *data)
 		= mlx_init(data->screen_width, data->screen_height, "cub3d", false);
 	if (!data->mlx)
 		free_str_exit("initializing MLX", data, 3);
-	mlx_set_window_pos(data->mlx, 40, 80);
+	mlx_set_window_pos(data->mlx, 800, 1000);
 	data->img_data->wall_texture_paths[4] = NULL;
 	data->img_data->wall_textures[4] = NULL;
 	data->img_data->ceiling->color = "default_blue";
