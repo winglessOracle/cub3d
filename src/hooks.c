@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:43:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/30 09:44:19 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/30 09:50:08 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,8 @@ void	ft_key_hook(void *param)
 		turn_player('L', data);
 	if (mlx_is_key_down(data->mlx, MLX_KEY_RIGHT))
 		turn_player('R', data);
-	//if (mlx_is_key_down(data->mlx, MLX_KEY_SPACE))
-	// 	restart_map;
 	build_minimap(data);
 }
-
 
 void	key_hook(mlx_key_data_t keydata, void *param)
 {

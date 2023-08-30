@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:40:03 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/29 23:38:47 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/30 09:52:44 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	toggle_mm(t_data *data)
 		data->toggle_mm = 1;
 	build_image(data);
 }
-
 
 int	argb_to_rgba(int n)
 {
