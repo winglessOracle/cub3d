@@ -1,6 +1,5 @@
 fix get pixe (test MLX42 and different coordinate systems)
 
-fix movment in x axis
 set movement delay
 set build image delay
 set minimap delay
