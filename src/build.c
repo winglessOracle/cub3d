@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/29 21:25:23 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/08/31 13:13:58 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	put_pixels_main(t_data *data)
 
 	x = 0;
 	y = 0;
-
 	while (y < data->screen_height)
 	{
 		while (x < data->screen_width)
@@ -87,6 +86,6 @@ void	build_image(t_data *data)
 	mlx_image_to_window(data->mlx, data->img_data->main_screen, 0, 0);
 	build_minimap(data);
 
-	build_test_pixel(0, 0, data); //remove
+	test_get_pixel(0, 0, data); //remove
 //	test_print_images(data); // remove
 }

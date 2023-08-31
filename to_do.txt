@@ -1,4 +1,5 @@
-fix get pixe (test MLX42 and different coordinate systems)
+fix get pixel (test MLX42 and different coordinate systems)
+fix segfault @CODAM
 
 set movement delay
 set build image delay
