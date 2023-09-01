@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/31 13:12:19 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/01 15:37:53 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void	malloc_structs(t_data *data)
 	data->img_data->floor = malloc(sizeof(t_color));
 	if (!data->img_data->floor)
 		free_str_exit("allocating structs", data, 3);
-	data->img_data->wall_texture_paths = malloc(sizeof(char *) * 5);
+	data->img_data->wall_texture_paths = ft_calloc(5, sizeof(char *));
 	if (!data->img_data->wall_texture_paths)
 		free_str_exit("allocating structs", data, 3);
-	data->img_data->wall_textures = malloc(sizeof(mlx_texture_t *) * 5);
+	data->img_data->wall_textures = ft_calloc(5, sizeof(mlx_texture_t *));
 	if (!data->img_data->wall_textures)
 		free_str_exit("allocating structs", data, 3);
 // move to bonus
@@ -45,8 +45,8 @@ void	init_img_data(t_data *data)
 	if (!data->mlx)
 		free_str_exit("initializing MLX", data, 3);
 	mlx_set_window_pos(data->mlx, 800, 1000); //reset for codam
-	data->img_data->wall_texture_paths[4] = NULL;
-	data->img_data->wall_textures[4] = NULL;
+	// data->img_data->wall_texture_paths[4] = NULL;
+	// data->img_data->wall_textures[4] = NULL;
 	data->img_data->ceiling->color = "default_blue";
 	data->img_data->ceiling->red = 0;
 	data->img_data->ceiling->green = 0;

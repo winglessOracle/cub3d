@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:40:03 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/01 11:46:05 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/01 15:44:21 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,19 +74,4 @@ void	flood_fill(int x, int y, char **grid, t_data *data)
 		flood_fill(x, y + 1, grid, data);
 		flood_fill(x, y - 1, grid, data);
 	}
-}
-
-int	check_params(int argc, char **argv)
-{
-	if (argc != 2)
-	{
-		printf("\n%sinvallid number of arguments. required: 1\n", RED);
-		return (1);
-	}
-	if (ft_check_extention(argv[1], "cub"))
-	{
-		printf("\n%sinvallid extention. required: '.cub'\n", RED);
-		return (1);
-	}
-	return (0);
 }

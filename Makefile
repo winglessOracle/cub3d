@@ -6,7 +6,7 @@
 #    By: wingessoracle <wingessoracle@student.co      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/06/21 08:27:49 by wingessorac   #+#    #+#                  #
-#    Updated: 2023/08/29 23:05:40 by carlowessel   ########   odam.nl          #
+#    Updated: 2023/09/01 15:41:57 by cwesseli      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ include common.mk
 TARGET	 		:=	cub3d
 
 OBJ_FILES		:=	$(addprefix obj/, main.o init.o utils.o generate_grid.o grid_functions.o \
-					set_paths.o hooks.o move.o set_colors.o build.o cleanup.o testing.o)
+					set_paths.o hooks.o move.o set_colors.o build.o checks.o cleanup.o testing.o)
 
 # OBJ_FILES_BONUS	:=	$(addprefix obj/, test.o)
 

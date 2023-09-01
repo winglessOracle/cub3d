@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/31 13:14:13 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/01 15:43:44 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,6 @@ void	free_all(t_data *data);
 int		free_exit(t_data *data, int n);
 void	free_str_exit(char *str, t_data *data, int error);
 void	flood_fill(int x, int y, char **grid, t_data *data);
-int		check_params(int argc, char **argv);
 int		pixel_from_texure(mlx_texture_t *texture, double x, double y);
 void	toggle_mm(t_data *data);
 
@@ -116,6 +115,10 @@ void	turn_player(char c, t_data *data);
 
 //hooks
 void	set_hooks(t_data *data);
+
+//checks
+int		check_params(int argc, char **argv);
+void	check_textures(t_data *data);
 
 //testing
 void	test_print_grid(t_data *data);
