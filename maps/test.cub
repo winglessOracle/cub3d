@@ -1,3 +1,8 @@
+NO ./textures/North.png  
+SO ./textures/South.png
+WE ./textures/West.png 
+EA ./textures/East.png 		
+
 111111
 1S0001
 100001
