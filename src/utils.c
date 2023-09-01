@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:40:03 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/08/31 20:31:05 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/01 11:46:05 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,31 +21,17 @@ void	toggle_mm(t_data *data)
 	build_image(data);
 }
 
-int	revers_abgr(int n)
+unsigned int	convert_to_rgba(int n)
 {
-	int	a;
-	int	b;
-	int	g;
-	int	r;
+	unsigned int	a;
+	unsigned int	b;
+	unsigned int	g;
+	unsigned int	r;
 
 	a = (n >> 24) & 0xFF;
 	b = (n >> 16) & 0xFF;
 	g = (n >> 8) & 0xFF;
 	r = n & 0xFF;
-	return ((a << 24) | (r << 16) | (g << 8) | b);
-}
-
-int	argb_to_rgba(int n) //make unsigned 
-{
-	int	a;
-	int	r;
-	int	g;
-	int	b;
-
-	a = (n >> 24) & 0xFF;
-	r = (n >> 16) & 0xFF;
-	g = (n >> 8) & 0xFF;
-	b = n & 0xFF;
 	return ((r << 24) | (g << 16) | (b << 8) | a);
 }
 
@@ -56,35 +42,18 @@ int	pixel_from_texure(mlx_texture_t *texture, double y, double x)
 	int	n_pixel;
 
 	x = 0; // for testing remove 
-	y = 0.999; // for testing remove
+	y = 0.99; // for testing remove
 
 	y_i = (int)(y * texture->height);
 	x_i = (int)(x * texture->width);
-
 	n_pixel = ((int *)(texture->pixels))[y_i * texture->width + x_i];
-
-// test_grey
-// A1B1C1
-// rgb(161, 177, 193)
-
-// test_blue
-// 1A66E8
-// rgb(26, 102, 232)
-
-//output is in reverse order abgr
-
-	printf("\ntexture width = %d\ntexture height = %d\n", texture->width, texture->height); // remove
-	printf("\npixel no we are looking at based on screen dimensions and factors:\nx: %d\ny: %d\n", x_i, y_i); // remove
-	printf("\ninput factors:\nx: %f\ny: %f\n", x, y);
-
-	printf("\nn_pixel start: %06X", n_pixel); // remove
-
-	n_pixel = revers_abgr(n_pixel);
-	printf("\nn_pixel reversed: %06X", n_pixel); // remove
-
-	n_pixel = argb_to_rgba(n_pixel);
-	printf("\nn_pixel converted: %06X", n_pixel); // remove
-
+	// output is in reverse order abgr
+	// printf("\ntexture width = %d\ntexture height = %d\n", texture->width, texture->height);
+	// printf("\npixel no we are looking at based on screen dimensions and factors:\nx: %d\ny: %d\n", x_i, y_i);
+	// printf("\ninput factors:\nx: %f\ny: %f\n", x, y);
+	// printf("\nn_pixel color from texture: %06X", n_pixel); // remove
+	n_pixel = convert_to_rgba(n_pixel);
+	// printf("\nn_pixel color converted: %06X", n_pixel); // remove
 	return (n_pixel);
 }
 

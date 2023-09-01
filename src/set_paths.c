@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 13:20:36 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/29 14:09:09 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/01 11:41:17 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ void	load_west(char *line, t_data *data)
 			free_str_exit("loading texture", data, 7);
 	}
 }
-
 
 void	parse_file_paths(char *file, t_data *data)
 {

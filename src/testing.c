@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 18:50:59 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/31 20:24:43 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/01 11:43:07 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,19 @@ void	test_print_data(t_data *data)
 
 void	test_print_images(t_data *data)
 {
-	mlx_image_t	*test_wall	= mlx_texture_to_image(data->mlx, data->img_data->wall_textures[0]);
-	mlx_image_t	*test_wall2	= mlx_texture_to_image(data->mlx, data->img_data->wall_textures[1]);
-	mlx_image_t	*test_wall3	= mlx_texture_to_image(data->mlx, data->img_data->wall_textures[2]);
-	mlx_image_t	*test_wall4	= mlx_texture_to_image(data->mlx, data->img_data->wall_textures[3]);
+	mlx_image_t	*test_wall;
+	mlx_image_t	*test_wall2;
+	mlx_image_t	*test_wall3;
+	mlx_image_t	*test_wall4;
+
+	test_wall = mlx_texture_to_image(data->mlx,
+			data->img_data->wall_textures[0]);
+	test_wall2 = mlx_texture_to_image(data->mlx,
+			data->img_data->wall_textures[1]);
+	test_wall3 = mlx_texture_to_image(data->mlx,
+			data->img_data->wall_textures[2]);
+	test_wall4 = mlx_texture_to_image(data->mlx,
+			data->img_data->wall_textures[3]);
 	mlx_image_to_window(data->mlx, test_wall, 0, 300);
 	mlx_image_to_window(data->mlx, test_wall2, 200, 300);
 	mlx_image_to_window(data->mlx, test_wall3, 400, 300);

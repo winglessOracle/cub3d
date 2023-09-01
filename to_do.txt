@@ -1,6 +1,3 @@
-fix get pixel (test MLX42 and different coordinate systems)
-fix segfault @CODAM
-
 set movement delay
 set build image delay
 set minimap delay
@@ -11,3 +8,14 @@ mouse loop
 
 bonus: move bonus functions to seperate files and header and include a macro toggle in header file
 minimap boundry conditions (and bonus)
+
+
+
+
+test_grey
+A1B1C1
+rgb(161, 177, 193)
+
+test_blue
+1A66E8
+rgb(26, 102, 232)
