@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/04 11:34:45 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/04 15:08:37 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,20 @@ typedef struct s_check_data
 	char			*start_char;
 }	t_check_data;
 
+/***
+ * @param distance			distance between view point, and bounce point
+ * @param x					x coordinate of wall block
+ * @param y					y coordinate of wall block
+ * @param bounce_position 	the relative postion on the texture [0, 1)
+*/
+typedef struct s_bounce
+{
+	double			distance;
+	int				x;
+	int				y;
+	double			bounce_position;
+}	t_bounce;
+
 typedef struct s_data
 {
 	t_check_data	*check_data;
@@ -76,7 +90,6 @@ typedef struct s_data
 	double			p_viewdir;
 	int				floor_height;
 	int				ceiling_height;	
-	int				view_plane_dist;
 	int				toggle_mm;
 	double			move_increment;
 	double			turn_increment;
@@ -121,7 +134,8 @@ int		check_params(int argc, char **argv);
 void	check_textures(t_data *data);
 
 //raycasting
-bool	is_wall(int x, int y, t_data *data);
+bool		is_wall(int x, int y, t_data *data);
+t_bounce	*get_horizontal_bounce(t_data *data, double viewdir);
 
 //testing
 void	test_print_grid(t_data *data);

@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/01 15:49:50 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/04 15:08:44 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ void	init_main_data(t_data *data)
 	data->p_viewdir = 0;
 	data->floor_height = 0;
 	data->ceiling_height = 100;
-	data->view_plane_dist = 10;
 	data->move_increment = 0.3;
 	data->turn_increment = M_PI_2; //change later
 }
@@ -110,5 +109,5 @@ void	init_data(char *input_file, t_data *data)
 	analyze_grid(data);
 	square_grid(data);
 	init_minimap(data);
-	test_print_grid(data); // remove
+	// test_print_grid(data); // remove
 }
