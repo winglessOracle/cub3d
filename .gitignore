@@ -1,0 +1,6 @@
+cub3d
+/obj/*
+*.o
+*.a
+.DS_Store
+libraries/MLX42/build/
