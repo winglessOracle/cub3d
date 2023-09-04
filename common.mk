@@ -6,14 +6,14 @@
 #    By: cwesseli <cwesseli@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/19 17:26:03 by cwesseli      #+#    #+#                  #
-#    Updated: 2023/08/28 14:25:02 by cwesseli      ########   odam.nl          #
+#    Updated: 2023/09/04 14:45:45 by cherrewi      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 # **********FLAGS************************************************************* #
 
 CC		 	?=	gcc
-CFLAGS	 	?=	-Wall -Wextra -Werror
+CFLAGS	 	?=	-Wall -Wextra -Werror -g
 LDFLAGS	 	?=	$(CFLAGS)
 
 # **********SYSTEM SPECS MLX*************************************************** #
