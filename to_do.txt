@@ -19,3 +19,6 @@ rgb(161, 177, 193)
 test_blue
 1A66E8
 rgb(26, 102, 232)
+
+
+check all error msg numbers

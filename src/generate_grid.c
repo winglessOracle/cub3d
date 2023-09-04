@@ -6,13 +6,13 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 14:33:39 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/29 14:02:01 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/04 12:18:08 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-bool	find_start_grid(char *line)
+int	find_start_grid(char *line)
 {
 	int	i;
 
@@ -20,8 +20,8 @@ bool	find_start_grid(char *line)
 	while (ft_isspace(line[i]))
 		i++;
 	if (line[i] == '1' || line[i] == '0')
-		return (true);
-	return (false);
+		return (1);
+	return (0);
 }
 
 void	square_grid(t_data *data)
@@ -36,7 +36,7 @@ void	square_grid(t_data *data)
 		delta = data->grid_width - ft_strlen(data->grid[y]);
 		while (delta != 0)
 		{
-			data->grid[y] = ft_strjoin_free(data->grid[y], "0");
+			data->grid[y] = ft_strjoin_free(data->grid[y], " ");
 			delta--;
 		}
 		y++;
@@ -47,25 +47,28 @@ char	*grid_helper(int fd)
 {
 	char	*line;
 	char	*joined_lines;
-	bool	start_grid;
+	int		start_grid;
 
-	line = "";
-	joined_lines = ft_strdup("");
-	start_grid = false;
+	line = get_next_line(fd);
+	joined_lines = NULL;
+	start_grid = 0;
 	while (line)
 	{
-		line = get_next_line(fd);
-		if (!start_grid)
+		if (start_grid == 0)
 			start_grid = find_start_grid(line);
-		if (start_grid)
+		if (start_grid == 1)
 		{
 			if (line == NULL || line[0] == '\n')
 				break ;
-			joined_lines = ft_strjoin_free(joined_lines, line);
+			if (joined_lines == NULL)
+				joined_lines = ft_strdup(line);
+			else
+				joined_lines = ft_strjoin_free(joined_lines, line);
 		}
+		line = get_next_line(fd);
 	}
 	close (fd);
-	if (joined_lines[0] == '\0' || joined_lines[0] == '\n')
+	if (joined_lines == NULL || joined_lines[0] == '\0' || joined_lines[0] == '\n')
 		return (free(joined_lines), NULL);
 	return (joined_lines);
 }
@@ -83,6 +86,8 @@ char	**generate_grid(char *input_file)
 		return (NULL);
 	}
 	joined_lines = grid_helper(fd);
+	if (joined_lines == NULL)
+		return (NULL);
 	ret = ft_split(joined_lines, '\n');
 	free(joined_lines);
 	return (ret);

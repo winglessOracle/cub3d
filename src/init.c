@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/01 15:49:50 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/04 11:02:22 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	init_check_data(t_data *data)
 	data->check_data->start_pos = 0;
 	data->check_data->valid_char = "01NESW ";
 	data->check_data->start_char = "NESW";
+	data->check_data->textures_loaded = 0;
+	data->check_data->colors_loaded = 0;
 }
 
 void	init_main_data(t_data *data)
@@ -106,7 +108,7 @@ void	init_data(char *input_file, t_data *data)
 	parse_file_paths(input_file, data);
 	data->grid = generate_grid(input_file);
 	if (!data->grid)
-		free_str_exit("generating grid", data, 3);
+		free_str_exit("generating grid from input file", data, 3);
 	analyze_grid(data);
 	square_grid(data);
 	init_minimap(data);

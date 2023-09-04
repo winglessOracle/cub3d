@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/01 15:43:44 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/04 10:53:00 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ typedef struct s_check_data
 	int				start_pos;
 	char			*valid_char;
 	char			*start_char;
+	int				textures_loaded;
+	int				colors_loaded;
 }	t_check_data;
 
 typedef struct s_data
@@ -118,7 +120,7 @@ void	set_hooks(t_data *data);
 
 //checks
 int		check_params(int argc, char **argv);
-void	check_textures(t_data *data);
+void	check_input_data(t_data *data);
 
 //testing
 void	test_print_grid(t_data *data);

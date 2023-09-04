@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 13:20:36 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/01 15:41:28 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/04 11:21:53 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,14 @@ void	load_north(char *line, t_data *data)
 		while (line[start + size] && !ft_isspace(line[start + size]))
 			size++;
 		data->img_data->wall_texture_paths[0] = ft_substr(line, start, size);
+		if (ft_check_extention(data->img_data->wall_texture_paths[0], "png"))
+			free_str_exit("wrong file format for textures. expected '.PNG'",
+				data, 7);
 		data->img_data->wall_textures[0]
 			= mlx_load_png(data->img_data->wall_texture_paths[0]);
 		if (!data->img_data->wall_textures[0])
 			free_str_exit("loading texture", data, 7);
+		data->check_data->textures_loaded += 1;
 	}
 }
 
@@ -49,10 +53,14 @@ void	load_east(char *line, t_data *data)
 		while (line[start + size] && !ft_isspace(line[start + size]))
 			size++;
 		data->img_data->wall_texture_paths[1] = ft_substr(line, start, size);
+		if (ft_check_extention(data->img_data->wall_texture_paths[0], "png"))
+			free_str_exit("wrong file format for textures. expected '.PNG'",
+				data, 7);
 		data->img_data->wall_textures[1]
 			= mlx_load_png(data->img_data->wall_texture_paths[1]);
 		if (!data->img_data->wall_textures[1])
 			free_str_exit("loading texture", data, 7);
+		data->check_data->textures_loaded += 1;
 	}
 }
 
@@ -71,10 +79,14 @@ void	load_south(char *line, t_data *data)
 		while (line[start + size] && !ft_isspace(line[start + size]))
 			size++;
 		data->img_data->wall_texture_paths[2] = ft_substr(line, start, size);
+		if (ft_check_extention(data->img_data->wall_texture_paths[0], "png"))
+			free_str_exit("wrong file format for textures. expected '.PNG'",
+				data, 7);
 		data->img_data->wall_textures[2]
 			= mlx_load_png(data->img_data->wall_texture_paths[2]);
 		if (!data->img_data->wall_textures[2])
 			free_str_exit("loading texture", data, 7);
+		data->check_data->textures_loaded += 1;
 	}
 }
 
@@ -93,10 +105,14 @@ void	load_west(char *line, t_data *data)
 		while (line[start + size] && !ft_isspace(line[start + size]))
 			size++;
 		data->img_data->wall_texture_paths[3] = ft_substr(line, start, size);
+		if (ft_check_extention(data->img_data->wall_texture_paths[0], "png"))
+			free_str_exit("wrong file format for textures. expected '.PNG'",
+				data, 7);
 		data->img_data->wall_textures[3]
 			= mlx_load_png(data->img_data->wall_texture_paths[3]);
 		if (!data->img_data->wall_textures[3])
 			free_str_exit("loading texture", data, 7);
+		data->check_data->textures_loaded += 1;
 	}
 }
 
@@ -123,5 +139,5 @@ void	parse_file_paths(char *file, t_data *data)
 		free (line);
 	}
 	close(fd);
-	check_textures(data);
+	check_input_data(data);
 }
