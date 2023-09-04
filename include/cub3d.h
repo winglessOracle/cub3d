@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/01 15:43:44 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/04 11:34:45 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,9 @@ void	set_hooks(t_data *data);
 //checks
 int		check_params(int argc, char **argv);
 void	check_textures(t_data *data);
+
+//raycasting
+bool	is_wall(int x, int y, t_data *data);
 
 //testing
 void	test_print_grid(t_data *data);
