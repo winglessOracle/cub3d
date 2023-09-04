@@ -6,11 +6,22 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/04 10:41:59 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/09/04 15:06:07 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/04 17:12:41 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+// viewdirection 0, means looking down (south); viewdir is counter clockwise
+bool	check_looking_up(double viewdir)
+{
+	return (viewdir > M_PI_2 && viewdir < M_PI_2 + M_PI);
+}
+
+bool	check_looking_left(double viewdir)
+{
+	return (viewdir > M_PI);
+}
 
 bool	is_wall(int x, int y, t_data *data)
 {
@@ -27,42 +38,30 @@ bool	is_wall(int x, int y, t_data *data)
 t_bounce *get_horizontal_bounce(t_data *data, double viewdir)
 {
 	t_bounce	*bounce;
-	double		hor_growth;
-	double		vert_growth;
-	double		temp_f;
+	double		d_y;
+	double		d_x;
 
 	bounce = malloc(sizeof(t_bounce));
 	if (bounce == NULL)
 		return (NULL);
-
-	hor_growth = cos(viewdir);
-	vert_growth = sin(viewdir);
-
-	if (hor_growth > -0.001 && hor_growth < 0.001)
-	{
-		puts("no horizontal growth");
+	if (cos(viewdir) > -0.001 && cos(viewdir) < 0.001)
 		return (NULL);  // no horizontal bounce, because view is vertically
-	}
-	
-	bounce->y = (int)(data->p_ypos) - 1;  // assumption: looking up
+	bounce->y = (int)(data->p_ypos) + 1 - 2 * check_looking_up(viewdir);
 	while (bounce->y >= 0 && bounce->y < data->grid_height)
 	{
-		printf("loop\n");
-		// assumption: looking up
-		bounce->bounce_position = modf(data->p_xpos, &temp_f) + tan(viewdir) * (data->p_ypos - (bounce->y + 1)); // assumption: looking up
-		printf("modf(data->p_xpos, &temp_f): %lf\n", modf(data->p_xpos, &temp_f)); // 0.3
-		printf("temp_f: %lf\n", temp_f);					// 1.0000
-		printf("tan(viewdir): %lf\n", tan(viewdir));		// 1
-		printf("data->p_ypos: %lf\n", data->p_ypos);		// 1.2
-		printf("bounce->y: %d\n", bounce->y);				// 0
-
-		bounce->x =(int)temp_f;
+		d_y = (bounce->y + check_looking_up(viewdir)) - data->p_ypos;
+		d_x = d_y * tan(viewdir);
+		bounce->bounce_position = fmod(data->p_xpos + d_x, 1);
+		bounce->x = (int)(data->p_xpos + d_x);
 		if (is_wall(bounce->x, bounce->y, data))
 		{
-			bounce->distance = (data->p_ypos - (bounce->y + 1)) / cos(viewdir); // assumption: looking up
+			bounce->distance = sqrt(d_x * d_x + d_y * d_y);
 			break;
 		}
-		bounce->y -= 1;  // assumption: looking up
+		if (check_looking_up(viewdir))
+			bounce->y -= 1;
+		else
+			bounce->y += 1;
 	}
 	return (bounce);
 }

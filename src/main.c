@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/19 08:29:28 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/04 15:10:07 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/04 17:13:12 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,16 @@ int	main(int argc, char **argv)
 	data->p_ypos = 1.2;
 	test_print_grid(data); // remove
 
-	// get_horizontal_bounce(data, M_PI_2);  // look east
 	t_bounce *bounce;
-	bounce = get_horizontal_bounce(data, M_PI_4);  // look norht-east
-	printf("distance: %lf\n", bounce->distance);	// 0.2828
-	printf("x: %d\n", bounce->x);					// 1
-	printf("y: %d\n", bounce->y);					// 0
-	printf("pos: %lf\n", bounce->bounce_position);	// 0.9
+	bounce = get_horizontal_bounce(data, M_PI_4 + M_PI_2);  // look norht-east
+	// bounce = get_horizontal_bounce(data, M_PI + M_PI_4 + M_PI_2);  // look south-west
+	// bounce = get_horizontal_bounce(data, 0);  // look south
+	// bounce = get_horizontal_bounce(data, M_PI);  // look north
+	// bounce = get_horizontal_bounce(data, M_PI / 6);  
+	printf("distance: %lf\n", bounce->distance);	
+	printf("x: %d\n", bounce->x);
+	printf("y: %d\n", bounce->y);
+	printf("pos: %lf\n", bounce->bounce_position);
 
 	// ------------------
 
