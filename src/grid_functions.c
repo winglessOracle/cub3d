@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 23:17:22 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/28 12:23:03 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/04 17:13:03 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,14 @@ void	set_start_pos(int y, int x, t_data *data)
 	if ((ft_strchr(data->check_data->start_char, data->grid[y][x]))) 
 	{
 		data->check_data->start_pos++;
-		data->p_xpos = x;
-		data->p_ypos = y;
+		data->p_xpos = x + 0.5;
+		data->p_ypos = y + 0.5;
 		if (data->grid[y][x] == 'N')
-			data->p_viewdir = 0;
+			data->p_viewdir = M_PI;
 		else if (data->grid[y][x] == 'E')
 			data->p_viewdir = M_PI_2;
 		else if (data->grid[y][x] == 'S')
-			data->p_viewdir = M_PI;
+			data->p_viewdir = 0;
 		else if (data->grid[y][x] == 'W')
 			data->p_viewdir = M_PI + M_PI_2;
 	}
