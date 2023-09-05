@@ -6,23 +6,12 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 14:33:39 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/04 13:24:58 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/05 09:05:39 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	find_start_grid(char *line)
-{
-	int	i;
-
-	i = 0;
-	while (ft_isspace(line[i]))
-		i++;
-	if (line[i] == '1' || line[i] == '0')
-		return (1);
-	return (0);
-}
 
 void	square_grid(t_data *data)
 {
@@ -43,21 +32,34 @@ void	square_grid(t_data *data)
 	}
 }
 
+int	find_grid(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (ft_isspace(line[i]))
+		i++;
+	if (line[i] == '1' || line[i] == '0')
+		return (1);
+	return (0);
+}
+
 char	*grid_helper(int fd)
 {
 	char	*line;
 	char	*joined_lines;
 	int		start_grid;
 
+	start_grid = 0;
 	line = get_next_line(fd);
 	joined_lines = NULL;
 	while (line)
 	{
-		start_grid = find_start_grid(line);
+		if (find_grid(line) == 0 && start_grid == 1)
+			break ;
+		start_grid = find_grid(line);
 		if (start_grid == 1)
 		{
-			if (line[0] == '\0' || line[0] == '\n')
-				break ;
 			if (joined_lines == NULL)
 				joined_lines = ft_strdup(line);
 			else
