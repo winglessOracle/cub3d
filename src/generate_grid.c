@@ -6,12 +6,11 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 14:33:39 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/05 09:05:39 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/05 09:07:16 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
 
 void	square_grid(t_data *data)
 {

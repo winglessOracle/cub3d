@@ -1,5 +1,3 @@
-fix empty line in generate grid
-
 set movement delay
 set build image delay
 set minimap delay

@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:43:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/05 08:22:40 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/05 09:55:45 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,29 @@
 
 void	ft_key_hook(void *param)
 {
-	t_data	*data;
+	t_data		*data;
+	static int	frame_counter = 0;
+	static int	frames_per_move = 15;
 
 	data = param;
-	if (mlx_is_key_down(data->mlx, MLX_KEY_W))
-		move_player(data->p_viewdir, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_S))
-		move_player(data->p_viewdir + M_PI, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_A))
-		move_player(data->p_viewdir + M_PI_2, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_D))
-		move_player(data->p_viewdir - M_PI_2, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_LEFT))
-		turn_player('L', data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_RIGHT))
-		turn_player('R', data);
-	build_minimap(data);
+	frame_counter ++;
+	if (frame_counter >= frames_per_move)
+	{
+		if (mlx_is_key_down(data->mlx, MLX_KEY_W))
+			move_player(data->p_viewdir, data);
+		if (mlx_is_key_down(data->mlx, MLX_KEY_S))
+			move_player(data->p_viewdir + M_PI, data);
+		if (mlx_is_key_down(data->mlx, MLX_KEY_A))
+			move_player(data->p_viewdir + M_PI_2, data);
+		if (mlx_is_key_down(data->mlx, MLX_KEY_D))
+			move_player(data->p_viewdir - M_PI_2, data);
+		if (mlx_is_key_down(data->mlx, MLX_KEY_LEFT))
+			turn_player('L', data);
+		if (mlx_is_key_down(data->mlx, MLX_KEY_RIGHT))
+			turn_player('R', data);
+		build_minimap(data);
+		frame_counter = 0;
+	}
 }
 
 void	key_hook(mlx_key_data_t keydata, void *param)
@@ -51,9 +58,20 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 void	ft_mouse_hook(void *param)
 {
 	t_data	*data;
+	// int		delta_x;
+	// double	delta_view;
+	// double	mouse_sensitivity;
 
-	(void)data;
 	data = param;
+	(void)data;
+	// mouse_sensitivity = 0.01;
+	// delta_x = x - data->previous_mouse_x;
+	// data->previous_mouse_x = x;
+	// delta_view = delta_x * mouse_sensitivity;
+	// if (delta_view < 0)
+	// 	turn_player('R', data);
+	// else if (delta_view > 0)
+	// 	turn_player('L', data);
 }
 
 void	close_hook(void *param)

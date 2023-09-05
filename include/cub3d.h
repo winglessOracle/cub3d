@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/04 10:53:00 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/05 09:43:07 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ typedef struct s_data
 	int				toggle_mm;
 	double			move_increment;
 	double			turn_increment;
+	int				previous_mouse_x;
 }	t_data;
 
 //init
