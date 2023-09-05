@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/19 08:29:28 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/04 17:13:12 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/05 14:34:01 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,30 @@ int	main(int argc, char **argv)
 
 	// --------------------
 	// testing
-	data->p_xpos = 1.3;
-	data->p_ypos = 1.2;
+	
+	data->p_xpos = 1;
+	data->p_ypos = 1;
 	test_print_grid(data); // remove
 
+	double viewdir;
 	t_bounce *bounce;
-	bounce = get_horizontal_bounce(data, M_PI_4 + M_PI_2);  // look norht-east
-	// bounce = get_horizontal_bounce(data, M_PI + M_PI_4 + M_PI_2);  // look south-west
-	// bounce = get_horizontal_bounce(data, 0);  // look south
-	// bounce = get_horizontal_bounce(data, M_PI);  // look north
-	// bounce = get_horizontal_bounce(data, M_PI / 6);  
-	printf("distance: %lf\n", bounce->distance);	
-	printf("x: %d\n", bounce->x);
-	printf("y: %d\n", bounce->y);
-	printf("pos: %lf\n", bounce->bounce_position);
+	
+	viewdir = M_PI_4; // look south-east
+	// viewdir = M_PI_4 + M_PI_2;  // look norht-east;
+	// viewdir = M_PI;  // look north
+	// viewdir = M_PI + M_PI_2 + M_PI_4;  // look south-west
 
+	printf("View dir:\t%f RAD (%.4f π RAD)\n",viewdir, viewdir / M_PI);
+	bounce = get_horizontal_bounce(data, viewdir);
+	if (bounce == NULL)
+		puts("no bounce found!");
+	else
+	{
+		printf("distance: %lf\n", bounce->distance);
+		printf("x: %d\n", bounce->x);
+		printf("y: %d\n", bounce->y);
+		printf("pos: %lf\n", bounce->bounce_position);
+	}
 	// ------------------
 
 	build_image(data);

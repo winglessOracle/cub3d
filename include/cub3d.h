@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/04 15:08:37 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/05 14:25:35 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,12 @@ void	check_textures(t_data *data);
 //raycasting
 bool		is_wall(int x, int y, t_data *data);
 t_bounce	*get_horizontal_bounce(t_data *data, double viewdir);
+
+// raycasting utils
+bool	check_looking_up(double viewdir);
+bool	check_looking_left(double viewdir);
+bool	is_wall(int x, int y, t_data *data);
+bool	is_out_of_map(int x, int y, t_data *data);
 
 //testing
 void	test_print_grid(t_data *data);
