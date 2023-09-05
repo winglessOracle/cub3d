@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/05 14:25:35 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/05 17:41:44 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,59 +96,60 @@ typedef struct s_data
 }	t_data;
 
 //init
-void	malloc_structs(t_data *data);
-void	init_data(char *input_file, t_data *data);
+void		malloc_structs(t_data *data);
+void		init_data(char *input_file, t_data *data);
 
 //utils
-void	free_all(t_data *data);
-int		free_exit(t_data *data, int n);
-void	free_str_exit(char *str, t_data *data, int error);
-void	flood_fill(int x, int y, char **grid, t_data *data);
-int		pixel_from_texure(mlx_texture_t *texture, double x, double y);
-void	toggle_mm(t_data *data);
+void		free_all(t_data *data);
+int			free_exit(t_data *data, int n);
+void		free_str_exit(char *str, t_data *data, int error);
+void		flood_fill(int x, int y, char **grid, t_data *data);
+int			pixel_from_texure(mlx_texture_t *texture, double x, double y);
+void		toggle_mm(t_data *data);
 
 //grid_functions
-char	**generate_grid(char *input_file);
-void	analyze_grid(t_data *data);
-void	square_grid(t_data *data);
+char		**generate_grid(char *input_file);
+void		analyze_grid(t_data *data);
+void		square_grid(t_data *data);
 
 //set_paths / set_colors
-void	parse_file_paths(char *file, t_data *data);
-void	set_ceiling_color(char *line, t_data *data);
-void	set_floor_color(char *line, t_data *data);
-int32_t	get_rgba(int32_t r, int32_t g, int32_t b, int32_t a);
+void		parse_file_paths(char *file, t_data *data);
+void		set_ceiling_color(char *line, t_data *data);
+void		set_floor_color(char *line, t_data *data);
+int32_t		get_rgba(int32_t r, int32_t g, int32_t b, int32_t a);
 
 //building
-void	build_image(t_data *data);
-void	build_minimap(t_data *data);
+void		build_image(t_data *data);
+void		build_minimap(t_data *data);
 
 //movement
-void	move_player(double rad, t_data *data);
-void	turn_player(char c, t_data *data);
+void		move_player(double rad, t_data *data);
+void		turn_player(char c, t_data *data);
 
 //hooks
-void	set_hooks(t_data *data);
+void		set_hooks(t_data *data);
 
 //checks
-int		check_params(int argc, char **argv);
-void	check_textures(t_data *data);
+int			check_params(int argc, char **argv);
+void		check_textures(t_data *data);
 
 //raycasting
 bool		is_wall(int x, int y, t_data *data);
 t_bounce	*get_horizontal_bounce(t_data *data, double viewdir);
+t_bounce	*get_vertical_bounce(t_data *data, double viewdir);
 
 // raycasting utils
-bool	check_looking_up(double viewdir);
-bool	check_looking_left(double viewdir);
-bool	is_wall(int x, int y, t_data *data);
-bool	is_out_of_map(int x, int y, t_data *data);
+bool		check_looking_up(double viewdir);
+bool		check_looking_left(double viewdir);
+bool		is_wall(int x, int y, t_data *data);
+bool		is_out_of_map(int x, int y, t_data *data);
 
 //testing
-void	test_print_grid(t_data *data);
-void	test_print_data(t_data *data);
-void	test_print_images(t_data *data);
-void	test_print_movement(char *str, t_data *data);
-void	test_get_pixel(double x_i, double y_i, t_data *data);
+void		test_print_grid(t_data *data);
+void		test_print_data(t_data *data);
+void		test_print_images(t_data *data);
+void		test_print_movement(char *str, t_data *data);
+void		test_get_pixel(double x_i, double y_i, t_data *data);
 
 #endif
 

@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/04 10:41:59 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/09/05 14:27:37 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/05 17:42:42 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,34 @@ static bool	define_horizontal_bounce(t_bounce *bounce, double viewdir,
 	bounce->bounce_position = fmod(data->p_xpos + d_x, 1);
 	bounce->x = (int)(data->p_xpos + d_x);
 	if (data->p_xpos + d_x < 0
+		|| is_out_of_map(bounce->x, bounce->y, data))
+	{
+		return (NULL);
+	}
+	if (is_wall(bounce->x, bounce->y, data))
+	{
+		bounce->distance = sqrt(d_x * d_x + d_y * d_y);
+		return (true);
+	}
+	return (false);
+}
+
+/***
+ * @brief, calulates the bounce point at a given x value, based on current
+ * position and view direction
+ * @note, assumes bounce->x is already set
+*/
+static bool	define_vertical_bounce(t_bounce *bounce, double viewdir,
+	t_data *data)
+{
+	double	d_y;
+	double	d_x;
+
+	d_x = (bounce->x + check_looking_left(viewdir)) - data->p_xpos;
+	d_y = d_x / tan(viewdir);
+	bounce->bounce_position = fmod(data->p_ypos + d_y, 1);
+	bounce->y = (int)(data->p_ypos + d_y);
+	if (data->p_ypos + d_y < 0
 		|| is_out_of_map(bounce->x, bounce->y, data))
 	{
 		return (NULL);
@@ -63,6 +91,35 @@ t_bounce	*get_horizontal_bounce(t_data *data, double viewdir)
 			break ;
 		}
 		bounce->y += (1 - 2 * check_looking_up(viewdir));
+	}
+	if (bounce_found == false)
+	{
+		free(bounce);
+		return (NULL);
+	}
+	return (bounce);
+}
+
+t_bounce	*get_vertical_bounce(t_data *data, double viewdir)
+{
+	t_bounce	*bounce;
+	bool		bounce_found;
+
+	bounce_found = false;
+	if (sin(viewdir) > -0.001 && sin(viewdir) < 0.001)
+		return (NULL);
+	bounce = malloc(sizeof(t_bounce));
+	if (bounce == NULL)
+		return (NULL);
+	bounce->x = (int)(data->p_xpos) + 1 - 2 * check_looking_left(viewdir);
+	while (bounce->x >= 0 && bounce->x < data->grid_width)
+	{
+		if (define_vertical_bounce(bounce, viewdir, data))
+		{
+			bounce_found = true;
+			break ;
+		}
+		bounce->x += (1 - 2 * check_looking_left(viewdir));
 	}
 	if (bounce_found == false)
 	{
