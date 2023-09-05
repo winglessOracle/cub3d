@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/05 17:41:44 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/05 18:51:01 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ typedef struct s_bounce
 	int				x;
 	int				y;
 	double			bounce_position;
+	char			texture;
 }	t_bounce;
 
 typedef struct s_data
@@ -135,6 +136,7 @@ void		check_textures(t_data *data);
 
 //raycasting
 bool		is_wall(int x, int y, t_data *data);
+t_bounce	*get_bounce(t_data *data, double viewdir);
 t_bounce	*get_horizontal_bounce(t_data *data, double viewdir);
 t_bounce	*get_vertical_bounce(t_data *data, double viewdir);
 

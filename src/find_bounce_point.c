@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/04 10:41:59 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/09/05 17:42:42 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/05 18:53:37 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ static bool	define_horizontal_bounce(t_bounce *bounce, double viewdir,
 	if (is_wall(bounce->x, bounce->y, data))
 	{
 		bounce->distance = sqrt(d_x * d_x + d_y * d_y);
+		if (check_looking_up(viewdir))
+			bounce->texture = 'S';
+		else
+			bounce->texture = 'N';
 		return (true);
 	}
 	return (false);
@@ -63,6 +67,10 @@ static bool	define_vertical_bounce(t_bounce *bounce, double viewdir,
 	if (is_wall(bounce->x, bounce->y, data))
 	{
 		bounce->distance = sqrt(d_x * d_x + d_y * d_y);
+		if (check_looking_left(viewdir))
+			bounce->texture = 'E';
+		else
+			bounce->texture = 'W';
 		return (true);
 	}
 	return (false);
@@ -127,4 +135,32 @@ t_bounce	*get_vertical_bounce(t_data *data, double viewdir)
 		return (NULL);
 	}
 	return (bounce);
+}
+
+t_bounce	*get_bounce(t_data *data, double viewdir)
+{
+	t_bounce	*bounce_hor;
+	t_bounce	*bounce_vert;
+
+	bounce_vert = get_vertical_bounce(data, viewdir);
+	bounce_hor = get_horizontal_bounce(data, viewdir);
+	if (bounce_vert == NULL && bounce_hor == NULL)
+	{
+		printf("error: no bounce found!");
+		return (NULL);
+	}
+	if (bounce_vert == NULL)
+		return (bounce_hor);
+	if (bounce_hor == NULL)
+		return (bounce_vert);
+	if (bounce_vert->distance < bounce_hor->distance)
+	{
+		free(bounce_hor);
+		return (bounce_vert);
+	}
+	else
+	{
+		free(bounce_vert);
+		return (bounce_hor);
+	}
 }
