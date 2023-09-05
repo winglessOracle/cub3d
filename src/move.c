@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:52:40 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/04 17:29:09 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/05 08:20:12 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	move_player(double rad, t_data *data)
 
 	vx = data->move_increment * sin(rad);
 	vy = data->move_increment * cos(rad);
-	if (check_valid_move(data->p_ypos - vy, data->p_xpos + vx, data))
+	if (check_valid_move(data->p_ypos + vy, data->p_xpos + vx, data))
 	{
-		data->p_ypos -= vy;
+		data->p_ypos += vy;
 		data->p_xpos += vx;
 		test_print_movement("MOVED", data); // remove
 		build_image(data);
