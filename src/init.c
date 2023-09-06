@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/05 09:43:33 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/06 11:39:10 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,13 +76,17 @@ void	init_main_data(t_data *data)
 	data->screen_height = 724;
 	data->p_xpos = 0;
 	data->p_ypos = 0;
+	data->mouse_xpos = 0;
+	data->mouse_ypos = 0;
 	data->p_viewdir = 0;
 	data->floor_height = 0;
 	data->ceiling_height = 100;
 	data->view_plane_dist = 10;
 	data->move_increment = 0.3;
-	data->previous_mouse_x = 0;
 	data->turn_increment = M_PI_2; //change later
+	data->previous_mouse_x = 0;
+	data->mouse_sensitivity = 0.005;
+	data->movement_rate = 30;
 }
 
 /* set scale and rgb colors for minimap below.
@@ -90,7 +94,7 @@ RGBA with A for transparancy
 Scale is the division of the screen size*/
 void	init_minimap(t_data *data)
 {
-	data->toggle_mm = 0;
+	data->toggle_mm = 1;
 	data->mm->scale = 4;
 	data->mm->w_col = get_rgba(0, 0, 0, 255);
 	data->mm->p_col = get_rgba(0, 255, 0, 255);

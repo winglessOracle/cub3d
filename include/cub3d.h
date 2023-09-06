@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/05 09:43:07 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/06 11:37:14 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ typedef struct s_data
 	int				screen_height;
 	double			p_xpos;
 	double			p_ypos;
+	int				mouse_xpos;
+	int				mouse_ypos;
 	double			p_viewdir;
 	int				floor_height;
 	int				ceiling_height;	
@@ -83,6 +85,8 @@ typedef struct s_data
 	double			move_increment;
 	double			turn_increment;
 	int				previous_mouse_x;
+	double			mouse_sensitivity;
+	int				movement_rate;
 }	t_data;
 
 //init

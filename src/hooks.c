@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:43:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/05 09:55:45 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/06 11:37:46 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@ void	ft_key_hook(void *param)
 {
 	t_data		*data;
 	static int	frame_counter = 0;
-	static int	frames_per_move = 15;
 
 	data = param;
 	frame_counter ++;
-	if (frame_counter >= frames_per_move)
+	if (frame_counter >= data->movement_rate)
 	{
 		if (mlx_is_key_down(data->mlx, MLX_KEY_W))
 			move_player(data->p_viewdir, data);
@@ -57,21 +56,24 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 
 void	ft_mouse_hook(void *param)
 {
-	t_data	*data;
-	// int		delta_x;
-	// double	delta_view;
-	// double	mouse_sensitivity;
+	t_data		*data;
+	int			delta_x;
+	double		delta_view;
+	static int	frame_counter = 0;
 
 	data = param;
-	(void)data;
-	// mouse_sensitivity = 0.01;
-	// delta_x = x - data->previous_mouse_x;
-	// data->previous_mouse_x = x;
-	// delta_view = delta_x * mouse_sensitivity;
-	// if (delta_view < 0)
-	// 	turn_player('R', data);
-	// else if (delta_view > 0)
-	// 	turn_player('L', data);
+	delta_x = 0;
+	delta_view = 0;
+	frame_counter ++;
+	if (frame_counter >= data->movement_rate)
+		mlx_get_mouse_pos(data->mlx, &data->mouse_xpos, &data->mouse_ypos);
+	delta_x = data->mouse_xpos - data->previous_mouse_x;
+	data->previous_mouse_x = data->mouse_xpos;
+	delta_view = delta_x * data->mouse_sensitivity;
+	if (delta_view < -0.1)
+		turn_player('R', data);
+	else if (delta_view > 0.1)
+		turn_player('L', data);
 }
 
 void	close_hook(void *param)
