@@ -6,7 +6,7 @@
 #    By: wingessoracle <wingessoracle@student.co      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/06/21 08:27:49 by wingessorac   #+#    #+#                  #
-#    Updated: 2023/09/05 17:34:50 by cherrewi      ########   odam.nl          #
+#    Updated: 2023/09/06 12:43:11 by cherrewi      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ TARGET	 		:=	cub3d
 
 OBJ_FILES		:=	$(addprefix obj/, main.o init.o utils.o generate_grid.o grid_functions.o \
 					set_paths.o hooks.o move.o set_colors.o build.o checks.o cleanup.o testing.o \
-					find_bounce_point.o raycasting_utils.o)
+					find_bounce_point.o raycasting.o raycasting_utils.o)
 
 # OBJ_FILES_BONUS	:=	$(addprefix obj/, test.o)
 
@@ -58,10 +58,10 @@ re:
 	$(MAKE) fclean
 	$(MAKE) all
 
-TEST_SRCS		:=	test.c
+TEST_SRCS		:=	test.c test_bounce.c test_calc_z.c
 OBJ_FILES_TEST	:=	$(addprefix obj/, init.o utils.o generate_grid.o grid_functions.o \
 					set_paths.o hooks.o move.o set_colors.o build.o checks.o cleanup.o testing.o \
-					find_bounce_point.o raycasting_utils.o)
+					find_bounce_point.o raycasting.o raycasting_utils.o)
 TEST_FLAGS = -Wall -Werror -Wextra -g $(IFLAGS) $(LFLAGS)
 
 test: libmlx libft $(OBJ_FILES_TEST)

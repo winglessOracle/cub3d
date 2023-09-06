@@ -6,12 +6,15 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/05 18:51:01 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/06 14:19:22 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
+
+// wall hight relative to grid cell lenght and width
+# define WALL_HEIGHT 1.00
 
 # include "../libraries/MLX42/include/MLX42/MLX42.h"
 # include "../libraries/libft/libft.h"
@@ -139,6 +142,7 @@ bool		is_wall(int x, int y, t_data *data);
 t_bounce	*get_bounce(t_data *data, double viewdir);
 t_bounce	*get_horizontal_bounce(t_data *data, double viewdir);
 t_bounce	*get_vertical_bounce(t_data *data, double viewdir);
+double		calc_z_height(double dist, double z_angle);
 
 // raycasting utils
 bool		check_looking_up(double viewdir);
