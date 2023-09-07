@@ -22,7 +22,7 @@ void test_calc_z_height(void)
 		z2 = calc_z_height(dist, 2 * M_PI - z_angle);
 		assert(z1 != NAN);
 		assert(z2 != NAN);
-		assert(fabs((z1 - 1) - (-1 * z2)) < 0.001);
+		assert(fabs((z1 - WALL_HEIGHT) - (-1 * z2)) < 0.001);
 		z_angle += M_PI / 10;
 	}
 
