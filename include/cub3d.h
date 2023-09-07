@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/06 11:37:14 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/07 10:18:15 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,10 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <math.h>
+
+// # ifndef BONUS_ENABLED
+// #  define BONUS_ENABLED 0
+// # endif
 
 typedef struct minimap
 {

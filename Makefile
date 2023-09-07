@@ -6,7 +6,7 @@
 #    By: wingessoracle <wingessoracle@student.co      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/06/21 08:27:49 by wingessorac   #+#    #+#                  #
-#    Updated: 2023/09/01 15:41:57 by cwesseli      ########   odam.nl          #
+#    Updated: 2023/09/07 09:59:36 by carlowessel   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,8 +47,6 @@ clean:
 	@echo -e "$(BLUE)Remoning OBJ files$(RESET)"
 	@rm -rf $(OBJ_DIR)
 	@$(MAKE) -C $(LIBFT) clean
-
-
 
 fclean: clean
 	@echo -e "$(BLUE)Removing $(TARGET)$(RESET)"

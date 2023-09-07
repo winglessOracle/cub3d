@@ -6,7 +6,7 @@
 #    By: cwesseli <cwesseli@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/19 17:26:03 by cwesseli      #+#    #+#                  #
-#    Updated: 2023/08/28 14:25:02 by cwesseli      ########   odam.nl          #
+#    Updated: 2023/09/07 10:18:12 by carlowessel   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ OBJ_DIR		=	./obj
 # *********OPERATIONS*********************************************************** #
 
 # bonus:	OBJ_DIR	+= OBJ_DIR_BONUS
-# bonus:	CFLAGS	+= -DBONUS_TRIGGER=1
+# bonus:	CFLAGS	+= -DBONUS_ENABLED
 # bonus:	re
 # 	@echo -e "$(YELLOW)\nCOMPILED BONUS\n$(RESET)"
 

@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:43:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/06 11:37:46 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/07 09:58:22 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,11 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 	{
 		printf("%s\nYou left the game\n\n%s", GREEN, RESET);
-		free_exit(data, 0); // mlx_close_window
+		mlx_terminate(data->mlx);
+		free_exit(data, 0);
 	}
 	if (keydata.key == MLX_KEY_M && keydata.action == MLX_PRESS)
 		toggle_mm(data);
-	// if (keydata.key == MLX_KEY_SPACE && keydata.action == MLX_PRESS)
-	// 	restart_map("levels/level_1.ber", g);
 }
 
 void	ft_mouse_hook(void *param)
