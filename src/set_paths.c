@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 13:20:36 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/08 11:44:13 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/08 13:59:37 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ void	load_north(char *line, t_data *data)
 		start += 3;
 		while (line[start + size] && !ft_isspace(line[start + size]))
 			size++;
-		data->img_data->wall_texture_paths[0] = ft_substr(line, start, size);
-		if (ft_check_extention(data->img_data->wall_texture_paths[0], "png"))
+		data->img_data->wall_texture_paths[NORTH] = ft_substr(line, start, size);
+		if (ft_check_extention(data->img_data->wall_texture_paths[NORTH], "png"))
 			free_str_exit("wrong file format for textures. expected '.PNG'",
 				data, 7);
-		data->img_data->wall_textures[0]
-			= mlx_load_png(data->img_data->wall_texture_paths[0]);
-		if (!data->img_data->wall_textures[0])
+		data->img_data->wall_textures[NORTH]
+			= mlx_load_png(data->img_data->wall_texture_paths[NORTH]);
+		if (!data->img_data->wall_textures[NORTH])
 			free_str_exit("loading texture", data, 7);
 		data->check_data->textures_loaded += 1;
 	}
@@ -52,13 +52,13 @@ void	load_east(char *line, t_data *data)
 		start += 3;
 		while (line[start + size] && !ft_isspace(line[start + size]))
 			size++;
-		data->img_data->wall_texture_paths[1] = ft_substr(line, start, size);
-		if (ft_check_extention(data->img_data->wall_texture_paths[0], "png"))
+		data->img_data->wall_texture_paths[EAST] = ft_substr(line, start, size);
+		if (ft_check_extention(data->img_data->wall_texture_paths[EAST], "png"))
 			free_str_exit("wrong file format for textures. expected '.PNG'",
 				data, 7);
-		data->img_data->wall_textures[1]
-			= mlx_load_png(data->img_data->wall_texture_paths[1]);
-		if (!data->img_data->wall_textures[1])
+		data->img_data->wall_textures[EAST]
+			= mlx_load_png(data->img_data->wall_texture_paths[EAST]);
+		if (!data->img_data->wall_textures[EAST])
 			free_str_exit("loading texture", data, 7);
 		data->check_data->textures_loaded += 1;
 	}
@@ -78,13 +78,13 @@ void	load_south(char *line, t_data *data)
 		start += 3;
 		while (line[start + size] && !ft_isspace(line[start + size]))
 			size++;
-		data->img_data->wall_texture_paths[2] = ft_substr(line, start, size);
-		if (ft_check_extention(data->img_data->wall_texture_paths[0], "png"))
+		data->img_data->wall_texture_paths[SOUTH] = ft_substr(line, start, size);
+		if (ft_check_extention(data->img_data->wall_texture_paths[SOUTH], "png"))
 			free_str_exit("wrong file format for textures. expected '.PNG'",
 				data, 7);
-		data->img_data->wall_textures[2]
-			= mlx_load_png(data->img_data->wall_texture_paths[2]);
-		if (!data->img_data->wall_textures[2])
+		data->img_data->wall_textures[SOUTH]
+			= mlx_load_png(data->img_data->wall_texture_paths[SOUTH]);
+		if (!data->img_data->wall_textures[SOUTH])
 			free_str_exit("loading texture", data, 7);
 		data->check_data->textures_loaded += 1;
 	}
@@ -104,13 +104,13 @@ void	load_west(char *line, t_data *data)
 		start += 3;
 		while (line[start + size] && !ft_isspace(line[start + size]))
 			size++;
-		data->img_data->wall_texture_paths[3] = ft_substr(line, start, size);
-		if (ft_check_extention(data->img_data->wall_texture_paths[0], "png"))
+		data->img_data->wall_texture_paths[WEST] = ft_substr(line, start, size);
+		if (ft_check_extention(data->img_data->wall_texture_paths[WEST], "png"))
 			free_str_exit("wrong file format for textures. expected '.PNG'",
 				data, 7);
-		data->img_data->wall_textures[3]
-			= mlx_load_png(data->img_data->wall_texture_paths[3]);
-		if (!data->img_data->wall_textures[3])
+		data->img_data->wall_textures[WEST]
+			= mlx_load_png(data->img_data->wall_texture_paths[WEST]);
+		if (!data->img_data->wall_textures[WEST])
 			free_str_exit("loading texture", data, 7);
 		data->check_data->textures_loaded += 1;
 	}

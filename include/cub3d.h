@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/08 13:45:30 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/08 14:02:07 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,13 @@ typedef struct s_data
 	int				movement_rate;
 }	t_data;
 
+typedef enum e_map {
+	NORTH,
+	EAST,
+	SOUTH,
+	WEST
+}	t_map;
+
 //init
 void		malloc_structs(t_data *data);
 void		init_data(char *input_file, t_data *data);
@@ -155,7 +162,6 @@ t_bounce	*get_vertical_bounce(t_data *data, double viewdir);
 double		calc_z_height(double dist, double z_angle);
 double		calc_z_angle(int y, t_data *data);
 double		calc_pix_view_dir(int x, t_data *data);
-
 
 // raycasting utils
 bool		check_looking_up(double viewdir);

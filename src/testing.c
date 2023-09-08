@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 18:50:59 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/05 11:38:01 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/08 14:00:53 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,13 @@ void	test_print_images(t_data *data)
 	mlx_image_t	*test_wall4;
 
 	test_wall = mlx_texture_to_image(data->mlx,
-			data->img_data->wall_textures[0]);
+			data->img_data->wall_textures[NORTH]);
 	test_wall2 = mlx_texture_to_image(data->mlx,
-			data->img_data->wall_textures[1]);
+			data->img_data->wall_textures[EAST]);
 	test_wall3 = mlx_texture_to_image(data->mlx,
-			data->img_data->wall_textures[2]);
+			data->img_data->wall_textures[SOUTH]);
 	test_wall4 = mlx_texture_to_image(data->mlx,
-			data->img_data->wall_textures[3]);
+			data->img_data->wall_textures[WEST]);
 	mlx_image_to_window(data->mlx, test_wall, 0, 300);
 	mlx_image_to_window(data->mlx, test_wall2, 200, 300);
 	mlx_image_to_window(data->mlx, test_wall3, 400, 300);
