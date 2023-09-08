@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/04 15:08:44 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/08 10:50:31 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,15 +70,13 @@ void	init_main_data(t_data *data)
 {
 	data->grid_width = 0;
 	data->grid_height = 0;
-	data->screen_width = 1280;
-	data->screen_height = 724;
+	data->screen_width = 500;
+	data->screen_height = 500;
 	data->p_xpos = 0;
 	data->p_ypos = 0;
 	data->p_viewdir = 0;
-	data->floor_height = 0;
-	data->ceiling_height = 100;
 	data->move_increment = 0.3;
-	data->turn_increment = M_PI_2; //change later
+	data->turn_increment = 1; //change later
 }
 
 /* set scale and rgb colors for minimap below.

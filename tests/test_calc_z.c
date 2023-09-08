@@ -34,3 +34,37 @@ void test_calc_z_height(void)
 	assert(isnan(calc_z_height(dist, M_PI + M_PI_2)));
 	puts("OK");
 }
+
+void test_calc_z_angle(t_data *data)
+{
+	puts("testing calc_z_angle() ...");
+	
+	double z_angle;
+	double z_angle_1;
+	double z_angle_2;
+
+	// top pixel
+	z_angle = calc_z_angle(0, data);
+
+	assert(fabs(z_angle - M_PI / 12) < 0.001);
+
+	// mid pixel
+	if (data->screen_height % 2 == 1)
+	{
+		z_angle = calc_z_angle((data->screen_height / 2), data);
+		assert(fabs(z_angle) < 0.001);
+	}
+	else
+	{
+		// even nr of pixels, so calc the average of the 2 in the middle
+		z_angle_1 = calc_z_angle((data->screen_height / 2) - 1, data);
+		z_angle_2 = calc_z_angle((data->screen_height / 2), data);
+		assert(fabs(fmod(z_angle_1 + z_angle_2, 2 * M_PI)) < 0.001);
+	}
+
+	// bottom pixel
+	z_angle = calc_z_angle(data->screen_height - 1, data);
+	assert(fabs(z_angle - (M_PI * (1 + (double)11/12))) < 0.001);
+	
+	puts("OK");
+}

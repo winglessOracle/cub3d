@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/05 17:36:34 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/09/06 12:56:00 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/07 16:09:33 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 void	test_bounce(t_data *data);
 void	test_calc_z_height(void);
+void	test_calc_z_angle(t_data *data);
 
 static void init(int argc, char **argv, t_data *data)
 {
@@ -36,4 +37,5 @@ int main(int argc, char **argv)
 
 	test_bounce(&data);
 	test_calc_z_height();
+	test_calc_z_angle(&data);
 }

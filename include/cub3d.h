@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/06 14:19:22 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/08 11:26:06 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,6 @@ typedef struct s_data
 	double			p_xpos;
 	double			p_ypos;
 	double			p_viewdir;
-	int				floor_height;
-	int				ceiling_height;	
 	int				toggle_mm;
 	double			move_increment;
 	double			turn_increment;
@@ -143,6 +141,9 @@ t_bounce	*get_bounce(t_data *data, double viewdir);
 t_bounce	*get_horizontal_bounce(t_data *data, double viewdir);
 t_bounce	*get_vertical_bounce(t_data *data, double viewdir);
 double		calc_z_height(double dist, double z_angle);
+double		calc_z_angle(int y, t_data *data);
+double		calc_pix_view_dir(int x, t_data *data);
+
 
 // raycasting utils
 bool		check_looking_up(double viewdir);

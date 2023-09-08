@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:40:03 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/08 10:21:26 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/08 11:29:46 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,7 @@ int	pixel_from_texure(mlx_texture_t *texture, double y, double x)
 	y_i = (int)(y * texture->height);
 	x_i = (int)(x * texture->width);
 	n_pixel = ((int *)(texture->pixels))[y_i * texture->width + x_i];
-	// printf("\ntexture width = %d\ntexture height = %d\n", texture->width, texture->height);
-	// printf("\npixel no we are looking at based on screen dimensions and factors:\nx: %d\ny: %d\n", x_i, y_i);
-	// printf("\ninput factors:\nx: %f\ny: %f\n", x, y);
-	printf("\nn_pixel color from texture: %06X", n_pixel); // remove
 	n_pixel = convert_to_rgba(n_pixel);
-	printf("\nn_pixel color converted: %06X", n_pixel); // remove
 	return (n_pixel);
 }
 
