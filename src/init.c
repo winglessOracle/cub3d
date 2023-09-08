@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/08 11:39:59 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/08 12:26:20 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	malloc_structs(t_data *data)
 	data->img_data->wall_textures = ft_calloc(5, sizeof(mlx_texture_t *));
 	if (!data->img_data->wall_textures)
 		free_str_exit("allocating structs", data, 3);
-// move to bonus
 	data->mm = malloc(sizeof(t_minimap));
 	if (!data->mm)
 		free_str_exit("allocating structs", data, 3);
@@ -72,7 +71,7 @@ void	init_main_data(t_data *data)
 {
 	data->grid_width = 0;
 	data->grid_height = 0;
-	data->screen_width = 500;
+	data->screen_width = 700;
 	data->screen_height = 500;
 	data->p_xpos = 0;
 	data->p_ypos = 0;
@@ -114,5 +113,5 @@ void	init_data(char *input_file, t_data *data)
 	analyze_grid(data);
 	square_grid(data);
 	init_minimap(data);
-	// test_print_grid(data); // remove
+	test_print_grid(data); // remove
 }

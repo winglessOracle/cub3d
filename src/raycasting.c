@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/06 12:09:34 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/09/08 11:19:41 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/08 12:24:51 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 // calc horizontal pixel view dir, relative to player viewdir
 double	calc_pix_view_dir(int x, t_data *data)
 {
-	const double	fov_hor = M_PI_4;
+	const double	fov_hor = M_PI_2;
 	double			pix_hor_view_dir;
 
 	pix_hor_view_dir = data->p_viewdir
-		- (fov_hor / 2) + ((double)x / data->screen_width) * fov_hor;
+		+ (fov_hor / 2) - ((double)x / data->screen_width) * fov_hor;
 	if (pix_hor_view_dir < 0)
 		pix_hor_view_dir += 2 * M_PI;
 	if (pix_hor_view_dir > 2 * M_PI)
@@ -33,7 +33,8 @@ double	calc_z_angle(int y, t_data *data)
 	const double	fov_vert = M_PI / 6;
 	double			pix_vert_view_dir;
 
-	pix_vert_view_dir = (fov_vert / 2) - ((double)y / (data->screen_height - 1)) * fov_vert;
+	pix_vert_view_dir = (fov_vert / 2)
+		- ((double)y / (data->screen_height - 1)) * fov_vert;
 	if (pix_vert_view_dir < 0)
 		pix_vert_view_dir += 2 * M_PI;
 	return (pix_vert_view_dir);

@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:43:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/07 09:58:22 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/08 11:49:53 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	close_hook(void *param)
 void	set_hooks(t_data *data)
 {
 	mlx_loop_hook(data->mlx, ft_key_hook, data);
-	mlx_loop_hook(data->mlx, ft_mouse_hook, data);
+	// mlx_loop_hook(data->mlx, ft_mouse_hook, data);
 	mlx_key_hook(data->mlx, key_hook, data);
 	mlx_close_hook(data->mlx, close_hook, data);
 }

@@ -1,7 +1,10 @@
-config file
+config dat to header
+check minimap working
+change colors
+fish-eye
+
 
 get screen resolution and link to minimap and resize screen (1,2) including max screen
-seperate build and draw of img_data
 
 check all error msg numbers
 
