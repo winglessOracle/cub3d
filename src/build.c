@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/08 15:12:01 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/08 17:38:51 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	put_pixels_main(t_data *data)
 	double			z_height;
 	int				n_pixel;
 	mlx_texture_t	*texture; 
-
 
 	x = 0;
 	while (x < data->screen_width)
@@ -42,15 +41,12 @@ void	put_pixels_main(t_data *data)
 			texture = data->img_data->wall_textures[2];
 		if (bounce->texture == 'W')
 			texture = data->img_data->wall_textures[3];
-
-
-
 		y = 0;
 		while (y < data->screen_height)
 		{
 			z_angle = calc_z_angle(y, data);
 			z_height = calc_z_height(bounce->distance, z_angle);
-			if isnan(z_height)
+			if (isnan(z_height))
 				puts("NAN value found!!");
 			if (z_height >= 1)
 			{
