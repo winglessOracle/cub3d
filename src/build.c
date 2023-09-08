@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/08 12:40:35 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/08 13:47:19 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,10 @@ void	put_pixels_main(t_data *data)
 	int				y;
 	t_bounce 		*bounce;
 	double			viewdir;
+	
 	double			z_angle;
 	double			z_height;
 	int				n_pixel;
-	mlx_texture_t	*texture; 
-
 
 	x = 0;
 	while (x < data->screen_width)
@@ -34,17 +33,6 @@ void	put_pixels_main(t_data *data)
 			printf("raycasting error!");
 			return ;
 		}
-		if (bounce->texture == 'N')
-			texture = data->img_data->wall_textures[0];
-		if (bounce->texture == 'E')
-			texture = data->img_data->wall_textures[1];
-		if (bounce->texture == 'S')
-			texture = data->img_data->wall_textures[2];
-		if (bounce->texture == 'W')
-			texture = data->img_data->wall_textures[3];
-
-
-
 		y = 0;
 		while (y < data->screen_height)
 		{
@@ -64,7 +52,7 @@ void	put_pixels_main(t_data *data)
 			}
 			else
 			{
-				n_pixel = pixel_from_texure(texture, (double)y / data->screen_height, bounce->bounce_position);
+				n_pixel = pixel_from_texure(bounce->texture, (double)y / data->screen_height, bounce->bounce_position);
 				mlx_put_pixel(data->img_data->main_screen, x, y, n_pixel);
 			}
 			y += 1;

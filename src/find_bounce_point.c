@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/04 10:41:59 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/09/05 18:53:37 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/08 13:43:44 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ static bool	define_horizontal_bounce(t_bounce *bounce, double viewdir,
 	{
 		bounce->distance = sqrt(d_x * d_x + d_y * d_y);
 		if (check_looking_up(viewdir))
-			bounce->texture = 'S';
+			bounce->texture = bounce->texture = data->img_data->wall_textures[2]; // SOUTH
 		else
-			bounce->texture = 'N';
+			bounce->texture = data->img_data->wall_textures[0]; // NORTH
 		return (true);
 	}
 	return (false);
@@ -68,9 +68,9 @@ static bool	define_vertical_bounce(t_bounce *bounce, double viewdir,
 	{
 		bounce->distance = sqrt(d_x * d_x + d_y * d_y);
 		if (check_looking_left(viewdir))
-			bounce->texture = 'E';
+			bounce->texture = bounce->texture = data->img_data->wall_textures[1]; // EAST
 		else
-			bounce->texture = 'W';
+			bounce->texture = bounce->texture = data->img_data->wall_textures[3]; // WEST
 		return (true);
 	}
 	return (false);
