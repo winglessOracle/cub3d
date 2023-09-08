@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 13:20:36 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/08 13:59:37 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/08 14:07:26 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ void	load_north(char *line, t_data *data)
 		start += 3;
 		while (line[start + size] && !ft_isspace(line[start + size]))
 			size++;
-		data->img_data->wall_texture_paths[NORTH] = ft_substr(line, start, size);
-		if (ft_check_extention(data->img_data->wall_texture_paths[NORTH], "png"))
+		data->img_data->wall_texture_paths[NORTH]
+			= ft_substr(line, start, size);
+		if (ft_check_extention(data->img_data->wall_texture_paths[NORTH],
+				"png"))
 			free_str_exit("wrong file format for textures. expected '.PNG'",
 				data, 7);
 		data->img_data->wall_textures[NORTH]
@@ -52,8 +54,10 @@ void	load_east(char *line, t_data *data)
 		start += 3;
 		while (line[start + size] && !ft_isspace(line[start + size]))
 			size++;
-		data->img_data->wall_texture_paths[EAST] = ft_substr(line, start, size);
-		if (ft_check_extention(data->img_data->wall_texture_paths[EAST], "png"))
+		data->img_data->wall_texture_paths[EAST]
+			= ft_substr(line, start, size);
+		if (ft_check_extention(data->img_data->wall_texture_paths[EAST],
+				"png"))
 			free_str_exit("wrong file format for textures. expected '.PNG'",
 				data, 7);
 		data->img_data->wall_textures[EAST]
@@ -78,8 +82,10 @@ void	load_south(char *line, t_data *data)
 		start += 3;
 		while (line[start + size] && !ft_isspace(line[start + size]))
 			size++;
-		data->img_data->wall_texture_paths[SOUTH] = ft_substr(line, start, size);
-		if (ft_check_extention(data->img_data->wall_texture_paths[SOUTH], "png"))
+		data->img_data->wall_texture_paths[SOUTH]
+			= ft_substr(line, start, size);
+		if (ft_check_extention(data->img_data->wall_texture_paths[SOUTH],
+				"png"))
 			free_str_exit("wrong file format for textures. expected '.PNG'",
 				data, 7);
 		data->img_data->wall_textures[SOUTH]
@@ -104,8 +110,10 @@ void	load_west(char *line, t_data *data)
 		start += 3;
 		while (line[start + size] && !ft_isspace(line[start + size]))
 			size++;
-		data->img_data->wall_texture_paths[WEST] = ft_substr(line, start, size);
-		if (ft_check_extention(data->img_data->wall_texture_paths[WEST], "png"))
+		data->img_data->wall_texture_paths[WEST]
+			= ft_substr(line, start, size);
+		if (ft_check_extention(data->img_data->wall_texture_paths[WEST],
+				"png"))
 			free_str_exit("wrong file format for textures. expected '.PNG'",
 				data, 7);
 		data->img_data->wall_textures[WEST]
@@ -115,6 +123,7 @@ void	load_west(char *line, t_data *data)
 		data->check_data->textures_loaded += 1;
 	}
 }
+
 /***
  * @brief checks every line of he input file
  * to see if it contains a path to one of the required wall textures and 

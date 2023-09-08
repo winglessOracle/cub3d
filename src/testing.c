@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 18:50:59 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/08 14:00:53 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/08 14:08:28 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,8 @@ void	test_print_grid(t_data *data)
 	printf("\nGrid height:\t%d\n", data->grid_height);
 	printf("Grid width:\t%d\n", data->grid_width);
 	printf("Player xpos:\t%f\nPlayer ypos:\t%f\n", data->p_xpos, data->p_ypos);
-	printf("View dir:\t%f RAD (%.4f π RAD)\n", data->p_viewdir, data->p_viewdir / M_PI);
+	printf("View dir:\t%f RAD (%.4f π RAD)\n",
+		data->p_viewdir, data->p_viewdir / M_PI);
 	printf("%s=============================================\n%s", GREEN, RESET);
 }
 

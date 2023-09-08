@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/08 13:47:19 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/08 14:11:59 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 
 void	put_pixels_main(t_data *data)
 {
-	int				x;
-	int				y;
-	t_bounce 		*bounce;
-	double			viewdir;
-	
-	double			z_angle;
-	double			z_height;
-	int				n_pixel;
+	int			x;
+	int			y;
+	t_bounce	*bounce;
+	double		viewdir;
+	double		z_angle;
+	double		z_height;
+	int			n_pixel;
 
 	x = 0;
 	while (x < data->screen_width)
@@ -52,7 +51,8 @@ void	put_pixels_main(t_data *data)
 			}
 			else
 			{
-				n_pixel = pixel_from_texure(bounce->texture, (double)y / data->screen_height, bounce->bounce_position);
+				n_pixel = pixel_from_texure(bounce->texture,
+					(double)y / data->screen_height, bounce->bounce_position);
 				mlx_put_pixel(data->img_data->main_screen, x, y, n_pixel);
 			}
 			y += 1;
