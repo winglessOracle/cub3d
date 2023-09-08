@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/08 12:38:01 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/08 15:20:54 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,18 +71,18 @@ void	init_main_data(t_data *data)
 {
 	data->grid_width = 0;
 	data->grid_height = 0;
-	data->screen_width = 700;
-	data->screen_height = 500;
+	data->screen_width = 1200;
+	data->screen_height = 600;
 	data->p_xpos = 0;
 	data->p_ypos = 0;
-	data->mouse_xpos = 0;
-	data->mouse_ypos = 0;
+	data->mouse_xpos = data->screen_width / 2;
+	data->mouse_ypos = data->screen_height / 2;
 	data->p_viewdir = 0;
-	data->move_increment = 0.3;
+	data->move_increment = 0.5;
 	data->turn_increment = M_PI_2 / 10; //change later
 	data->previous_mouse_x = 0;
-	data->mouse_sensitivity = 0.005;
-	data->movement_rate = 30;
+	data->mouse_sensitivity = 0.05;
+	data->movement_rate = 5;
 }
 
 /* set scale and rgb colors for minimap below.
