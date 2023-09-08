@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/08 11:26:06 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/08 11:38:55 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <math.h>
+
+// # ifndef BONUS_ENABLED
+// #  define BONUS_ENABLED 0
+// # endif
 
 typedef struct minimap
 {
@@ -61,6 +65,8 @@ typedef struct s_check_data
 	int				start_pos;
 	char			*valid_char;
 	char			*start_char;
+	int				textures_loaded;
+	int				colors_loaded;
 }	t_check_data;
 
 /***
@@ -91,10 +97,15 @@ typedef struct s_data
 	int				screen_height;
 	double			p_xpos;
 	double			p_ypos;
+	int				mouse_xpos;
+	int				mouse_ypos;
 	double			p_viewdir;
 	int				toggle_mm;
 	double			move_increment;
 	double			turn_increment;
+	int				previous_mouse_x;
+	double			mouse_sensitivity;
+	int				movement_rate;
 }	t_data;
 
 //init
@@ -133,7 +144,7 @@ void		set_hooks(t_data *data);
 
 //checks
 int			check_params(int argc, char **argv);
-void		check_textures(t_data *data);
+void		check_input_data(t_data *data);
 
 //raycasting
 bool		is_wall(int x, int y, t_data *data);

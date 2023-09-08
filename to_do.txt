@@ -1,21 +1,9 @@
-set movement delay
-set build image delay
-set minimap delay
+config file
 
-seperate build and draw of img_data
 get screen resolution and link to minimap and resize screen (1,2) including max screen
-mouse loop 
+seperate build and draw of img_data
+
+check all error msg numbers
 
 bonus: move bonus functions to seperate files and header and include a macro toggle in header file
-minimap boundry conditions (and bonus)
-
-
-
-
-test_grey
-A1B1C1
-rgb(161, 177, 193)
-
-test_blue
-1A66E8
-rgb(26, 102, 232)
+minimap bound  conditions (and bonus)

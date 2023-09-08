@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/08 10:50:31 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/08 11:39:59 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	init_check_data(t_data *data)
 	data->check_data->start_pos = 0;
 	data->check_data->valid_char = "01NESW ";
 	data->check_data->start_char = "NESW";
+	data->check_data->textures_loaded = 0;
+	data->check_data->colors_loaded = 0;
 }
 
 void	init_main_data(t_data *data)
@@ -74,9 +76,14 @@ void	init_main_data(t_data *data)
 	data->screen_height = 500;
 	data->p_xpos = 0;
 	data->p_ypos = 0;
+	data->mouse_xpos = 0;
+	data->mouse_ypos = 0;
 	data->p_viewdir = 0;
 	data->move_increment = 0.3;
-	data->turn_increment = 1; //change later
+	data->turn_increment = M_PI_2 / 10; //change later
+	data->previous_mouse_x = 0;
+	data->mouse_sensitivity = 0.005;
+	data->movement_rate = 30;
 }
 
 /* set scale and rgb colors for minimap below.
@@ -84,7 +91,7 @@ RGBA with A for transparancy
 Scale is the division of the screen size*/
 void	init_minimap(t_data *data)
 {
-	data->toggle_mm = 0;
+	data->toggle_mm = 1;
 	data->mm->scale = 4;
 	data->mm->w_col = get_rgba(0, 0, 0, 255);
 	data->mm->p_col = get_rgba(0, 255, 0, 255);
@@ -103,7 +110,7 @@ void	init_data(char *input_file, t_data *data)
 	parse_file_paths(input_file, data);
 	data->grid = generate_grid(input_file);
 	if (!data->grid)
-		free_str_exit("generating grid", data, 3);
+		free_str_exit("generating grid from input file", data, 3);
 	analyze_grid(data);
 	square_grid(data);
 	init_minimap(data);

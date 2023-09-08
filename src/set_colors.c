@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 14:35:29 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/23 16:29:16 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/04 10:49:42 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	set_ceiling_color(char *line, t_data *data)
 			size++;
 		data->img_data->ceiling->color = ft_substr(line, start, size);
 		set_rgb(data->img_data->ceiling, data);
+		data->check_data->colors_loaded += 1;
 	}
 }
 
@@ -89,5 +90,6 @@ void	set_floor_color(char *line, t_data *data)
 			size++;
 		data->img_data->floor->color = ft_substr(line, start, size);
 		set_rgb(data->img_data->floor, data);
+		data->check_data->colors_loaded += 1;
 	}
 }

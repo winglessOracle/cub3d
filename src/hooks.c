@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:43:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/08/30 09:50:08 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/07 09:58:22 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,28 @@
 
 void	ft_key_hook(void *param)
 {
-	t_data	*data;
+	t_data		*data;
+	static int	frame_counter = 0;
 
 	data = param;
-	if (mlx_is_key_down(data->mlx, MLX_KEY_W))
-		move_player(data->p_viewdir, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_S))
-		move_player(data->p_viewdir + M_PI, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_A))
-		move_player(data->p_viewdir - M_PI_2, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_D))
-		move_player(data->p_viewdir + M_PI_2, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_LEFT))
-		turn_player('L', data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_RIGHT))
-		turn_player('R', data);
-	build_minimap(data);
+	frame_counter ++;
+	if (frame_counter >= data->movement_rate)
+	{
+		if (mlx_is_key_down(data->mlx, MLX_KEY_W))
+			move_player(data->p_viewdir, data);
+		if (mlx_is_key_down(data->mlx, MLX_KEY_S))
+			move_player(data->p_viewdir + M_PI, data);
+		if (mlx_is_key_down(data->mlx, MLX_KEY_A))
+			move_player(data->p_viewdir + M_PI_2, data);
+		if (mlx_is_key_down(data->mlx, MLX_KEY_D))
+			move_player(data->p_viewdir - M_PI_2, data);
+		if (mlx_is_key_down(data->mlx, MLX_KEY_LEFT))
+			turn_player('L', data);
+		if (mlx_is_key_down(data->mlx, MLX_KEY_RIGHT))
+			turn_player('R', data);
+		build_minimap(data);
+		frame_counter = 0;
+	}
 }
 
 void	key_hook(mlx_key_data_t keydata, void *param)
@@ -40,20 +46,33 @@ void	key_hook(mlx_key_data_t keydata, void *param)
 	if (keydata.key == MLX_KEY_ESCAPE && keydata.action == MLX_PRESS)
 	{
 		printf("%s\nYou left the game\n\n%s", GREEN, RESET);
-		free_exit(data, 0); // mlx_close_window
+		mlx_terminate(data->mlx);
+		free_exit(data, 0);
 	}
 	if (keydata.key == MLX_KEY_M && keydata.action == MLX_PRESS)
 		toggle_mm(data);
-	// if (keydata.key == MLX_KEY_SPACE && keydata.action == MLX_PRESS)
-	// 	restart_map("levels/level_1.ber", g);
 }
 
 void	ft_mouse_hook(void *param)
 {
-	t_data	*data;
+	t_data		*data;
+	int			delta_x;
+	double		delta_view;
+	static int	frame_counter = 0;
 
-	(void)data;
 	data = param;
+	delta_x = 0;
+	delta_view = 0;
+	frame_counter ++;
+	if (frame_counter >= data->movement_rate)
+		mlx_get_mouse_pos(data->mlx, &data->mouse_xpos, &data->mouse_ypos);
+	delta_x = data->mouse_xpos - data->previous_mouse_x;
+	data->previous_mouse_x = data->mouse_xpos;
+	delta_view = delta_x * data->mouse_sensitivity;
+	if (delta_view < -0.1)
+		turn_player('R', data);
+	else if (delta_view > 0.1)
+		turn_player('L', data);
 }
 
 void	close_hook(void *param)
