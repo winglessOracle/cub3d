@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 13:20:36 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/01 15:41:28 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/08 10:22:47 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,11 @@ void	load_west(char *line, t_data *data)
 			free_str_exit("loading texture", data, 7);
 	}
 }
-
+/***
+ * @brief checks every line of he input file
+ * to see if it contains a path to one of the required wall textures and 
+ * then saves the path and loads the texture.
+*/
 void	parse_file_paths(char *file, t_data *data)
 {
 	int		fd;
