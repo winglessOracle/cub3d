@@ -1,9 +1,9 @@
 config file
 
-seperate build and draw of img_data
 get screen resolution and link to minimap and resize screen (1,2) including max screen
+seperate build and draw of img_data
+
+check all error msg numbers
 
 bonus: move bonus functions to seperate files and header and include a macro toggle in header file
 minimap bound  conditions (and bonus)
-
-check all error msg numbers
