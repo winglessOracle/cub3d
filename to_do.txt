@@ -1,4 +1,5 @@
-mirror of wall
+mirror of wall: only east face of wall (blue) is mirrored
+
 
 wall collision
 

@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/08 15:20:54 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/09 13:47:06 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	init_img_data(t_data *data)
 		= mlx_init(data->screen_width, data->screen_height, "cub3d", false);
 	if (!data->mlx)
 		free_str_exit("initializing MLX", data, 3);
-	mlx_set_window_pos(data->mlx, 10, 10);
+	mlx_set_window_pos(data->mlx, 10, 1000);
 	data->img_data->ceiling->color = "default_blue";
 	data->img_data->ceiling->red = 0;
 	data->img_data->ceiling->green = 0;
@@ -93,8 +93,8 @@ void	init_minimap(t_data *data)
 	data->toggle_mm = 1;
 	data->mm->scale = 4;
 	data->mm->w_col = get_rgba(0, 0, 0, 255);
-	data->mm->p_col = get_rgba(0, 255, 0, 255);
-	data->mm->o_col = get_rgba(0, 0, 255, 255);
+	data->mm->p_col = get_rgba(150, 150, 250, 255);
+	data->mm->o_col = get_rgba(0, 100, 100, 255);
 	data->mm->width = data->screen_width / data->mm->scale;
 	data->mm->height = data->screen_height / data->mm->scale;
 	data->mm->xpos = data->screen_width - data->mm->width;
