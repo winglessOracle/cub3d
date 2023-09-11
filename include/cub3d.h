@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/11 15:43:28 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/11 22:11:46 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,8 +140,7 @@ int32_t		get_rgba(int32_t r, int32_t g, int32_t b, int32_t a);
 
 //building
 void		build_image(t_data *data);
-void		build_minimap(t_data *data);
-void		put_pixels_main(t_data *data);
+void		pixelate_image(t_data *data);
 
 //movement
 void		move_player(double rad, t_data *data);
