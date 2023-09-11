@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/08 17:38:51 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/11 10:37:02 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,15 @@ void	put_pixels_main(t_data *data)
 			return ;
 		}
 		if (bounce->texture == 'N')
+		{
 			texture = data->img_data->wall_textures[0];
+			bounce->bounce_position = 1 - bounce->bounce_position;
+		}
 		if (bounce->texture == 'E')
+		{
 			texture = data->img_data->wall_textures[1];
+			bounce->bounce_position = 1 - bounce->bounce_position;
+		}
 		if (bounce->texture == 'S')
 			texture = data->img_data->wall_textures[2];
 		if (bounce->texture == 'W')
@@ -87,8 +93,8 @@ void	put_pixels_mini(t_data *data)
 			mlx_put_pixel(data->img_data->mini_map, x, y, data->mm->o_col);
 			if ((data->grid[grid_y][grid_x]) == '1')
 				mlx_put_pixel(data->img_data->mini_map, x, y, data->mm->w_col);
-			if (grid_y == (int)round(data->p_ypos) && grid_x
-				== (int)round(data->p_xpos))
+			if (grid_y == (int)data->p_ypos && grid_x
+				== (int)data->p_xpos)
 				mlx_put_pixel(data->img_data->mini_map, x, y, data->mm->p_col);
 			x += 1;
 		}

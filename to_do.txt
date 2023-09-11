@@ -1,8 +1,3 @@
-mirror of wall: only east face of wall (blue) is mirrored
-
-
-wall collision
-
 config data to header
 check minimap working
 change colors

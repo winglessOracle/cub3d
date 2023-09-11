@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 18:50:59 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/05 11:38:01 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/11 10:31:20 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,6 @@ void	test_print_movement(char *str, t_data *data)
 {
 	printf("\n%s======== %s ============\n%s", GREEN, str, RESET);
 	printf("X:%f\tY:%f\n", data->p_xpos, data->p_ypos);
+	printf("grid_X:%d\tgrid_Y:%d\n", (int)round(data->p_xpos), (int)round(data->p_ypos));
 	printf("looking at %f RAD\n", data->p_viewdir);
 }
