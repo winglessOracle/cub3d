@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/08 14:11:59 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/08 14:15:55 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ void	put_pixels_main(t_data *data)
 		viewdir = calc_pix_view_dir(x, data);
 		bounce = get_bounce(data, viewdir);
 		if (bounce == NULL)
-		{
-			printf("raycasting error!");
 			return ;
-		}
 		y = 0;
 		while (y < data->screen_height)
 		{

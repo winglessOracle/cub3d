@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/04 10:41:59 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/09/08 14:09:50 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/08 17:06:09 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
  * @brief, calulates the bounce point at a given y value, based on current
  * position and view direction
  * @note, assumes bounce->y is already set
+ * @param viewdir the horizontal viewdir of the pixel being calculated
 */
 static bool	define_horizontal_bounce(t_bounce *bounce, double viewdir,
 	t_data *data)
@@ -35,6 +36,8 @@ static bool	define_horizontal_bounce(t_bounce *bounce, double viewdir,
 	if (is_wall(bounce->x, bounce->y, data))
 	{
 		bounce->distance = sqrt(d_x * d_x + d_y * d_y);
+		// bounce->distance = sqrt(d_x * d_x + d_y * d_y) * sin(M_PI + viewdir - data->p_viewdir);
+		// bounce->distance = sqrt(d_x * d_x + d_y * d_y) * sin(M_PI + viewdir - data->p_viewdir + 2 * M_PI);
 		if (check_looking_up(viewdir))
 			bounce->texture = data->img_data->wall_textures[SOUTH];
 		else
@@ -67,6 +70,8 @@ static bool	define_vertical_bounce(t_bounce *bounce, double viewdir,
 	if (is_wall(bounce->x, bounce->y, data))
 	{
 		bounce->distance = sqrt(d_x * d_x + d_y * d_y);
+		// bounce->distance = sqrt(d_x * d_x + d_y * d_y) * sin(M_PI + viewdir - data->p_viewdir);
+		// bounce->distance = sqrt(d_x * d_x + d_y * d_y) * sin(M_PI + viewdir - data->p_viewdir + 2 * M_PI);
 		if (check_looking_left(viewdir))
 			bounce->texture = data->img_data->wall_textures[EAST];
 		else
