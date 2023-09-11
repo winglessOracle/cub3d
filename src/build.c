@@ -46,7 +46,7 @@ void	put_pixels_main(t_data *data)
 			z_height = calc_z_height(bounce->distance, z_angle);
 			if (isnan(z_height))
 				puts("NAN value found!!");
-			if (z_height >= 1)
+			if (z_height >= WALL_HEIGHT)
 			{
 				mlx_put_pixel(data->img_data->main_screen, x, y,
 					data->img_data->ceiling->argb);
