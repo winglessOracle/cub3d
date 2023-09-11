@@ -6,6 +6,8 @@
 		"string_view": "c",
 		"vector": "c",
 		"complex": "c",
-		"bitset": "c"
+		"bitset": "c",
+		"mlx42.h": "c",
+		"mlx42_int.h": "c"
 	}
 }

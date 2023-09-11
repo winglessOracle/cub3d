@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:40:03 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/08 11:37:03 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/11 14:08:08 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,6 @@ void	toggle_mm(t_data *data)
 	else
 		data->toggle_mm = 1;
 	build_image(data);
-}
-
-unsigned int	convert_to_rgba(int n)
-{
-	unsigned int	a;
-	unsigned int	b;
-	unsigned int	g;
-	unsigned int	r;
-
-	a = (n >> 24) & 0xFF;
-	b = (n >> 16) & 0xFF;
-	g = (n >> 8) & 0xFF;
-	r = n & 0xFF;
-	return ((r << 24) | (g << 16) | (b << 8) | a);
 }
 
 /***
@@ -49,7 +35,6 @@ int	pixel_from_texure(mlx_texture_t *texture, double y, double x)
 	y_i = (int)(y * texture->height);
 	x_i = (int)(x * texture->width);
 	n_pixel = ((int *)(texture->pixels))[y_i * texture->width + x_i];
-	n_pixel = convert_to_rgba(n_pixel);
 	return (n_pixel);
 }
 

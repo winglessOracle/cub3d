@@ -6,11 +6,21 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/11 11:48:40 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/11 14:06:36 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void cub3d_put_pixel(mlx_image_t* image, uint32_t x, uint32_t y, uint32_t color)
+{
+	uint32_t*	pixelstart;
+	int			bpp;
+
+	bpp = 4;
+	pixelstart = (uint32_t*)&image->pixels[(y * image->width + x) * bpp];
+	*pixelstart = color;
+}
 
 void	put_pixels_main(t_data *data)
 {
@@ -50,7 +60,7 @@ void	put_pixels_main(t_data *data)
 			{
 				n_pixel = pixel_from_texure(bounce->texture,
 					(double)y / data->screen_height, bounce->bounce_position);
-				mlx_put_pixel(data->img_data->main_screen, x, y, n_pixel);
+				cub3d_put_pixel(data->img_data->main_screen, x, y, n_pixel);
 			}
 			y += 1;
 		}
