@@ -6,19 +6,15 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:40:03 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/11 14:08:08 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/11 15:09:10 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	toggle_mm(t_data *data)
+int	toggle(int n)
 {
-	if (data->toggle_mm == 1)
-		data->toggle_mm = 0;
-	else
-		data->toggle_mm = 1;
-	build_image(data);
+	return (n == 0);
 }
 
 /***

@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/11 14:06:36 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/11 14:59:58 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	put_pixels_mini(t_data *data)
 
 void	build_minimap(t_data *data)
 {
-	if (!data->toggle_mm)
+	if (!data->mm->toggle_mm)
 		return ;
 	if (data->mm->height < 50 || data->mm->width < 100)
 		return ;
