@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/11 15:26:22 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/11 15:43:28 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,11 +177,3 @@ void		test_print_movement(char *str, t_data *data);
 void		test_get_pixel(double x_i, double y_i, t_data *data);
 
 #endif
-
-/*
-mlx_load_png: 			load a png texture to the buffer
-mlx_texture_to_image:	Converts a given texture to an image.
-mlx_draw_texture: 		Draws the texture on an already existing image.
-mlx_image_to_window: 	Draws a new instance of an image, 
-						it will then share the same pixel buffer as the image.
-*/

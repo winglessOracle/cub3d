@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/11 15:24:35 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/11 15:42:57 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ void	init_img_data(t_data *data)
 		= mlx_init(data->screen_width, data->screen_height, "cub3d", false);
 	if (!data->mlx)
 		free_str_exit("initializing MLX", data, 3);
-	mlx_set_window_pos(data->mlx, 10, 10);
-	data->img_data->ceiling->color = "default_blue";
+	mlx_set_window_pos(data->mlx, WINDOW_X_POS, WINDOW_Y_POS);
+	data->img_data->ceiling->color = "default";
 	data->img_data->ceiling->red = 0;
 	data->img_data->ceiling->green = 0;
 	data->img_data->ceiling->blue = 255;
 	data->img_data->ceiling->a = 255;
 	data->img_data->ceiling->argb = 0;
-	data->img_data->floor->color = "default_green";
+	data->img_data->floor->color = "default";
 	data->img_data->floor->red = 0;
 	data->img_data->floor->green = 255;
 	data->img_data->floor->blue = 0;
@@ -70,20 +70,20 @@ void	init_check_data(t_data *data)
 
 void	init_main_data(t_data *data)
 {
-	data->grid_width = 0;
-	data->grid_height = 0;
 	data->screen_width = SCREEN_WIDTH;
 	data->screen_height = SCREEN_HEIGHT;
+	data->move_increment = MOVE_INCREMENT;
+	data->movement_rate = MOVEMENT_RATE;
+	data->turn_increment = TURN_INCREMENT;
+	data->mouse_sensitivity = MOUSE_SENSITIVITY;
+	data->grid_width = 0;
+	data->grid_height = 0;
 	data->p_xpos = 0;
 	data->p_ypos = 0;
 	data->mouse_xpos = data->screen_width / 2;
 	data->mouse_ypos = data->screen_height / 2;
 	data->p_viewdir = 0;
-	data->move_increment = 0.5;
-	data->turn_increment = M_PI / 10; //change later
 	data->previous_mouse_x = 0;
-	data->mouse_sensitivity = 0.05;
-	data->movement_rate = 10;
 	data->toggle_mouse = 1;
 }
 
