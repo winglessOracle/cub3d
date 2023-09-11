@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/08 14:15:55 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/11 11:48:40 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	put_pixels_main(t_data *data)
 		{
 			z_angle = calc_z_angle(y, data);
 			z_height = calc_z_height(bounce->distance, z_angle);
-			if isnan(z_height)
+			if (isnan(z_height))
 				puts("NAN value found!!");
 			if (z_height >= 1)
 			{
@@ -76,8 +76,8 @@ void	put_pixels_mini(t_data *data)
 			mlx_put_pixel(data->img_data->mini_map, x, y, data->mm->o_col);
 			if ((data->grid[grid_y][grid_x]) == '1')
 				mlx_put_pixel(data->img_data->mini_map, x, y, data->mm->w_col);
-			if (grid_y == (int)round(data->p_ypos) && grid_x
-				== (int)round(data->p_xpos))
+			if (grid_y == (int)data->p_ypos && grid_x
+				== (int)data->p_xpos)
 				mlx_put_pixel(data->img_data->mini_map, x, y, data->mm->p_col);
 			x += 1;
 		}
@@ -88,9 +88,9 @@ void	put_pixels_mini(t_data *data)
 
 void	build_minimap(t_data *data)
 {
-	if (data->toggle_mm)
+	if (!data->toggle_mm)
 		return ;
-	if (data->mm->height < 100 || data->mm->width < 200)
+	if (data->mm->height < 50 || data->mm->width < 100)
 		return ;
 	data->img_data->mini_map
 		= mlx_new_image(data->mlx, data->mm->width, data->mm->height);

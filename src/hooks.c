@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:43:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/08 12:42:36 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/08 15:20:17 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ void	ft_mouse_hook(void *param)
 	data->previous_mouse_x = data->mouse_xpos;
 	delta_view = delta_x * data->mouse_sensitivity;
 	if (delta_view < -0.1)
-		turn_player('R', data);
-	else if (delta_view > 0.1)
 		turn_player('L', data);
+	else if (delta_view > 0.1)
+		turn_player('R', data);
 }
 
 void	close_hook(void *param)
@@ -88,7 +88,7 @@ void	close_hook(void *param)
 void	set_hooks(t_data *data)
 {
 	mlx_loop_hook(data->mlx, ft_key_hook, data);
-	// mlx_loop_hook(data->mlx, ft_mouse_hook, data);
+	mlx_loop_hook(data->mlx, ft_mouse_hook, data);
 	mlx_key_hook(data->mlx, key_hook, data);
 	mlx_close_hook(data->mlx, close_hook, data);
 }

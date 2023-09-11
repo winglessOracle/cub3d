@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/11 11:21:42 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/11 11:49:10 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,14 @@ void	init_main_data(t_data *data)
 	data->screen_height = 700;
 	data->p_xpos = 0;
 	data->p_ypos = 0;
-	data->mouse_xpos = 0;
-	data->mouse_ypos = 0;
+	data->mouse_xpos = data->screen_width / 2;
+	data->mouse_ypos = data->screen_height / 2;
 	data->p_viewdir = 0;
 	data->move_increment = 0.3;
 	data->turn_increment = M_PI / 8; //change later
 	data->previous_mouse_x = 0;
-	data->mouse_sensitivity = 0.005;
-	data->movement_rate = 30;
+	data->mouse_sensitivity = 0.05;
+	data->movement_rate = 5;
 }
 
 /* set scale and rgb colors for minimap below.
@@ -93,8 +93,8 @@ void	init_minimap(t_data *data)
 	data->toggle_mm = 1;
 	data->mm->scale = 4;
 	data->mm->w_col = get_rgba(0, 0, 0, 255);
-	data->mm->p_col = get_rgba(0, 255, 0, 255);
-	data->mm->o_col = get_rgba(0, 0, 255, 255);
+	data->mm->p_col = get_rgba(150, 150, 250, 255);
+	data->mm->o_col = get_rgba(0, 100, 100, 255);
 	data->mm->width = data->screen_width / data->mm->scale;
 	data->mm->height = data->screen_height / data->mm->scale;
 	data->mm->xpos = data->screen_width - data->mm->width;

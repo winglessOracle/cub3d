@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:52:40 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/05 08:20:12 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/11 10:31:58 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool	check_valid_move(double y, double x, t_data *data)
 {
-	if (data->grid[(int)round(y)][(int)round(x)] == '1')
+	if (data->grid[(int)y][(int)x] == '1')
 		return (false);
 	return (true);
 }

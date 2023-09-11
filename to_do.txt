@@ -1,8 +1,7 @@
-config dat to header
-check minimap working
-change colors
-fish-eye
 
+config data to header
+check minimap working
+fish-eye
 
 get screen resolution and link to minimap and resize screen (1,2) including max screen
 

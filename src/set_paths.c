@@ -6,9 +6,10 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 13:20:36 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/08 14:07:26 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/11 11:50:10 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "cub3d.h"
 
