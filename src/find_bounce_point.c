@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/04 10:41:59 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/09/12 11:11:25 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/12 12:19:59 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static bool	define_vertical_bounce(t_bounce *bounce, double viewdir,
 
 	d_x = (bounce->x + check_looking_left(viewdir)) - data->p_xpos;
 	d_y = d_x / tan(viewdir);
-	if (check_looking_left(viewdir))
+	if (check_looking_left(viewdir) == false)
 		bounce->bounce_position = fmod(data->p_ypos + d_y, 1);
 	else
 		bounce->bounce_position = 1 - fmod(data->p_ypos + d_y, 1);
