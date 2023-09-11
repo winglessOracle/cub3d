@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/11 18:29:14 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/11 22:08:34 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ void	init_minimap(t_data *data)
 	data->mm->height = data->screen_height / data->mm->scale;
 	data->mm->xpos = data->screen_width - data->mm->width;
 	data->mm->ypos = data->screen_height - data->mm->height;
+	data->img_data->mini_map
+		= mlx_new_image(data->mlx, data->mm->width, data->mm->height);
 }
 
 void	init_data(char *input_file, t_data *data)

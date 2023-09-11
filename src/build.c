@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/12 11:59:45 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/12 12:20:21 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,24 +96,20 @@ void	put_pixels_mini(t_data *data)
 	}
 }
 
-void	build_minimap(t_data *data)
+void	pixelate_image(t_data *data)
 {
-	if (!data->mm->toggle_mm)
-		return ;
-	if (data->mm->height < 50 || data->mm->width < 100)
-		return ;
-	data->img_data->mini_map
-		= mlx_new_image(data->mlx, data->mm->width, data->mm->height);
-	put_pixels_mini(data);
-	mlx_image_to_window(data->mlx, data->img_data->mini_map,
-		data->mm->xpos, data->mm->ypos);
+	put_pixels_main(data);
+	if (data->mm->toggle_mm && (data->mm->height >= 50 || data->mm->width >= 100))
+		put_pixels_mini(data);
 }
 
 void	build_image(t_data *data)
 {
 	data->img_data->main_screen
 		= mlx_new_image(data->mlx, data->screen_width, data->screen_height);
-	put_pixels_main(data);
 	mlx_image_to_window(data->mlx, data->img_data->main_screen, 0, 0);
-	build_minimap(data);
+	if (data->mm->toggle_mm && (data->mm->height >= 50 || data->mm->width >= 100))
+		mlx_image_to_window(data->mlx, data->img_data->mini_map,
+			data->mm->xpos, data->mm->ypos);
+	pixelate_image(data);
 }
