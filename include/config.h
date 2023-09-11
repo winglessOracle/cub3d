@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/11 15:20:29 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/12 20:19:55 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/13 00:23:42 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 //dimensions of the MLX screenthe game will play on
 # define SCREEN_WIDTH 2000
-# define SCREEN_HEIGHT 1200
+# define SCREEN_HEIGHT 1000
 
-# define WINDOW_X_POS 10
-# define WINDOW_Y_POS 1000
+# define WINDOW_X_POS 200
+# define WINDOW_Y_POS 100
 
 // wall hight relative to grid cell lenght and width
 # define WALL_HEIGHT 1.00
@@ -31,3 +31,4 @@
 # define MOUSE_SENSITIVITY 0.05
 
 #endif
+
