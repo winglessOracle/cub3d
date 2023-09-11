@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/11 15:20:29 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/13 00:49:34 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/13 00:50:16 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 # define CONFIG_H
 
 //dimensions of the MLX screenthe game will play on
-# define SCREEN_WIDTH 1200
-# define SCREEN_HEIGHT 800
+# define SCREEN_WIDTH 2000
+# define SCREEN_HEIGHT 1000
 
-# define WINDOW_X_POS 200
-# define WINDOW_Y_POS 100
+# define WINDOW_X_POS 10
+# define WINDOW_Y_POS 10
 
 // wall hight relative to grid cell lenght and width
 # define WALL_HEIGHT 1.00
