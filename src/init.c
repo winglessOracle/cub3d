@@ -6,11 +6,12 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/11 14:51:23 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/11 15:24:35 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "config.h"
 
 void	malloc_structs(t_data *data)
 {
@@ -71,8 +72,8 @@ void	init_main_data(t_data *data)
 {
 	data->grid_width = 0;
 	data->grid_height = 0;
-	data->screen_width = 1400;
-	data->screen_height = 700;
+	data->screen_width = SCREEN_WIDTH;
+	data->screen_height = SCREEN_HEIGHT;
 	data->p_xpos = 0;
 	data->p_ypos = 0;
 	data->mouse_xpos = data->screen_width / 2;
@@ -83,6 +84,7 @@ void	init_main_data(t_data *data)
 	data->previous_mouse_x = 0;
 	data->mouse_sensitivity = 0.05;
 	data->movement_rate = 10;
+	data->toggle_mouse = 1;
 }
 
 /* set scale and rgb colors for minimap below.
@@ -90,7 +92,7 @@ RGBA with A for transparancy
 Scale is the division of the screen size*/
 void	init_minimap(t_data *data)
 {
-	data->toggle_mm = 1;
+	data->mm->toggle_mm = 1;
 	data->mm->scale = 4;
 	data->mm->w_col = get_rgba(0, 0, 0, 255);
 	data->mm->p_col = get_rgba(150, 150, 250, 255);

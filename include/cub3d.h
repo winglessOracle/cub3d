@@ -6,18 +6,17 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/08 14:02:07 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/11 15:26:22 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-// wall hight relative to grid cell lenght and width
-# define WALL_HEIGHT 1.00
-
+# include "config.h"
 # include "../libraries/MLX42/include/MLX42/MLX42.h"
 # include "../libraries/libft/libft.h"
+# include "config.h"
 # include <stdio.h>
 # include <fcntl.h>
 # include <math.h>
@@ -36,6 +35,7 @@ typedef struct minimap
 	int			height;
 	int			xpos;
 	int			ypos;
+	int			toggle_mm;
 	mlx_image_t	*mini_map;
 
 }	t_minimap;
@@ -100,12 +100,12 @@ typedef struct s_data
 	int				mouse_xpos;
 	int				mouse_ypos;
 	double			p_viewdir;
-	int				toggle_mm;
 	double			move_increment;
 	double			turn_increment;
 	int				previous_mouse_x;
 	double			mouse_sensitivity;
 	int				movement_rate;
+	int				toggle_mouse;
 }	t_data;
 
 typedef enum e_map {
@@ -125,7 +125,7 @@ int			free_exit(t_data *data, int n);
 void		free_str_exit(char *str, t_data *data, int error);
 void		flood_fill(int x, int y, char **grid, t_data *data);
 int			pixel_from_texure(mlx_texture_t *texture, double x, double y);
-void		toggle_mm(t_data *data);
+int			toggle(int n);
 
 //grid_functions
 char		**generate_grid(char *input_file);

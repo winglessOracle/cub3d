@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:43:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/11 14:48:18 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/11 15:17:37 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,10 @@ void	key_hook_single(mlx_key_data_t keydata, void *param)
 		mlx_terminate(data->mlx);
 		free_exit(data, 0);
 	}
+	if (keydata.key == MLX_KEY_R && keydata.action == MLX_PRESS)
+		data->mm->toggle_mm = toggle(data->mm->toggle_mm);
 	if (keydata.key == MLX_KEY_M && keydata.action == MLX_PRESS)
-		toggle_mm(data);
+		data->toggle_mouse = toggle(data->toggle_mouse);
 	if (keydata.key == MLX_KEY_W && keydata.action == MLX_RELEASE)
 		move_player(data->p_viewdir, data);
 	if (keydata.key == MLX_KEY_S && keydata.action == MLX_RELEASE)
@@ -61,7 +63,7 @@ void	key_hook_single(mlx_key_data_t keydata, void *param)
 		turn_player('L', data);
 	if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_RELEASE)
 		turn_player('R', data);
-	build_minimap(data);
+	build_image(data);
 }
 
 void	ft_mouse_hook(void *param)
@@ -72,18 +74,21 @@ void	ft_mouse_hook(void *param)
 	static int	frame_counter = 0;
 
 	data = param;
-	delta_x = 0;
-	delta_view = 0;
-	frame_counter ++;
-	if (frame_counter >= data->movement_rate)
-		mlx_get_mouse_pos(data->mlx, &data->mouse_xpos, &data->mouse_ypos);
-	delta_x = data->mouse_xpos - data->previous_mouse_x;
-	data->previous_mouse_x = data->mouse_xpos;
-	delta_view = delta_x * data->mouse_sensitivity;
-	if (delta_view < -0.1)
-		turn_player('L', data);
-	else if (delta_view > 0.1)
-		turn_player('R', data);
+	if (data->toggle_mouse)
+	{
+		delta_x = 0;
+		delta_view = 0;
+		frame_counter ++;
+		if (frame_counter >= data->movement_rate)
+			mlx_get_mouse_pos(data->mlx, &data->mouse_xpos, &data->mouse_ypos);
+		delta_x = data->mouse_xpos - data->previous_mouse_x;
+		data->previous_mouse_x = data->mouse_xpos;
+		delta_view = delta_x * data->mouse_sensitivity;
+		if (delta_view < -0.1)
+			turn_player('L', data);
+		else if (delta_view > 0.1)
+			turn_player('R', data);
+	}
 }
 
 void	close_hook(void *param)
