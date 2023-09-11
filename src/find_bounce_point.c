@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/04 10:41:59 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/09/08 17:06:09 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/11 11:45:29 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ static bool	define_horizontal_bounce(t_bounce *bounce, double viewdir,
 
 	d_y = (bounce->y + check_looking_up(viewdir)) - data->p_ypos;
 	d_x = d_y * tan(viewdir);
-	bounce->bounce_position = fmod(data->p_xpos + d_x, 1);
+	if (check_looking_up(viewdir))
+		bounce->bounce_position = fmod(data->p_xpos + d_x, 1);
+	else
+		bounce->bounce_position = 1 - fmod(data->p_xpos + d_x, 1);
 	bounce->x = (int)(data->p_xpos + d_x);
 	if (data->p_xpos + d_x < 0
 		|| is_out_of_map(bounce->x, bounce->y, data))
@@ -60,7 +63,10 @@ static bool	define_vertical_bounce(t_bounce *bounce, double viewdir,
 
 	d_x = (bounce->x + check_looking_left(viewdir)) - data->p_xpos;
 	d_y = d_x / tan(viewdir);
-	bounce->bounce_position = fmod(data->p_ypos + d_y, 1);
+	if (check_looking_left(viewdir))
+		bounce->bounce_position = fmod(data->p_ypos + d_y, 1);
+	else
+		bounce->bounce_position = 1 - fmod(data->p_ypos + d_y, 1);
 	bounce->y = (int)(data->p_ypos + d_y);
 	if (data->p_ypos + d_y < 0
 		|| is_out_of_map(bounce->x, bounce->y, data))
