@@ -2,8 +2,8 @@ SO ./textures/lava/lava_2.png
 WE ./textures/lava/lava_3.png
 EA ./textures/lava/lava_4.png
 
-F 55,55,0 
-C 0,100,100
+F 30,10,10 
+C 0,100,200
 
         1111111111111111111111111111
         1000000000000000000000001  1
