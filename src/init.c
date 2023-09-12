@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/13 00:50:42 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/13 00:51:47 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	init_img_data(t_data *data)
 	data->mlx
 		= mlx_init(data->screen_width, data->screen_height, "cub3d", false);
 	if (!data->mlx)
-		free_str_exit("initializing MLX", data, 3);
+		free_str_exit("initializing MLX", data, 4);
 	mlx_set_window_pos(data->mlx, WINDOW_X_POS, WINDOW_Y_POS);
 	data->img_data->ceiling->color = "default";
 	data->img_data->ceiling->red = 0;
@@ -113,9 +113,9 @@ void	init_data(char *input_file, t_data *data)
 	parse_file_paths(input_file, data);
 	data->grid = generate_grid(input_file);
 	if (!data->grid)
-		free_str_exit("generating grid from input file", data, 3);
+		free_str_exit("generating grid from input file", data, 9);
 	analyze_grid(data);
 	square_grid(data);
 	init_minimap(data);
-	test_print_grid(data); // remove
+	// test_print_grid(data); // remove
 }

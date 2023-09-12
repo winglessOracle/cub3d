@@ -6,7 +6,7 @@
 #    By: cwesseli <cwesseli@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/19 17:26:03 by cwesseli      #+#    #+#                  #
-#    Updated: 2023/09/08 11:41:01 by cherrewi      ########   odam.nl          #
+#    Updated: 2023/09/12 23:07:36 by carlowessel   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,3 +73,16 @@ GREEN	=	\033[32;1m
 BLUE	=	\033[34;1m
 RED		=	\033[0;31m
 YELLOW	=	\033[0;33m
+
+
+# ***********RETURN VALUES***************************************************** #
+# 1: parameter check
+# 2: malloc primary data
+# 3: malloc other structs
+# 4: mlx_init
+# 5: opening file
+# 6: loading textures
+# 7: loading colors
+# 8: check input data
+# 9: generarting grid
+# 10: analyzing grid

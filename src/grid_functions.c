@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 23:17:22 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/08 11:43:03 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/12 23:03:31 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	analyze_grid(t_data *data)
 			{
 				printf("\n%sFound non valid characters in map (%c)\n", \
 					RED, data->grid[y][x]);
-				free_exit(data, 1);
+				free_exit(data, 10);
 			}
 			set_start_pos(y, x, data);
 			x++;
