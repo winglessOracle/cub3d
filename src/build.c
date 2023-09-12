@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/12 19:56:57 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/12 19:59:37 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	put_pixels_mini(t_data *data)
 void	pixelate_image(t_data *data)
 {
 	put_pixels_main(data);
-	if (data->mm->toggle_mm && (data->mm->height >= 50 || data->mm->width >= 100))
+	if (data->mm->toggle_mm && data->mm->height >= 50 && data->mm->width >= 100)
 		put_pixels_mini(data);
 }
 
@@ -108,7 +108,7 @@ void	build_image(t_data *data)
 	data->img_data->main_screen
 		= mlx_new_image(data->mlx, data->screen_width, data->screen_height);
 	mlx_image_to_window(data->mlx, data->img_data->main_screen, 0, 0);
-	if (data->mm->toggle_mm && (data->mm->height >= 50 || data->mm->width >= 100))
+	if (data->mm->toggle_mm && data->mm->height >= 50 && data->mm->width >= 100)
 		mlx_image_to_window(data->mlx, data->img_data->mini_map,
 			data->mm->xpos, data->mm->ypos);
 	pixelate_image(data);
