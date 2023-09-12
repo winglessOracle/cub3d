@@ -1,5 +1,4 @@
 bonus: move bonus functions to seperate files and header and include a macro toggle in header file
 
 check walls in assignment
-redo set colors
 
