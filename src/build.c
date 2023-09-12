@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/11 22:09:40 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/12 12:15:13 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void cub3d_put_pixel(mlx_image_t* image, uint32_t x, uint32_t y, uint32_t color)
 {
-	uint32_t*	pixelstart;
+	uint32_t	*pixelstart;
 	int			bpp;
 
 	bpp = 4;
@@ -39,14 +39,15 @@ void	put_pixels_main(t_data *data)
 		bounce = get_bounce(data, viewdir);
 		if (bounce == NULL)
 			return ;
+		bounce->distance_adj = bounce->distance * cos(viewdir - data->p_viewdir);
 		y = 0;
 		while (y < data->screen_height)
 		{
 			z_angle = calc_z_angle(y, data);
-			z_height = calc_z_height(bounce->distance, z_angle);
+			z_height = calc_z_height(bounce->distance_adj, z_angle);
 			if (isnan(z_height))
 				puts("NAN value found!!");
-			if (z_height >= 1)
+			if (z_height >= WALL_HEIGHT)
 			{
 				mlx_put_pixel(data->img_data->main_screen, x, y,
 					data->img_data->ceiling->argb);
@@ -59,12 +60,12 @@ void	put_pixels_main(t_data *data)
 			else
 			{
 				n_pixel = pixel_from_texure(bounce->texture,
-					(double)y / data->screen_height, bounce->bounce_position);
+					z_height / WALL_HEIGHT, bounce->bounce_position);
 				cub3d_put_pixel(data->img_data->main_screen, x, y, n_pixel);
 			}
-			y += 1;
+			y++;
 		}
-		x += 1;
+		x++;
 	}
 }
 
@@ -75,10 +76,10 @@ void	put_pixels_mini(t_data *data)
 	int	grid_x;
 	int	grid_y;
 
-	x = 0;
 	y = 0;
 	while (y < data->mm->height)
 	{
+		x = 0;
 		while (x < data->mm->width)
 		{
 			grid_x = x * data->grid_width / data->mm->width;
@@ -89,10 +90,9 @@ void	put_pixels_mini(t_data *data)
 			if (grid_y == (int)data->p_ypos && grid_x
 				== (int)data->p_xpos)
 				mlx_put_pixel(data->img_data->mini_map, x, y, data->mm->p_col);
-			x += 1;
+			x++;
 		}
-		x = 0;
-		y += 1;
+		y++;
 	}
 }
 

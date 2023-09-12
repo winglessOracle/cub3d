@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/06 12:09:34 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/09/08 12:24:51 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/11 14:50:49 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ double	calc_pix_view_dir(int x, t_data *data)
 	return (pix_hor_view_dir);
 }
 
-// calc vertical view dir
+// calc vertical view dir.
+// fov is 60 degrees: (30 deg up + 30 deg down)
 double	calc_z_angle(int y, t_data *data)
 {
-	const double	fov_vert = M_PI / 6;
+	const double	fov_vert = M_PI / 3;
 	double			pix_vert_view_dir;
 
 	pix_vert_view_dir = (fov_vert / 2)

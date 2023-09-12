@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/11 22:11:46 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/12 12:14:58 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ typedef struct s_check_data
 typedef struct s_bounce
 {
 	double			distance;
+	double			distance_adj;
 	int				x;
 	int				y;
 	double			bounce_position;

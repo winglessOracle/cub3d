@@ -46,7 +46,7 @@ void test_calc_z_angle(t_data *data)
 	// top pixel
 	z_angle = calc_z_angle(0, data);
 
-	assert(fabs(z_angle - M_PI / 12) < 0.001);
+	assert(fabs(z_angle - M_PI / 6) < 0.001);
 
 	// mid pixel
 	if (data->screen_height % 2 == 1)
@@ -64,7 +64,7 @@ void test_calc_z_angle(t_data *data)
 
 	// bottom pixel
 	z_angle = calc_z_angle(data->screen_height - 1, data);
-	assert(fabs(z_angle - (M_PI * (1 + (double)11/12))) < 0.001);
+	assert(fabs(z_angle - (M_PI * (1 + (double)5/6))) < 0.001);
 	
 	puts("OK");
 }
