@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/11 14:59:58 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/12 11:06:34 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,12 @@ void	put_pixels_main(t_data *data)
 		bounce = get_bounce(data, viewdir);
 		if (bounce == NULL)
 			return ;
+		bounce->distance_adj = bounce->distance * cos(viewdir - data->p_viewdir);
 		y = 0;
 		while (y < data->screen_height)
 		{
 			z_angle = calc_z_angle(y, data);
-			z_height = calc_z_height(bounce->distance, z_angle);
+			z_height = calc_z_height(bounce->distance_adj, z_angle);
 			if (isnan(z_height))
 				puts("NAN value found!!");
 			if (z_height >= WALL_HEIGHT)

@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/04 10:41:59 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/09/11 11:45:29 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/12 11:11:25 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ static bool	define_horizontal_bounce(t_bounce *bounce, double viewdir,
 	if (is_wall(bounce->x, bounce->y, data))
 	{
 		bounce->distance = sqrt(d_x * d_x + d_y * d_y);
-		// bounce->distance = sqrt(d_x * d_x + d_y * d_y) * sin(M_PI + viewdir - data->p_viewdir);
-		// bounce->distance = sqrt(d_x * d_x + d_y * d_y) * sin(M_PI + viewdir - data->p_viewdir + 2 * M_PI);
 		if (check_looking_up(viewdir))
 			bounce->texture = data->img_data->wall_textures[SOUTH];
 		else
@@ -76,8 +74,6 @@ static bool	define_vertical_bounce(t_bounce *bounce, double viewdir,
 	if (is_wall(bounce->x, bounce->y, data))
 	{
 		bounce->distance = sqrt(d_x * d_x + d_y * d_y);
-		// bounce->distance = sqrt(d_x * d_x + d_y * d_y) * sin(M_PI + viewdir - data->p_viewdir);
-		// bounce->distance = sqrt(d_x * d_x + d_y * d_y) * sin(M_PI + viewdir - data->p_viewdir + 2 * M_PI);
 		if (check_looking_left(viewdir))
 			bounce->texture = data->img_data->wall_textures[EAST];
 		else
