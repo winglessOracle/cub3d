@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:43:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/12 14:32:07 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/12 14:37:24 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,20 +52,20 @@ void	key_hook_single(mlx_key_data_t keydata, void *param)
 		data->mm->toggle_mm = toggle(data->mm->toggle_mm);
 		build_image(data);
 	}
-	if (keydata.key == MLX_KEY_M && keydata.action == MLX_PRESS)
-		data->toggle_mouse = toggle(data->toggle_mouse);
-	if (keydata.key == MLX_KEY_W && keydata.action == MLX_RELEASE)
-		move_player(data->p_viewdir, data);
-	if (keydata.key == MLX_KEY_S && keydata.action == MLX_RELEASE)
-		move_player(data->p_viewdir + M_PI, data);
-	if (keydata.key == MLX_KEY_A && keydata.action == MLX_RELEASE)
-		move_player(data->p_viewdir + M_PI_2, data);
-	if (keydata.key == MLX_KEY_D && keydata.action == MLX_RELEASE)
-		move_player(data->p_viewdir - M_PI_2, data);
-	if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_RELEASE)
-		turn_player('L', data);
-	if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_RELEASE)
-		turn_player('R', data);
+	// if (keydata.key == MLX_KEY_M && keydata.action == MLX_PRESS)
+	// 	data->toggle_mouse = toggle(data->toggle_mouse);
+	// if (keydata.key == MLX_KEY_W && keydata.action == MLX_RELEASE)
+	// 	move_player(data->p_viewdir, data);
+	// if (keydata.key == MLX_KEY_S && keydata.action == MLX_RELEASE)
+	// 	move_player(data->p_viewdir + M_PI, data);
+	// if (keydata.key == MLX_KEY_A && keydata.action == MLX_RELEASE)
+	// 	move_player(data->p_viewdir + M_PI_2, data);
+	// if (keydata.key == MLX_KEY_D && keydata.action == MLX_RELEASE)
+	// 	move_player(data->p_viewdir - M_PI_2, data);
+	// if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_RELEASE)
+	// 	turn_player('L', data);
+	// if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_RELEASE)
+	// 	turn_player('R', data);
 }
 
 void	ft_mouse_hook(void *param)
