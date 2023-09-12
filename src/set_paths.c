@@ -6,12 +6,52 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 13:20:36 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/11 11:50:10 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/12 20:19:19 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "cub3d.h"
+
+// typedef struct {
+// 	char	*prefix;
+// 	int		direction;
+// } t_texture;
+
+// static	t_texture paths[] = {
+// 	{"NO", NORTH},
+// 	{"EA", EAST},
+// 	{"SO", SOUTH},
+// 	{"NO", WEST}
+// };
+
+// void	load_textures(char *line, t_data *data)
+// {
+// 	int	start;
+// 	int	size;
+
+// 	start = 0;
+// 	size = 0;
+// 	if (ft_strnstr(line, paths->prefix, ft_strlen(line)))
+// 	{
+// 		while (line[start] && line[start] != paths->prefix[0])
+// 			start++;
+// 		start += 3;
+// 		while (line[start + size] && !ft_isspace(line[start + size]))
+// 			size++;
+// 		data->img_data->wall_texture_paths[paths->direction]
+// 			= ft_substr(line, start, size);
+// 		if (ft_check_extention(data->img_data->wall_texture_paths[paths->direction],
+// 				"png"))
+// 			free_str_exit("wrong file format for textures. expected '.png'",
+// 				data, 7);
+// 		data->img_data->wall_textures[paths->direction]
+// 			= mlx_load_png(data->img_data->wall_texture_paths[paths->direction]);
+// 		if (!data->img_data->wall_textures[paths->direction])
+// 			free_str_exit("loading texture", data, 7);
+// 		data->check_data->textures_loaded += 1;
+// 	}
+// }
 
 void	load_north(char *line, t_data *data)
 {
@@ -144,6 +184,7 @@ void	parse_file_paths(char *file, t_data *data)
 		line = get_next_line(fd);
 		if (line == NULL)
 			break ;
+		// load_textures(line, data);
 		load_north(line, data);
 		load_east(line, data);
 		load_south(line, data);
