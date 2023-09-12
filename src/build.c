@@ -6,19 +6,20 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/12 19:59:37 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/12 19:59:49 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void cub3d_put_pixel(mlx_image_t* image, uint32_t x, uint32_t y, uint32_t color)
+void	cub3d_put_pixel(mlx_image_t *image, uint32_t x, uint32_t y,
+	uint32_t color)
 {
 	uint32_t	*pixelstart;
 	int			bpp;
 
 	bpp = 4;
-	pixelstart = (uint32_t*)&image->pixels[(y * image->width + x) * bpp];
+	pixelstart = (uint32_t *)&image->pixels[(y * image->width + x) * bpp];
 	*pixelstart = color;
 }
 
@@ -39,7 +40,8 @@ void	put_pixels_main(t_data *data)
 		bounce = get_bounce(data, viewdir);
 		if (bounce == NULL)
 			return ;
-		bounce->distance_adj = bounce->distance * cos(viewdir - data->p_viewdir);
+		bounce->distance_adj = bounce->distance
+			* cos(viewdir - data->p_viewdir);
 		y = 0;
 		while (y < data->screen_height)
 		{
@@ -60,7 +62,7 @@ void	put_pixels_main(t_data *data)
 			else
 			{
 				n_pixel = pixel_from_texure(bounce->texture,
-					z_height / WALL_HEIGHT, bounce->bounce_position);
+						1 - z_height / WALL_HEIGHT, bounce->bounce_position);
 				cub3d_put_pixel(data->img_data->main_screen, x, y, n_pixel);
 			}
 			y++;
