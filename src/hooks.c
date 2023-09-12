@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:43:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/12 20:23:48 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/12 23:05:19 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,19 @@ void	key_hook_repeat(void *param)
 
 	frame_counter++;
 	data = param;
-	
-		if (mlx_is_key_down(data->mlx, MLX_KEY_W))
-			move_player(data->p_viewdir, data);
-		if (mlx_is_key_down(data->mlx, MLX_KEY_S))
-			move_player(data->p_viewdir + M_PI, data);
-		if (mlx_is_key_down(data->mlx, MLX_KEY_A))
-			move_player(data->p_viewdir + M_PI_2, data);
-		if (mlx_is_key_down(data->mlx, MLX_KEY_D))
-			move_player(data->p_viewdir - M_PI_2, data);
-		if (mlx_is_key_down(data->mlx, MLX_KEY_LEFT))
-			turn_player('L', data);
-		if (mlx_is_key_down(data->mlx, MLX_KEY_RIGHT))
-			turn_player('R', data);
-		frame_counter = 0;
-	
+	if (mlx_is_key_down(data->mlx, MLX_KEY_W))
+		move_player(data->p_viewdir, data);
+	if (mlx_is_key_down(data->mlx, MLX_KEY_S))
+		move_player(data->p_viewdir + M_PI, data);
+	if (mlx_is_key_down(data->mlx, MLX_KEY_A))
+		move_player(data->p_viewdir + M_PI_2, data);
+	if (mlx_is_key_down(data->mlx, MLX_KEY_D))
+		move_player(data->p_viewdir - M_PI_2, data);
+	if (mlx_is_key_down(data->mlx, MLX_KEY_LEFT))
+		turn_player('L', data);
+	if (mlx_is_key_down(data->mlx, MLX_KEY_RIGHT))
+		turn_player('R', data);
+	frame_counter = 0;
 }
 
 void	key_hook_single(mlx_key_data_t keydata, void *param)

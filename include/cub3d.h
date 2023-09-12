@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/12 19:56:50 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/13 00:11:57 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,8 +135,7 @@ void		square_grid(t_data *data);
 
 //set_paths / set_colors
 void		parse_file_paths(char *file, t_data *data);
-void		set_ceiling_color(char *line, t_data *data);
-void		set_floor_color(char *line, t_data *data);
+void		set_color(char *line, char *identifier, t_color *col, t_data *data);
 int32_t		get_rgba(int32_t r, int32_t g, int32_t b, int32_t a);
 
 //building

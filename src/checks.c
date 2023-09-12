@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/01 15:41:04 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/04 10:52:56 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/12 23:01:42 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ void	check_input_data(t_data *data)
 	i = 0;
 	if (data->check_data->textures_loaded != 4)
 		free_str_exit("input file contains more or less than 4 textures",
-			data, 7);
+			data, 8);
 	if (data->check_data->colors_loaded != 2)
 		free_str_exit("input file contains more or less than 2 colors",
-			data, 7);
+			data, 8);
 	while (i < 4)
 	{
 		if (!data->img_data->wall_textures[i])
-			free_str_exit("loading texture", data, 7);
+			free_str_exit("loading texture", data, 8);
 		i++;
 	}
 }

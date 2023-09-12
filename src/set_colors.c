@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 14:35:29 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/04 10:49:42 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/13 00:15:56 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int32_t	get_rgba(int32_t r, int32_t g, int32_t b, int32_t a)
 
 void	check_rgb_value(t_color *color, t_data *data)
 {
-	if (color->red < 0 || color->red > 255 \
-		|| color->green < 0 || color->green > 255 \
+	if (color->red < 0 || color->red > 255
+		|| color->green < 0 || color->green > 255
 		|| color->blue < 0 || color->blue > 255)
-		free_str_exit("non valid RGB color passed", data, 9);
+		free_str_exit("non valid RGB color passed", data, 7);
 }
 
-void	set_rgb(t_color *color, t_data *data)
+void	set_rgb(char *color_char, t_color *color, t_data *data)
 {
 	int		i;
 	int		start;
@@ -33,63 +33,42 @@ void	set_rgb(t_color *color, t_data *data)
 
 	i = 0;
 	start = 0;
-	while (color->color[i] && color->color[i] != ',')
+	while (color_char[i] && color_char[i] != ',')
 		i++;
 	i++;
-	ft_strlcpy(temp, color->color + start, i);
+	ft_strlcpy(temp, color_char + start, i);
 	color->red = ft_atoi(temp);
 	start = i;
-	while (color->color[i] && color->color[i] != ',')
+	while (color_char[i] && color_char[i] != ',')
 		i++;
 	i++;
-	ft_strlcpy(temp, color->color + start, i);
+	ft_strlcpy(temp, color_char + start, i);
 	color->green = ft_atoi(temp);
 	start = i;
-	while (color->color[i] && color->color[i] != ',')
+	while (color_char[i] && color_char[i] != ',')
 		i++;
 	i++;
-	ft_strlcpy(temp, color->color + start, i);
+	ft_strlcpy(temp, color_char + start, i);
 	color->blue = ft_atoi(temp);
 	check_rgb_value(color, data);
 	color->argb = get_rgba(color->red, color->green, color->blue, color->a);
 }
 
-void	set_ceiling_color(char *line, t_data *data)
+void	set_color(char *line, char *identifier, t_color *col, t_data *data)
 {
-	int	start;
-	int	size;
+	int		size;
+	char	*ident;
+	char	*color;
 
-	start = 0;
-	size = 0;
-	if (ft_strnstr(line, "C ", ft_strlen(line)))
+	ident = ft_strnstr(line, identifier, ft_strlen(line));
+	if (ident)
 	{
-		while (line[start] && line[start] != 'C')
-			start++;
-		start += 2;
-		while (line[start + size] && !ft_isspace(line[start + size]))
+		ident += 2;
+		while (ident[size] && !ft_isspace(ident[size]))
 			size++;
-		data->img_data->ceiling->color = ft_substr(line, start, size);
-		set_rgb(data->img_data->ceiling, data);
+		color = ft_substr(ident, 0, size);
+		set_rgb(color, col, data);
 		data->check_data->colors_loaded += 1;
-	}
-}
-
-void	set_floor_color(char *line, t_data *data)
-{
-	int	start;
-	int	size;
-
-	start = 0;
-	size = 0;
-	if (ft_strnstr(line, "F ", ft_strlen(line)))
-	{
-		while (line[start] && line[start] != 'F')
-			start++;
-		start += 2;
-		while (line[start + size] && !ft_isspace(line[start + size]))
-			size++;
-		data->img_data->floor->color = ft_substr(line, start, size);
-		set_rgb(data->img_data->floor, data);
-		data->check_data->colors_loaded += 1;
+		free (color);
 	}
 }
