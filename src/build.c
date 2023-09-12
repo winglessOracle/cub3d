@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/12 11:52:19 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/12 11:59:45 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ void	put_pixels_main(t_data *data)
 					z_height / WALL_HEIGHT, bounce->bounce_position);
 				cub3d_put_pixel(data->img_data->main_screen, x, y, n_pixel);
 			}
-			y += 1;
+			y++;
 		}
-		x += 1;
+		x++;
 	}
 }
 
@@ -76,10 +76,10 @@ void	put_pixels_mini(t_data *data)
 	int	grid_x;
 	int	grid_y;
 
-	x = 0;
 	y = 0;
 	while (y < data->mm->height)
 	{
+		x = 0;
 		while (x < data->mm->width)
 		{
 			grid_x = x * data->grid_width / data->mm->width;
@@ -90,10 +90,9 @@ void	put_pixels_mini(t_data *data)
 			if (grid_y == (int)data->p_ypos && grid_x
 				== (int)data->p_xpos)
 				mlx_put_pixel(data->img_data->mini_map, x, y, data->mm->p_col);
-			x += 1;
+			x++;
 		}
-		x = 0;
-		y += 1;
+		y++;
 	}
 }
 
