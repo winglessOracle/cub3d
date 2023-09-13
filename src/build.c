@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/13 00:54:11 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/13 22:47:06 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,48 +25,29 @@ void	cub3d_put_pixel(mlx_image_t *image, uint32_t x, uint32_t y,
 
 void	put_pixels_main(t_data *data)
 {
-	int			x;
-	int			y;
-	t_bounce	*bounce;
-	double		viewdir;
-	double		z_angle;
-	double		z_height;
-	int			n_pixel;
+	int				x;
+	int				y;
+	t_pixel_data	pixel_data;
+	uint32_t		pix_color;
 
 	x = 0;
 	while (x < data->screen_width)
 	{
-		viewdir = calc_pix_view_dir(x, data);
-		bounce = get_bounce(data, viewdir);
-		if (bounce == NULL)
+		pixel_data.viewdir = calc_pix_view_dir(x, data);
+		pixel_data.bounce = get_bounce(data, pixel_data.viewdir);
+		if (pixel_data.bounce == NULL)
 			return ;
-		bounce->distance_adj = bounce->distance
-			* cos(viewdir - data->p_viewdir);
+		(pixel_data.bounce)->distance_adj = (pixel_data.bounce)->distance
+			* cos(pixel_data.viewdir - data->p_viewdir);
 		y = 0;
 		while (y < data->screen_height)
 		{
-			z_angle = calc_z_angle(y, data);
-			z_height = calc_z_height(bounce->distance_adj, z_angle);
-			if (isnan(z_height))
-				puts("NAN value found!!");
-			if (z_height >= WALL_HEIGHT)
-			{
-				mlx_put_pixel(data->img_data->main_screen, x, y,
-					data->img_data->ceiling->argb);
-			}
-			else if (z_height < 0)
-			{
-				mlx_put_pixel(data->img_data->main_screen,
-					x, y, data->img_data->floor->argb);
-			}
-			else
-			{
-				n_pixel = pixel_from_texure(bounce->texture,
-						1 - z_height / WALL_HEIGHT, bounce->bounce_position);
-				cub3d_put_pixel(data->img_data->main_screen, x, y, n_pixel);
-			}
+			pix_color = get_pixel_color(data, &pixel_data, y);
+			cub3d_put_pixel(data->img_data->main_screen, x, y, pix_color);
 			y++;
 		}
+		free(pixel_data.bounce);
+		pixel_data.bounce = NULL;
 		x++;
 	}
 }
@@ -110,8 +91,11 @@ void	build_image(t_data *data)
 	data->img_data->main_screen
 		= mlx_new_image(data->mlx, data->screen_width, data->screen_height);
 	mlx_image_to_window(data->mlx, data->img_data->main_screen, 0, 0);
-	if (data->mm->toggle_mm && data->mm->height >= 50 && data->mm->width >= 100)
+	if (data->mm->toggle_mm && data->mm->height >= 50
+		&& data->mm->width >= 100)
+	{
 		mlx_image_to_window(data->mlx, data->img_data->mini_map,
 			data->mm->xpos, data->mm->ypos);
+	}
 	pixelate_image(data);
 }

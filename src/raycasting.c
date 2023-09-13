@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/06 12:09:34 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/09/13 21:22:32 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/13 22:48:35 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,19 @@ double	calc_z_height(double dist, double z_angle)
 		return (NAN);
 	}
 	return (0.5 * WALL_HEIGHT + tan(z_angle) * dist);
+}
+
+uint32_t	get_pixel_color(t_data *data, t_pixel_data *pixel_data, int y)
+{
+	pixel_data->z_angle = calc_z_angle(y, data);
+	pixel_data->z_height = calc_z_height(pixel_data->bounce->distance_adj,
+			pixel_data->z_angle);
+	if (pixel_data->z_height >= WALL_HEIGHT)
+		return ((uint32_t)data->img_data->ceiling->argb);
+	if (pixel_data->z_height < 0)
+		return ((uint32_t)data->img_data->floor->argb);
+	else
+		return ((uint32_t)pixel_from_texure(pixel_data->bounce->texture,
+				1 - pixel_data->z_height / WALL_HEIGHT,
+				pixel_data->bounce->bounce_position));
 }

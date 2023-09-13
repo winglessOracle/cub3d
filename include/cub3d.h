@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/13 11:41:57 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/13 22:47:01 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,14 @@ typedef struct s_data
 	int				toggle_mouse;
 }	t_data;
 
+typedef struct s_pixel_data
+{
+	t_bounce	*bounce;
+	double		viewdir;
+	double		z_angle;
+	double		z_height;
+}	t_pixel_data;
+
 typedef enum e_map {
 	NORTH,
 	EAST,
@@ -166,6 +174,7 @@ t_bounce	*get_vertical_bounce(t_data *data, double viewdir);
 double		calc_z_height(double dist, double z_angle);
 double		calc_z_angle(int y, t_data *data);
 double		calc_pix_view_dir(int x, t_data *data);
+uint32_t	get_pixel_color(t_data *data, t_pixel_data *pixel_data, int y);
 
 // raycasting utils
 bool		check_looking_up(double viewdir);
