@@ -6,36 +6,38 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/06 12:09:34 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/09/11 14:50:49 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/13 21:22:32 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 // calc horizontal pixel view dir, relative to player viewdir
+// fov horizontal is 90 degrees: (45 deg left + 45 deg right)
+// tan (45 degrees) == 1
 double	calc_pix_view_dir(int x, t_data *data)
 {
-	const double	fov_hor = M_PI_2;
 	double			pix_hor_view_dir;
+	int				d_x;
 
+	d_x = (data->screen_width / 2) - x;
 	pix_hor_view_dir = data->p_viewdir
-		+ (fov_hor / 2) - ((double)x / data->screen_width) * fov_hor;
+		+ atan((double)d_x / (data->screen_width / 2));
 	if (pix_hor_view_dir < 0)
 		pix_hor_view_dir += 2 * M_PI;
-	if (pix_hor_view_dir > 2 * M_PI)
-		pix_hor_view_dir -= 2 * M_PI;
 	return (pix_hor_view_dir);
 }
 
 // calc vertical view dir.
-// fov is 60 degrees: (30 deg up + 30 deg down)
+// fov vertical is 60 degrees: (30 deg up + 30 deg down), 
+// tan(30 degrees) == 1/sqrt(3)
 double	calc_z_angle(int y, t_data *data)
 {
-	const double	fov_vert = M_PI / 3;
 	double			pix_vert_view_dir;
+	int				d_y;
 
-	pix_vert_view_dir = (fov_vert / 2)
-		- ((double)y / (data->screen_height - 1)) * fov_vert;
+	d_y = (data->screen_height / 2) - y;
+	pix_vert_view_dir = atan(M_SQRT1_3 * d_y / (data->screen_height / 2));
 	if (pix_vert_view_dir < 0)
 		pix_vert_view_dir += 2 * M_PI;
 	return (pix_vert_view_dir);

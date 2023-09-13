@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/11 15:20:29 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/13 00:55:18 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/13 21:24:07 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@
 # define MOUSE_SENSITIVITY 0.05
 # define MOUSE_SENSITIVITY 0.05
 
-#endif
+// additional math constants
+# define M_SQRT1_3 0.577350269189625764509148780501957456	/* 1/sqrt(3) */
 
+#endif
