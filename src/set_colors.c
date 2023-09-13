@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 14:35:29 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/13 00:15:56 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/13 12:11:03 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	check_rgb_value(t_color *color, t_data *data)
 {
 	if (color->red < 0 || color->red > 255
 		|| color->green < 0 || color->green > 255
-		|| color->blue < 0 || color->blue > 255)
+		|| color->blue < 0 || color->blue > 255
+		|| color->a < 0 || color->a > 255)
 		free_str_exit("non valid RGB color passed", data, 7);
 }
 
@@ -35,20 +36,17 @@ void	set_rgb(char *color_char, t_color *color, t_data *data)
 	start = 0;
 	while (color_char[i] && color_char[i] != ',')
 		i++;
-	i++;
-	ft_strlcpy(temp, color_char + start, i);
+	ft_strlcpy(temp, color_char + start, i - start + 1);
 	color->red = ft_atoi(temp);
-	start = i;
+	start = ++i;
 	while (color_char[i] && color_char[i] != ',')
 		i++;
-	i++;
-	ft_strlcpy(temp, color_char + start, i);
+	ft_strlcpy(temp, color_char + start, i - start + 1);
 	color->green = ft_atoi(temp);
-	start = i;
+	start = ++i;
 	while (color_char[i] && color_char[i] != ',')
 		i++;
-	i++;
-	ft_strlcpy(temp, color_char + start, i);
+	ft_strlcpy(temp, color_char + start, i - start + 1);
 	color->blue = ft_atoi(temp);
 	check_rgb_value(color, data);
 	color->argb = get_rgba(color->red, color->green, color->blue, color->a);
@@ -60,6 +58,7 @@ void	set_color(char *line, char *identifier, t_color *col, t_data *data)
 	char	*ident;
 	char	*color;
 
+	size = 0;
 	ident = ft_strnstr(line, identifier, ft_strlen(line));
 	if (ident)
 	{

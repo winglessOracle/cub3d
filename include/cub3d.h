@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/13 00:53:33 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/13 11:41:57 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,11 @@ typedef enum e_map {
 	SOUTH,
 	WEST
 }	t_map;
+
+typedef struct s_texture{
+	char	*prefix;
+	int		dir;
+}	t_texture;
 
 //init
 void		malloc_structs(t_data *data);
