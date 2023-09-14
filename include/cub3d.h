@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/14 17:39:17 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/14 18:01:40 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,14 @@ typedef struct s_check_data
 }	t_check_data;
 
 /***
- * @param distance			distance between view point, and bounce point
+ * @param distance_squared	squared distance between view point and bounce point
  * @param x					x coordinate of wall block
  * @param y					y coordinate of wall block
  * @param bounce_position 	the relative postion on the texture [0, 1)
 */
 typedef struct s_bounce
 {
-	double			distance;
+	double			distance_squared;
 	double			distance_adj;
 	int				x;
 	int				y;

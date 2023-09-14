@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/04 10:41:59 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/09/13 00:53:23 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/14 17:57:08 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static bool	define_horizontal_bounce(t_bounce *bounce, double viewdir,
 	}
 	if (is_wall(bounce->x, bounce->y, data))
 	{
-		bounce->distance = sqrt(d_x * d_x + d_y * d_y);
+		bounce->distance_squared = d_x * d_x + d_y * d_y;
 		if (check_looking_up(viewdir))
 			bounce->texture = data->img_data->wall_textures[SOUTH];
 		else
@@ -73,7 +73,7 @@ static bool	define_vertical_bounce(t_bounce *bounce, double viewdir,
 	}
 	if (is_wall(bounce->x, bounce->y, data))
 	{
-		bounce->distance = sqrt(d_x * d_x + d_y * d_y);
+		bounce->distance_squared = d_x * d_x + d_y * d_y;
 		if (check_looking_left(viewdir))
 			bounce->texture = data->img_data->wall_textures[EAST];
 		else
@@ -160,7 +160,7 @@ t_bounce	*get_bounce(t_data *data, double viewdir)
 		return (bounce_hor);
 	if (bounce_hor == NULL)
 		return (bounce_vert);
-	if (bounce_vert->distance < bounce_hor->distance)
+	if (bounce_vert->distance_squared < bounce_hor->distance_squared)
 	{
 		free(bounce_hor);
 		return (bounce_vert);

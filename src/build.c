@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/14 17:20:01 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/14 18:00:38 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	put_pixels_main(t_data *data)
 		pixel_data.bounce = get_bounce(data, pixel_data.viewdir);
 		if (pixel_data.bounce == NULL)
 			return ;
-		(pixel_data.bounce)->distance_adj = (pixel_data.bounce)->distance
+		(pixel_data.bounce)->distance_adj 
+			= sqrt((pixel_data.bounce)->distance_squared)
 			* cos(pixel_data.viewdir - data->p_viewdir);
 		y = 0;
 		while (y < data->screen_height)
