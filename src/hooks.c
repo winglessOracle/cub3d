@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:43:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/13 01:02:31 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/14 13:11:29 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,23 @@
 void	key_hook_repeat(void *param)
 {
 	t_data		*data;
-	static int	frame_counter = 0;
 
-	frame_counter++;
 	data = param;
-	if (mlx_is_key_down(data->mlx, MLX_KEY_W))
-		move_player(data->p_viewdir, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_S))
-		move_player(data->p_viewdir + M_PI, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_A))
-		move_player(data->p_viewdir + M_PI_2, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_D))
-		move_player(data->p_viewdir - M_PI_2, data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_LEFT))
-		turn_player('L', data);
-	if (mlx_is_key_down(data->mlx, MLX_KEY_RIGHT))
-		turn_player('R', data);
-	frame_counter = 0;
+	if (mlx_get_time() >= data->last_pixelate + data->update_rate)
+	{
+		if (mlx_is_key_down(data->mlx, MLX_KEY_W))
+			move_player(data->p_viewdir, data);
+		if (mlx_is_key_down(data->mlx, MLX_KEY_S))
+			move_player(data->p_viewdir + M_PI, data);
+		if (mlx_is_key_down(data->mlx, MLX_KEY_A))
+			move_player(data->p_viewdir + M_PI_2, data);
+		if (mlx_is_key_down(data->mlx, MLX_KEY_D))
+			move_player(data->p_viewdir - M_PI_2, data);
+		if (mlx_is_key_down(data->mlx, MLX_KEY_LEFT))
+			turn_player('L', data);
+		if (mlx_is_key_down(data->mlx, MLX_KEY_RIGHT))
+			turn_player('R', data);
+	}
 }
 
 void	key_hook_single(mlx_key_data_t keydata, void *param)
@@ -52,18 +52,6 @@ void	key_hook_single(mlx_key_data_t keydata, void *param)
 	}
 	if (keydata.key == MLX_KEY_M && keydata.action == MLX_PRESS)
 		data->toggle_mouse = toggle(data->toggle_mouse);
-	// if (keydata.key == MLX_KEY_W && keydata.action == MLX_RELEASE)
-	// 	move_player(data->p_viewdir, data);
-	// if (keydata.key == MLX_KEY_S && keydata.action == MLX_RELEASE)
-	// 	move_player(data->p_viewdir + M_PI, data);
-	// if (keydata.key == MLX_KEY_A && keydata.action == MLX_RELEASE)
-	// 	move_player(data->p_viewdir + M_PI_2, data);
-	// if (keydata.key == MLX_KEY_D && keydata.action == MLX_RELEASE)
-	// 	move_player(data->p_viewdir - M_PI_2, data);
-	// if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_RELEASE)
-	// 	turn_player('L', data);
-	// if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_RELEASE)
-	// 	turn_player('R', data);
 }
 
 void	ft_mouse_hook(void *param)
@@ -71,15 +59,13 @@ void	ft_mouse_hook(void *param)
 	t_data		*data;
 	int			delta_x;
 	double		delta_view;
-	static int	frame_counter = 0;
 
 	data = param;
 	if (data->toggle_mouse)
 	{
 		delta_x = 0;
 		delta_view = 0;
-		frame_counter++;
-		if (frame_counter >= data->movement_rate)
+		if (mlx_get_time() >= data->last_pixelate + data->update_rate)
 			mlx_get_mouse_pos(data->mlx, &data->mouse_xpos, &data->mouse_ypos);
 		delta_x = data->mouse_xpos - data->previous_mouse_x;
 		data->previous_mouse_x = data->mouse_xpos;

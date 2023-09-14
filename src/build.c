@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 09:11:58 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/13 22:47:06 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/14 13:00:46 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	pixelate_image(t_data *data)
 	put_pixels_main(data);
 	if (data->mm->toggle_mm && data->mm->height >= 50 && data->mm->width >= 100)
 		put_pixels_mini(data);
+	data->last_pixelate = mlx_get_time();
 }
 
 void	build_image(t_data *data)

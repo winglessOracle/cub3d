@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/11 15:20:29 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/13 21:24:07 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/14 13:20:48 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@
 
 //movement speed and refresh rates
 # define MOVE_INCREMENT 0.2
-# define TURN_INCREMENT M_PI / 20
-# define MOVEMENT_RATE 20
+# define TURN_INCREMENT 0.062831853071796 /* M_PI / 50 */
+# define UPDATE_RATE 0.005
 # define MOUSE_SENSITIVITY 0.05
 # define MOUSE_SENSITIVITY 0.05
 

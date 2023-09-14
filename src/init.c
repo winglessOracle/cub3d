@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/14 11:26:37 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/14 13:07:14 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ void	init_main_data(t_data *data)
 	data->screen_width = SCREEN_WIDTH;
 	data->screen_height = SCREEN_HEIGHT;
 	data->move_increment = MOVE_INCREMENT;
-	data->movement_rate = MOVEMENT_RATE;
+	data->last_pixelate = 0;
+	data->update_rate = UPDATE_RATE;
 	data->turn_increment = TURN_INCREMENT;
 	data->mouse_sensitivity = MOUSE_SENSITIVITY;
 	data->grid_width = 0;
