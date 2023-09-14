@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/06 12:09:34 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/09/14 12:26:26 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/14 13:55:58 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ double	calc_pix_view_dir(int x, t_data *data)
 		+ atan((double)d_x / (data->screen_width / 2));
 	if (pix_hor_view_dir < 0)
 		pix_hor_view_dir += 2 * M_PI;
+	if (pix_hor_view_dir > 2 * M_PI)
+		pix_hor_view_dir -= 2 * M_PI;
 	return (pix_hor_view_dir);
 }
 
@@ -40,6 +42,8 @@ double	calc_z_angle(int y, t_data *data)
 	pix_vert_view_dir = atan(M_SQRT1_3 * d_y / (data->screen_height / 2));
 	if (pix_vert_view_dir < 0)
 		pix_vert_view_dir += 2 * M_PI;
+	if (pix_vert_view_dir > 2 * M_PI)
+		pix_vert_view_dir -= 2 * M_PI;
 	return (pix_vert_view_dir);
 }
 
