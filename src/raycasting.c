@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/06 12:09:34 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/09/13 22:48:35 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/14 12:26:26 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ uint32_t	get_pixel_color(t_data *data, t_pixel_data *pixel_data, int y)
 	pixel_data->z_height = calc_z_height(pixel_data->bounce->distance_adj,
 			pixel_data->z_angle);
 	if (pixel_data->z_height >= WALL_HEIGHT)
-		return ((uint32_t)data->img_data->ceiling->argb);
+		return ((uint32_t)data->img_data->ceiling->rgba);
 	if (pixel_data->z_height < 0)
-		return ((uint32_t)data->img_data->floor->argb);
+		return ((uint32_t)data->img_data->floor->rgba);
 	else
 		return ((uint32_t)pixel_from_texure(pixel_data->bounce->texture,
 				1 - pixel_data->z_height / WALL_HEIGHT,

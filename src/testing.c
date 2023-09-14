@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 18:50:59 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/11 11:51:27 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/14 12:26:02 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,14 @@ void	test_print_data(t_data *data)
 	printf("\tceiling_RED: %d\n", data->img_data->ceiling->red);
 	printf("\tceiling_GREEN: %d\n", data->img_data->ceiling->green);
 	printf("\tceiling_BLUE: %d\n", data->img_data->ceiling->blue);
-	printf("\tceiling RGBA: 0x%08x\n", data->img_data->ceiling->argb);
-	printf("\tceiling RGBA: %d\n", data->img_data->ceiling->argb);
+	printf("\tceiling RGBA: 0x%08x\n", data->img_data->ceiling->rgba);
+	printf("\tceiling RGBA: %d\n", data->img_data->ceiling->rgba);
 	printf("floor: %s\n", data->img_data->floor->color);
 	printf("\tfloor_RED: %d\n", data->img_data->floor->red);
 	printf("\tfloor_GREEN: %d\n", data->img_data->floor->green);
 	printf("\tfloor_BLUE: %d\n", data->img_data->floor->blue);
-	printf("\tfloor RGBA: 0x%08x\n", data->img_data->floor->argb);
-	printf("\tfloor RGBA: %d\n", data->img_data->floor->argb);
+	printf("\tfloor RGBA: 0x%08x\n", data->img_data->floor->rgba);
+	printf("\tfloor RGBA: %d\n", data->img_data->floor->rgba);
 	printf("%s============================================\n%s", GREEN, RESET);
 }
 
