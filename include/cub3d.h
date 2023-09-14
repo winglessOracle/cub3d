@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/14 13:07:23 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/14 17:39:17 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,7 +175,10 @@ t_bounce	*get_vertical_bounce(t_data *data, double viewdir);
 double		calc_z_height(double dist, double z_angle);
 double		calc_z_angle(int y, t_data *data);
 double		calc_pix_view_dir(int x, t_data *data);
-uint32_t	get_pixel_color(t_data *data, t_pixel_data *pixel_data, int y);
+void		put_raycast_pixel(t_data *data, t_pixel_data *pixel_data, int x,
+				int y);
+void		cub3d_put_pixel(mlx_image_t *image, uint32_t x, uint32_t y,
+				uint32_t color);
 
 // raycasting utils
 bool		check_looking_up(double viewdir);

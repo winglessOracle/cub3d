@@ -6,7 +6,7 @@
 /*   By: cherrewi <cherrewi@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/09/06 12:09:34 by cherrewi      #+#    #+#                 */
-/*   Updated: 2023/09/14 13:55:58 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/14 17:42:14 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,28 @@ double	calc_z_height(double dist, double z_angle)
 	return (0.5 * WALL_HEIGHT + tan(z_angle) * dist);
 }
 
-uint32_t	get_pixel_color(t_data *data, t_pixel_data *pixel_data, int y)
+void	put_raycast_pixel(t_data *data, t_pixel_data *pixel_data, int x, int y)
 {
+	uint32_t	pix_color;
+
 	pixel_data->z_angle = calc_z_angle(y, data);
 	pixel_data->z_height = calc_z_height(pixel_data->bounce->distance_adj,
 			pixel_data->z_angle);
 	if (pixel_data->z_height >= WALL_HEIGHT)
-		return ((uint32_t)data->img_data->ceiling->rgba);
-	if (pixel_data->z_height < 0)
-		return ((uint32_t)data->img_data->floor->rgba);
+	{
+		mlx_put_pixel(data->img_data->main_screen, x, y,
+			data->img_data->ceiling->rgba);
+	}
+	else if (pixel_data->z_height < 0)
+	{
+		mlx_put_pixel(data->img_data->main_screen, x, y,
+			data->img_data->floor->rgba);
+	}
 	else
-		return ((uint32_t)pixel_from_texure(pixel_data->bounce->texture,
+	{
+		pix_color = (uint32_t)pixel_from_texure(pixel_data->bounce->texture,
 				1 - pixel_data->z_height / WALL_HEIGHT,
-				pixel_data->bounce->bounce_position));
+				pixel_data->bounce->bounce_position);
+		cub3d_put_pixel(data->img_data->main_screen, x, y, pix_color);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:40:03 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/11 15:09:10 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/14 14:37:23 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	toggle(int n)
 /***
  * @brief 'finds and converts the relative pixel in x and y plane of a texture. 
  * x and y are doubled between 0 and 1.
- * The output is in reverse foramt abgr and is converted to rgba
 */
 int	pixel_from_texure(mlx_texture_t *texture, double y, double x)
 {
