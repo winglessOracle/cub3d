@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/13 00:53:43 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/14 11:26:37 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ void	init_img_data(t_data *data)
 	data->img_data->ceiling->green = 0;
 	data->img_data->ceiling->blue = 255;
 	data->img_data->ceiling->a = 255;
-	data->img_data->ceiling->argb = 0;
+	data->img_data->ceiling->rgba = 0;
 	data->img_data->floor->color = "default";
 	data->img_data->floor->red = 0;
 	data->img_data->floor->green = 255;
 	data->img_data->floor->blue = 0;
 	data->img_data->floor->a = 255;
-	data->img_data->floor->argb = 0;
+	data->img_data->floor->rgba = 0;
 }
 
 void	init_check_data(t_data *data)
@@ -117,5 +117,5 @@ void	init_data(char *input_file, t_data *data)
 	analyze_grid(data);
 	square_grid(data);
 	init_minimap(data);
-	// test_print_grid(data); // remove
+	test_print_grid(data); // remove
 }

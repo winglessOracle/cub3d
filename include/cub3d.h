@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/13 22:47:01 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/14 11:26:19 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct s_color
 	int				green;
 	int				blue;
 	int				a;
-	int				argb;
+	int				rgba;
 }	t_color;
 
 typedef struct s_img_data
