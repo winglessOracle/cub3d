@@ -6,14 +6,14 @@
 #    By: cwesseli <cwesseli@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/19 17:26:03 by cwesseli      #+#    #+#                  #
-#    Updated: 2023/09/12 23:07:36 by carlowessel   ########   odam.nl          #
+#    Updated: 2023/09/15 11:10:50 by carlowessel   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 # **********FLAGS************************************************************* #
 
 CC		 	?=	gcc
-CFLAGS	 	?=	-Wall -Wextra -Werror -g
+CFLAGS	 	?=	-Wall -Wextra -Werror -O3 -flto
 LDFLAGS	 	?=	$(CFLAGS)
 
 # **********SYSTEM SPECS MLX*************************************************** #
@@ -38,11 +38,6 @@ OBJ_DIR		=	./obj
 
 
 # *********OPERATIONS*********************************************************** #
-
-# bonus:	OBJ_DIR	+= OBJ_DIR_BONUS
-# bonus:	CFLAGS	+= -DBONUS_ENABLED
-# bonus:	re
-# 	@echo -e "$(YELLOW)\nCOMPILED BONUS\n$(RESET)"
 
 debug:	CFLAGS = -Wall -Werror -g
 debug:	re
