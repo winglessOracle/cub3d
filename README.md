@@ -1,6 +1,6 @@
 # CUB3D | CODAM
 
-My first RayCaster
+'My first RayCaster'
 
 ### Table of Contents
 * [Introduction](#introduction)
@@ -64,7 +64,6 @@ Keybinding:
 ### Collision 
 The player hase a grid locationm (float) used to determing what they 'see' and to calculate valid moves and colissions.
 
-
 ## Installing the MLX library and required recourses
 Please read the documentation for this in the [MLX42 repository](https://github.com/codam-coding-college/MLX42/blob/master/docs/Basics.md). It is self explenatory.
 
@@ -76,12 +75,6 @@ Just use the `make` command to compile the cub3d executable using the MLX42 lib.
 ## Running
 Run `./cub3d ./maps/maze.cub` to run the environment. You can change the map (maze.cub) to any maps in the maps folder.
 
-## Learnings
-Here is an overview of things we learned and ran into during this project.
-
-- Timing
-
-- Use the MLX42 library instead of minilibx. It is more stable, has less inhearent leaks better documented and easy to use.
 
 ## Authors:
 - Christaiaan Herrewijn
