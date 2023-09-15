@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/31 10:31:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2022/11/01 15:38:40 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/15 11:03:36 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	check_input(t_print *list, char *str)
 }
 
 void	check_letter(t_print *list, char c)
-{	
+{
 	if (c == 'c')
 		ft_print_char(list);
 	else if (c == 's')

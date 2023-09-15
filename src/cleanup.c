@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 12:31:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/15 10:20:53 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/15 10:55:42 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ void	free_all(t_data *data)
 		free(data->img_data);
 	if (data->grid)
 		ft_free_array(data->grid);
-	if (data)
-		free(data);
 }
 
 int	free_exit(t_data *data, int n)

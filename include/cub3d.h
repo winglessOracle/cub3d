@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/15 10:00:03 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/15 11:00:41 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,6 @@ typedef struct s_texture{
 
 //init
 void		malloc_structs(t_data *data);
-void		init_data(char *input_file, t_data *data);
 
 //utils
 void		free_all(t_data *data);

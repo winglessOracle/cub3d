@@ -6,14 +6,14 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/14 10:46:36 by cwesseli      #+#    #+#                 */
-/*   Updated: 2022/11/01 13:29:42 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/15 11:03:17 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static int	get_len_u(unsigned long long int num, int rad)
-{	
+{
 	unsigned long long int	len;
 
 	len = 0;
@@ -28,7 +28,7 @@ static int	get_len_u(unsigned long long int num, int rad)
 }
 
 static int	get_len(long int num, int rad)
-{	
+{
 	long int	len;
 
 	len = 0;
