@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/15 09:34:42 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/15 10:13:38 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,10 +109,10 @@ void	init_data(char *input_file, t_data *data)
 	init_main_data(data);
 	init_check_data(data);
 	init_img_data(data);
-	parse_file_paths(input_file, data);
 	data->grid = generate_grid(input_file);
 	if (!data->grid)
 		free_str_exit("generating grid from input file", data, 9);
+	parse_file_paths(input_file, data);
 	analyze_grid(data);
 	square_grid(data);
 	init_minimap(data);
