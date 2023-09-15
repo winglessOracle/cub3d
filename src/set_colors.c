@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 14:35:29 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/14 11:26:48 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/15 09:59:06 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@ int32_t	get_rgba(int32_t r, int32_t g, int32_t b, int32_t a)
 	return (r << 24 | g << 16 | b << 8 | a);
 }
 
-void	check_rgba_value(t_color *color, t_data *data)
+void	check_rgb_value(t_color *color, t_data *data)
 {
 	if (color->red < 0 || color->red > 255
 		|| color->green < 0 || color->green > 255
-		|| color->blue < 0 || color->blue > 255
-		|| color->a < 0 || color->a > 255)
+		|| color->blue < 0 || color->blue > 255)
 		free_str_exit("non valid RGB color passed", data, 7);
 }
 
@@ -51,7 +50,7 @@ void	set_rgb(char *color_char, t_color *color, t_data *data)
 			color->blue = ft_atoi(temp);
 		counter++;
 	}
-	check_rgba_value(color, data);
+	check_rgb_value(color, data);
 	color->rgba = get_rgba(color->red, color->green, color->blue, color->a);
 }
 

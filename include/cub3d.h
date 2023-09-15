@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/14 18:01:40 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/15 10:00:03 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ typedef struct minimap
 
 typedef struct s_color
 {
-	char			*color;
 	int				red;
 	int				green;
 	int				blue;

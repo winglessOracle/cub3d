@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/14 13:07:14 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/15 09:34:42 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,11 @@ void	init_img_data(t_data *data)
 	if (!data->mlx)
 		free_str_exit("initializing MLX", data, 4);
 	mlx_set_window_pos(data->mlx, WINDOW_X_POS, WINDOW_Y_POS);
-	data->img_data->ceiling->color = "default";
 	data->img_data->ceiling->red = 0;
 	data->img_data->ceiling->green = 0;
 	data->img_data->ceiling->blue = 255;
 	data->img_data->ceiling->a = 255;
 	data->img_data->ceiling->rgba = 0;
-	data->img_data->floor->color = "default";
 	data->img_data->floor->red = 0;
 	data->img_data->floor->green = 255;
 	data->img_data->floor->blue = 0;

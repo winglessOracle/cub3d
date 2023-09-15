@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 18:50:59 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/14 12:26:02 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/15 09:34:32 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,13 +65,11 @@ void	test_print_data(t_data *data)
 	printf("east: %s\n", data->img_data->wall_texture_paths[1]);
 	printf("south: %s\n", data->img_data->wall_texture_paths[2]);
 	printf("west: %s\n", data->img_data->wall_texture_paths[3]);
-	printf("ceiling: %s\n", data->img_data->ceiling->color);
 	printf("\tceiling_RED: %d\n", data->img_data->ceiling->red);
 	printf("\tceiling_GREEN: %d\n", data->img_data->ceiling->green);
 	printf("\tceiling_BLUE: %d\n", data->img_data->ceiling->blue);
 	printf("\tceiling RGBA: 0x%08x\n", data->img_data->ceiling->rgba);
 	printf("\tceiling RGBA: %d\n", data->img_data->ceiling->rgba);
-	printf("floor: %s\n", data->img_data->floor->color);
 	printf("\tfloor_RED: %d\n", data->img_data->floor->red);
 	printf("\tfloor_GREEN: %d\n", data->img_data->floor->green);
 	printf("\tfloor_BLUE: %d\n", data->img_data->floor->blue);
