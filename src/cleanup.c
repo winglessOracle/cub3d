@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 12:31:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/18 17:49:00 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/18 17:54:18 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ void	delete_textures(mlx_texture_t **textures, int amount)
 
 	i = 0;
 	while (i < amount)
-		mlx_delete_texture(textures[i++]);
+	{
+		if (textures[i])
+			mlx_delete_texture(textures[i]);
+		i++;
+	}
 	free(textures);
 }
 
