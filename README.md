@@ -9,8 +9,6 @@
 * [Running](#Running)
 * [Learnings](#learnings)
 
-![test](https://github.com/winglessOracle/so_long/blob/main/example.gif)
-
 ## Introduction
 CUB3D is an assignment for CODAM in which we are tasked to create a simple 3D looking environment to get familiar with a raycasting principals. At CODAM we have access to the the MLX42 library which can be found at [here: MLX42](https://github.com/codam-coding-college/MLX42/blob/master/docs/Basics.md). 
 
@@ -51,7 +49,11 @@ After checking the parameters and extention (.cub) we allocate a struct data whe
 If all checks are passed the MLX window is initilized, the textures are loaded en then drawn to images which are placed in the window.
 
 ### Raycasting
-to follow
+To determin which pixel should be generated in our plane of view we set our field of view at 90 degrees horizontal and 60 degrees vertical.
+Now we know the imaginary set of light rays that hit our 'eye' or more precise the screen. To determin which wall the line comes from we first check all the lines in the horizontal view (top). checking for a collision on every full x and y line and determening the closest of the two.
+Then we determin at which hight we hit the wall. Together this gives us a x and y coordinate on the wall texture we can use to extract the color from the texture to fill pixels on our screen.
+
+
 
 ### Playing
 Keybinding:
@@ -77,9 +79,10 @@ Run `./cub3d ./maps/maze.cub` to run the environment. You can change the map (ma
 
 
 ## Authors:
-- Christaiaan Herrewijn
+- Christiaan Herrewijn
 - Carlo Wesseling
 
 SEPT 2023
+
 
 For more information visit: [Codam.nl](https://codam.nl/) or [42 Cursus Subjects](https://github.com/Surfi89/42cursus/tree/main/Subject%20PDFs).
