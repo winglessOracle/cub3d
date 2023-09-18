@@ -6,7 +6,7 @@
 #    By: cwesseli <cwesseli@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/19 17:26:03 by cwesseli      #+#    #+#                  #
-#    Updated: 2023/09/15 11:10:50 by carlowessel   ########   odam.nl          #
+#    Updated: 2023/09/18 11:52:05 by cherrewi      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,19 +46,10 @@ debug:	re
 san:	CFLAGS += -fsanitize=address
 san:	re
 	@echo -e "$(YELLOW)\nCOMPILED WITH ADDRESS SANITIZER\n$(RESET)"
-	
-thread:	CFLAGS += -fsanitize=thread
-thread:	re
-	@echo -e "$(YELLOW)\nCOMPILED WITH THREAD SANITIZER\n$(RESET)"
-
-undef:	CFLAGS += -fsanitize=undefined
-undef:	re
-	@echo -e "$(YELLOW)\nCOMPILED WITH UNDEFINED SANITIZER\n$(RESET)"
-
 
 # ***********OTHER************************************************************* #
 
-.PHONY:	all libft libmlx clean fclean re bonus debug san thread undef
+.PHONY:	all libft libmlx clean fclean re bonus debug san
 
 
 # ***********COLORS************************************************************ #

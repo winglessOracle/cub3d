@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/15 11:01:01 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/18 12:02:43 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 
 void	malloc_structs(t_data *data)
 {
-	data->check_data = malloc(sizeof(t_check_data));
+	data->check_data = ft_calloc(1, sizeof(t_check_data));
 	if (!data->check_data)
 		free_str_exit("allocating structs", data, 3);
-	data->img_data = malloc(sizeof(t_img_data));
+	data->img_data = ft_calloc(1, sizeof(t_img_data));
 	if (!data->img_data)
 		free_str_exit("allocating structs", data, 3);
-	data->img_data->ceiling = malloc(sizeof(t_color));
+	data->img_data->ceiling = ft_calloc(1, sizeof(t_color));
 	if (!data->img_data->ceiling)
 		free_str_exit("allocating structs", data, 3);
-	data->img_data->floor = malloc(sizeof(t_color));
+	data->img_data->floor = ft_calloc(1, sizeof(t_color));
 	if (!data->img_data->floor)
 		free_str_exit("allocating structs", data, 3);
 	data->img_data->wall_texture_paths = ft_calloc(5, sizeof(char *));
@@ -33,7 +33,7 @@ void	malloc_structs(t_data *data)
 	data->img_data->wall_textures = ft_calloc(5, sizeof(mlx_texture_t *));
 	if (!data->img_data->wall_textures)
 		free_str_exit("allocating structs", data, 3);
-	data->mm = malloc(sizeof(t_minimap));
+	data->mm = ft_calloc(1, sizeof(t_minimap));
 	if (!data->mm)
 		free_str_exit("allocating structs", data, 3);
 }
@@ -83,7 +83,7 @@ void	init_main_data(t_data *data)
 	data->mouse_ypos = data->screen_height / 2;
 	data->p_viewdir = 0;
 	data->previous_mouse_x = 0;
-	data->toggle_mouse = 1;
+	data->toggle_mouse = 0;
 }
 
 /* set scale and rgb colors for minimap below.
@@ -91,7 +91,7 @@ RGBA with A for transparancy
 Scale is the division of the screen size*/
 void	init_minimap(t_data *data)
 {
-	data->mm->toggle_mm = 1;
+	data->mm->toggle_mm = 0;
 	data->mm->scale = 4;
 	data->mm->w_col = get_rgba(0, 0, 0, 255);
 	data->mm->p_col = get_rgba(150, 150, 250, 255);
