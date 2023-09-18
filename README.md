@@ -9,8 +9,6 @@
 * [Running](#Running)
 * [Learnings](#learnings)
 
-![test]()
-
 ## Introduction
 CUB3D is an assignment for CODAM in which we are tasked to create a simple 3D looking environment to get familiar with a raycasting principals. At CODAM we have access to the the MLX42 library which can be found at [here: MLX42](https://github.com/codam-coding-college/MLX42/blob/master/docs/Basics.md). 
 
