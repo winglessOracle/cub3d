@@ -6,14 +6,13 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/15 11:00:41 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/15 11:23:48 by carlowessel   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "config.h"
 # include "../libraries/MLX42/include/MLX42/MLX42.h"
 # include "../libraries/libft/libft.h"
 # include "config.h"
@@ -131,6 +130,10 @@ typedef struct s_texture{
 
 //init
 void		malloc_structs(t_data *data);
+void		init_img_data(t_data *data);
+void		init_main_data(t_data *data);
+void		init_minimap(t_data *data);
+void		init_check_data(t_data *data);
 
 //utils
 void		free_all(t_data *data);

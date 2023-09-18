@@ -6,21 +6,18 @@
 #    By: wingessoracle <wingessoracle@student.co      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/06/21 08:27:49 by wingessorac   #+#    #+#                  #
-#    Updated: 2023/09/08 11:42:10 by cherrewi      ########   odam.nl          #
+#    Updated: 2023/09/15 11:09:35 by carlowessel   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 include common.mk
 
-
 .DEFAULT_GOAL	:=	all
 TARGET	 		:=	cub3d
 
 OBJ_FILES		:=	$(addprefix obj/, main.o init.o utils.o generate_grid.o grid_functions.o \
-					set_paths.o hooks.o move.o set_colors.o build.o checks.o cleanup.o testing.o \
+					set_paths.o hooks.o move.o set_colors.o build.o checks.o cleanup.o \
 					find_bounce_point.o raycasting.o raycasting_utils.o)
-
-# OBJ_FILES_BONUS	:=	$(addprefix obj/, test.o)
 
 all: libmlx libft $(TARGET)
 
@@ -57,14 +54,3 @@ fclean: clean
 re: 
 	$(MAKE) fclean
 	$(MAKE) all
-
-TEST_SRCS		:=	test.c test_bounce.c test_calc_z.c
-OBJ_FILES_TEST	:=	$(addprefix obj/, init.o utils.o generate_grid.o grid_functions.o \
-					set_paths.o hooks.o move.o set_colors.o build.o checks.o cleanup.o testing.o \
-					find_bounce_point.o raycasting.o raycasting_utils.o)
-TEST_FLAGS = -Wall -Werror -Wextra -g $(IFLAGS) $(LFLAGS)
-
-test: libmlx libft $(OBJ_FILES_TEST)
-	@gcc $(TEST_FLAGS) $(addprefix tests/, $(TEST_SRCS)) $(OBJ_FILES_TEST) $(LIBS) $(HEADERS) $(MLXFLAGS) -o test.out 
-	@./test.out ./maps/small_empty.cub
-	@rm -rf test.out*
