@@ -6,14 +6,14 @@
 #    By: wingessoracle <wingessoracle@student.co      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/06/21 08:27:49 by wingessorac   #+#    #+#                  #
-#    Updated: 2023/09/15 11:09:35 by carlowessel   ########   odam.nl          #
+#    Updated: 2023/09/18 14:53:09 by cherrewi      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 include common.mk
 
 .DEFAULT_GOAL	:=	all
-TARGET	 		:=	cub3d
+TARGET	 		:=	cub3D
 
 OBJ_FILES		:=	$(addprefix obj/, main.o init.o utils.o generate_grid.o grid_functions.o \
 					set_paths.o hooks.o move.o set_colors.o build.o checks.o cleanup.o \

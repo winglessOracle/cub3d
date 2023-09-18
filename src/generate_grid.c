@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 14:33:39 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/05 09:07:16 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/18 16:23:37 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,15 @@ int	find_grid(char *line)
 	return (0);
 }
 
+char	*join_lines(char *line, char *joined_lines)
+{
+	if (joined_lines == NULL)
+		joined_lines = ft_strdup(line);
+	else
+		joined_lines = ft_strjoin_free(joined_lines, line);
+	return (joined_lines);
+}
+
 char	*grid_helper(int fd)
 {
 	char	*line;
@@ -55,15 +64,14 @@ char	*grid_helper(int fd)
 	while (line)
 	{
 		if (find_grid(line) == 0 && start_grid == 1)
+		{
+			free(line);
 			break ;
+		}
 		start_grid = find_grid(line);
 		if (start_grid == 1)
-		{
-			if (joined_lines == NULL)
-				joined_lines = ft_strdup(line);
-			else
-				joined_lines = ft_strjoin_free(joined_lines, line);
-		}
+			joined_lines = join_lines(line, joined_lines);
+		free(line);
 		line = get_next_line(fd);
 	}
 	close (fd);
