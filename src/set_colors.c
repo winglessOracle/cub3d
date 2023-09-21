@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 14:35:29 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/21 13:33:23 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/21 16:26:36 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,37 @@ void	set_rgb(char *color_char, t_color *color, t_data *data)
 	color->rgba = get_rgba(color->red, color->green, color->blue, color->a);
 }
 
+void	check_color_str(char *line, char *color, t_data *data)
+{
+	int		count_commas;
+	int		i;
+	bool	string_valid;
+
+	i = 0;
+	count_commas = 0;
+	string_valid = true;
+	while (color[i] != '\n' && color[i] != '\0' && !ft_isspace(color[i]))
+	{
+		if (color[i] == ',' && ft_isdigit(color[i + 1]))
+			count_commas++;
+		else
+		{
+			if (!ft_isdigit(color[i]))
+				string_valid = false;
+		}
+		i++;
+	}
+	if (count_commas != 2 || string_valid == false)
+	{
+		free(line);
+		free_str_exit("invalid color", data, 8);
+	}
+}
+
 void	set_color(char *line, char *identifier, t_color *col, t_data *data)
 {
 	int		size;
-	char	*ident;
-	char	*color;
+	char	*color_str;
 	bool	*loaded;
 
 	if (*identifier == 'C')
@@ -66,18 +92,19 @@ void	set_color(char *line, char *identifier, t_color *col, t_data *data)
 	if (*identifier == 'F')
 		loaded = &(data->check_data->floor_loaded);
 	size = 0;
-	ident = ft_strnstr(line, identifier, ft_strlen(line));
-	if (ident)
+	color_str = ft_strnstr(line, identifier, ft_strlen(line));
+	if (color_str)
 	{
 		if (*loaded)
 			free_str_exit("duplicate color entry found", data, 8);
-		ident += 2;
-		while (ident[size] && !ft_isspace(ident[size]))
+		color_str++;
+		while (ft_isspace(*color_str))
+			color_str++;
+		while (color_str[size] && !ft_isspace(color_str[size]))
 			size++;
-		color = ft_substr(ident, 0, size);
-		set_rgb(color, col, data);
+		check_color_str(line, color_str, data);
+		set_rgb(color_str, col, data);
 		col->rgba = get_rgba(col->red, col->green, col->blue, col->a);
 		*loaded = 1;
-		free (color);
 	}
 }
