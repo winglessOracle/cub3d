@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 23:17:22 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/15 11:24:45 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/21 12:52:57 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	check_grid(t_data *data)
 
 void	set_start_pos(int y, int x, t_data *data)
 {
-	if ((ft_strchr(data->check_data->start_char, data->grid[y][x]))) 
+	if ((ft_strchr(data->check_data->start_char, data->grid[y][x])))
 	{
 		data->check_data->start_pos++;
 		data->p_xpos = x + 0.5;

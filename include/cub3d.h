@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/18 17:49:42 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/21 12:54:54 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ typedef struct s_bounce
 	int				x;
 	int				y;
 	double			bounce_position;
-	mlx_texture_t	*texture; 
+	mlx_texture_t	*texture;
 }	t_bounce;
 
 typedef struct s_data

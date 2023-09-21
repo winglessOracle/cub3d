@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 13:20:36 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/13 16:39:59 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/21 12:54:05 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	check_and_load(t_texture *paths, int i, t_data *data)
 	if (ft_check_extention(data->img_data->wall_texture_paths[paths[i].dir],
 			"png"))
 		free_str_exit("wrong format. expected '.png'", data, 7);
-	data->img_data->wall_textures[paths[i].dir] = 
-		mlx_load_png(data->img_data->wall_texture_paths[paths[i].dir]);
+	data->img_data->wall_textures[paths[i].dir]
+		= mlx_load_png(data->img_data->wall_texture_paths[paths[i].dir]);
 	if (!data->img_data->wall_textures[paths[i].dir])
 		free_str_exit("loading texture", data, 6);
 	data->check_data->textures_loaded += 1;

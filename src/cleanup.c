@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 12:31:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/18 17:54:18 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/21 12:53:43 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ void	free_all(t_data *data)
 	if (data->img_data->wall_texture_paths)
 		ft_free_array(data->img_data->wall_texture_paths);
 	if (data->img_data->wall_textures)
-		delete_textures(data->img_data->wall_textures, data->check_data->textures_loaded);
+		delete_textures(data->img_data->wall_textures,
+			data->check_data->textures_loaded);
 	if (data->mm)
 		free(data->mm);
 	if (data->img_data)
