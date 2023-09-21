@@ -10,9 +10,9 @@
 * [Learnings](#learnings)
 
 ## Introduction
-CUB3D is an assignment for CODAM in which we are tasked to create a simple 3D looking environment to get familiar with a raycasting principals. At CODAM we have access to the the MLX42 library which can be found at [here: MLX42](https://github.com/codam-coding-college/MLX42/blob/master/docs/Basics.md). 
+CUB3D is an assignment for CODAM in which we are tasked to create a 3D looking environment based on a 2D map, to get familiar with a raycasting principles. At CODAM we have access to the the MLX42 library which can be found at [here: MLX42](https://github.com/codam-coding-college/MLX42/blob/master/docs/Basics.md). 
 
-There is no intended goal but if you like a challande navigate tthe maze map to the bottom right corner.
+There is no intended goal but if you like a challange navigate the maze map to the bottom right corner.
 
 ### Requirements
 The environment must follow a set of rules. The executable ``cub3d`` will receive a map as the only argument, and this map will have a ``.cub`` filetype.
@@ -49,11 +49,29 @@ After checking the parameters and extention (.cub) we allocate a struct data whe
 If all checks are passed the MLX window is initilized, the textures are loaded en then drawn to images which are placed in the window.
 
 ### Raycasting
-To determin which pixel should be generated in our plane of view we set our field of view at 90 degrees horizontal and 60 degrees vertical.
-Now we know the imaginary set of light rays that hit our 'eye' or more precise the screen. To determin which wall the line comes from we first check all the lines in the horizontal view (top). checking for a collision on every full x and y line and determening the closest of the two.
-Then we determin at which hight we hit the wall. Together this gives us a x and y coordinate on the wall texture we can use to extract the color from the texture to fill pixels on our screen.
+We use raycasting to convert the 2D map to a 3D image. Per pixel on the screen we determine which part of which wall should be shown. To do so, we apply the following logic:
 
+- the screen represents our field of view (FoV), we chose a 90 degrees horizontal FoV, and a 60 degrees vertical FoV.
 
+- the player position is represented as an 'eye', which has a position on the grid and a viewing direction in the horizontal plane. E.g. the player might be on coordinate (3.25; 5.20), and be facing east. The eye remains at a height that is in the middle between the ceiling and the floor.
+
+- for every pixel on the screen, we calculate the following properties:
+  - the horizontal view angle. The view angle of the far left pixels equals the view angle of the eye minus 45 degrees; the view angle of the far right pixels equals the view angle of the eye plus 45 degrees.
+  - the vertical view angle. The view angle of the top line of pixels equals +30 degrees; the view angle of the bottom line of pixels equals -30 degrees
+  - based on the horizontal view angle and the player position, we calculate which wall is hit, and which part of that wall (the normalized horizontal hit is represented as number between 0 and 1)
+  - based on the wall section that is hit we calculate the distance of the wall that is seen while looking a specific horizontal view angle
+  - based on the wall distance and the vertical view angle, we calulate at what height we see the wall. A height higher than the wall height implies we see the ceiling, a negative height implies we see the floor.
+  - the height is normalized relative to the wall heigh, so it is represented by a number between 0 and 1
+  - based on the wall that is hit, we select a wall texture, from which we need to display a pixel
+  - we select an single pixel (i.e. its color) from the wall texture based on the normalized height and the normalized horizontal hit. E.g. if normalized horizontal and vertical values are 0.2 and 0.5 respectively, and the texture has 200 by 200 pixels, we select the pixel on the texture with x = 40, y = 100
+  - the color of the selected pixel from the texture is the color we put on the screen on that specific pixel 
+
+### Fish eye correction
+A simple implementation of the raycasting technique might imply that the rendered 3D image has a fish eye effect. The fish eye effect means that the top and bottom lines of walls are displayed curved. Staight walls therefore, are displayed in a form that resembles an eye-shape instead of a rectangle.
+
+The fish eye effect is a consequence of the distance calculation. If the distance is calculated relative to an eye that is in the middle of the screen, wall sections shown on the left and right side of the screen are displayed smaller, since they are considered further away. The eye-shape appears if wall sections in the center of the screen occupy more vertical space than wall sections on displayed on the sides of the screen.
+
+To negate the fish eye effect, we calculate the distance of the wall relative to "camera plane" instead of a single eye. The camera plane is perpendicular to the viewing direction.
 
 ### Playing
 Keybinding:
