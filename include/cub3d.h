@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:10 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/21 12:54:54 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/21 13:33:52 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ typedef struct s_check_data
 	char			*valid_char;
 	char			*start_char;
 	int				textures_loaded;
-	int				colors_loaded;
+	bool			ceiling_loaded;
+	bool			floor_loaded;
 }	t_check_data;
 
 /***

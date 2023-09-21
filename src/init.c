@@ -6,7 +6,7 @@
 /*   By: cwesseli <cwesseli@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/21 14:25:00 by cwesseli      #+#    #+#                 */
-/*   Updated: 2023/09/18 12:02:43 by cherrewi      ########   odam.nl         */
+/*   Updated: 2023/09/21 13:28:26 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ void	init_check_data(t_data *data)
 	data->check_data->valid_char = "01NESW ";
 	data->check_data->start_char = "NESW";
 	data->check_data->textures_loaded = 0;
-	data->check_data->colors_loaded = 0;
+	data->check_data->floor_loaded = false;
+	data->check_data->ceiling_loaded = false;
 }
 
 void	init_main_data(t_data *data)

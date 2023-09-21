@@ -6,7 +6,7 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 14:35:29 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/15 09:59:06 by carlowessel   ########   odam.nl         */
+/*   Updated: 2023/09/21 13:33:23 by cwesseli      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,25 @@ void	set_color(char *line, char *identifier, t_color *col, t_data *data)
 	int		size;
 	char	*ident;
 	char	*color;
+	bool	*loaded;
 
+	if (*identifier == 'C')
+		loaded = &(data->check_data->ceiling_loaded);
+	if (*identifier == 'F')
+		loaded = &(data->check_data->floor_loaded);
 	size = 0;
 	ident = ft_strnstr(line, identifier, ft_strlen(line));
 	if (ident)
 	{
+		if (*loaded)
+			free_str_exit("duplicate color entry found", data, 8);
 		ident += 2;
 		while (ident[size] && !ft_isspace(ident[size]))
 			size++;
 		color = ft_substr(ident, 0, size);
 		set_rgb(color, col, data);
 		col->rgba = get_rgba(col->red, col->green, col->blue, col->a);
-		data->check_data->colors_loaded += 1;
+		*loaded = 1;
 		free (color);
 	}
 }
