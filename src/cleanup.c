@@ -6,24 +6,38 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 12:31:27 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/21 12:53:43 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/21 15:06:46 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	delete_textures(mlx_texture_t **textures, int amount)
+void	delete_textures(mlx_texture_t **textures)
 {
 	int	i;
 
 	i = 0;
-	while (i < amount)
+	while (i < 4)
 	{
 		if (textures[i])
 			mlx_delete_texture(textures[i]);
 		i++;
 	}
 	free(textures);
+}
+
+void	free_texture_paths(char **path_arr)
+{
+	int	i;
+
+	i = 0;
+	while (i < 4)
+	{
+		if (path_arr[i] != NULL)
+			free(path_arr[i]);
+		i++;
+	}
+	free(path_arr);
 }
 
 void	free_all(t_data *data)
@@ -35,10 +49,9 @@ void	free_all(t_data *data)
 	if (data->img_data->ceiling)
 		free(data->img_data->ceiling);
 	if (data->img_data->wall_texture_paths)
-		ft_free_array(data->img_data->wall_texture_paths);
+		free_texture_paths(data->img_data->wall_texture_paths);
 	if (data->img_data->wall_textures)
-		delete_textures(data->img_data->wall_textures,
-			data->check_data->textures_loaded);
+		delete_textures(data->img_data->wall_textures);
 	if (data->mm)
 		free(data->mm);
 	if (data->img_data)

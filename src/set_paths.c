@@ -6,33 +6,63 @@
 /*   By: carlowesseling <carlowesseling@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/22 13:20:36 by carlowessel   #+#    #+#                 */
-/*   Updated: 2023/09/21 13:39:44 by cwesseli      ########   odam.nl         */
+/*   Updated: 2023/09/21 15:29:09 by cherrewi      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	check_and_load(t_texture *paths, int i, t_data *data)
+void	check_and_load(t_texture *paths, int i, t_data *data, char *line)
 {
 	if (ft_check_extention(data->img_data->wall_texture_paths[paths[i].dir],
 			"png"))
+	{
+		free(line);
 		free_str_exit("wrong format. expected '.png'", data, 7);
+	}
 	if (data->img_data->wall_textures[paths[i].dir] == NULL)
 	{
 		data->img_data->wall_textures[paths[i].dir]
 			= mlx_load_png(data->img_data->wall_texture_paths[paths[i].dir]);
 		if (!data->img_data->wall_textures[paths[i].dir])
+		{
+			free(line);
 			free_str_exit("loading texture", data, 6);
+		}
 		data->check_data->textures_loaded += 1;
 	}
-	else
-		free_str_exit("duplicate identifiers for wall textures found", data, 7);
+}
+
+void	validate_check_and_load(char *ident, int i, char *line, t_data *data)
+{
+	char				*end;
+	static t_texture	paths[] = {{"NO", NORTH}, {"EA", EAST},
+	{"SO", SOUTH}, {"WE", WEST}};
+
+	while (*ident && *ident != '/')
+		ident++;
+	if (*ident == '/')
+	{
+		end = ++ident;
+		while (*end && !ft_isspace(*end))
+			end++;
+		if (data->img_data->wall_texture_paths[paths[i].dir] == NULL)
+		{
+			data->img_data->wall_texture_paths[paths[i].dir]
+				= ft_substr(ident, 0, end - ident);
+			check_and_load(paths, i, data, line);
+		}
+		else
+		{
+			free(line);
+			free_str_exit("duplicate wall textures found", data, 7);
+		}
+	}
 }
 
 void	load_textures(char *line, t_data *data)
 {
 	char				*ident;
-	char				*end;
 	int					i;
 	static t_texture	paths[] = {{"NO", NORTH}, {"EA", EAST},
 	{"SO", SOUTH}, {"WE", WEST}};
@@ -42,17 +72,7 @@ void	load_textures(char *line, t_data *data)
 	{
 		ident = ft_strnstr(line, paths[i].prefix, ft_strlen(line));
 		if (ident)
-		{
-			while (*ident && *ident != '/')
-				ident++;
-			if (*ident == '/')
-				end = ++ident;
-			while (*end && !ft_isspace(*end))
-				end++;
-			data->img_data->wall_texture_paths[paths[i].dir]
-				= ft_substr(ident, 0, end - ident);
-			check_and_load(paths, i, data);
-		}
+			validate_check_and_load(ident, i, line, data);
 		i++;
 	}
 }
@@ -79,7 +99,7 @@ void	parse_file_paths(char *file, t_data *data)
 		load_textures(line, data);
 		set_color(line, "C ", data->img_data->ceiling, data);
 		set_color(line, "F ", data->img_data->floor, data);
-		free (line);
+		free(line);
 	}
 	close(fd);
 	check_input_data(data);
