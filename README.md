@@ -109,6 +109,7 @@ You can play with the values in the `config.h` file to tweak the screen position
 ## Suggestions for performance improvements
 - Multithreading the pixelation of the main image.
 - Starting of with and initial pixelation of the ceiling and floor in stead of a per pixel calculation.
+- Seperate header files and static functions where possible.
 
 ## Authors:
 - Christiaan Herrewijn
