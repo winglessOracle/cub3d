@@ -9,6 +9,10 @@
 * [Running](#Running)
 * [Learnings](#learnings)
 
+
+<img src="textures/screenshot.png" alt="Screenshot" width="300">
+<img src="textures/screenshot_2.png" alt="Screenshot" width="300">
+
 ## Introduction
 CUB3D is an assignment for CODAM in which we are tasked to create a 3D looking environment based on a 2D map, to get familiar with a raycasting principles. At CODAM we have access to the the MLX42 library which can be found at [here: MLX42](https://github.com/codam-coding-college/MLX42/blob/master/docs/Basics.md). 
 
@@ -100,10 +104,11 @@ Use the `make` command to compile the cub3d executable using the MLX42 lib.
 ## Running
 Run `./cub3d ./maps/maze.cub` to run the environment. You can change the map (maze.cub) to any maps in the maps folder.
 
+You can play with the values in the `config.h` file to tweak the screen position, size, movemnt rates and refresh rates. remember to use make re if you make changes here. 
+
 ## Suggestions for performance improvements
 - Multithreading the pixelation of the main image.
 - Starting of with and initial pixelation of the ceiling and floor in stead of a per pixel calculation.
-
 
 ## Authors:
 - Christiaan Herrewijn
